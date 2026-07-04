@@ -1,0 +1,427 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Heart, Search, ChevronDown, MessageSquare, MapPin } from 'lucide-react';
+import { BRAND_NAME } from '../data';
+
+interface HeaderProps {
+  currentPage: string;
+  setCurrentPage: (page: string) => void;
+  setSelectedCategoryFilter: (category: 'churidars' | 'kurtas' | 'tops' | null) => void;
+  wishlistCount: number;
+  onOpenWishlist: () => void;
+}
+
+export default function Header({
+  currentPage,
+  setCurrentPage,
+  setSelectedCategoryFilter,
+  wishlistCount,
+  onOpenWishlist,
+}: HeaderProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCategoriesDropdownOpen, setIsCategoriesDropdownOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleCategoryClick = (category: 'churidars' | 'kurtas' | 'tops') => {
+    setSelectedCategoryFilter(category);
+    setCurrentPage('shop');
+    setIsMobileMenuOpen(false);
+    setIsCategoriesDropdownOpen(false);
+  };
+
+  const handleNavClick = (page: string) => {
+    if (page === 'shop') {
+      setSelectedCategoryFilter(null);
+    }
+    setCurrentPage(page);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <>
+      {/* Announcement Bar */}
+      <div className="bg-[#1D1818] text-[#FFFEF2] py-2 px-4 text-xs font-medium uppercase tracking-[0.15em] text-center flex justify-between items-center overflow-hidden border-b border-[#222222]">
+        <div className="animate-fade-in mx-auto flex items-center justify-center gap-6 text-[10px] md:text-xs">
+          <span>Elegance in every thread</span>
+          <span className="hidden md:inline text-[#B89B72]">•</span>
+          <span className="hidden md:inline">Free Delivery across Kerala</span>
+          <span className="text-[#B89B72]">•</span>
+          <span>Order directly via WhatsApp</span>
+        </div>
+      </div>
+
+      {/* Main Sticky Header */}
+      <header
+        id="main-header"
+        className={`sticky top-0 z-40 w-full transition-all duration-500 ${
+          isScrolled
+            ? 'bg-[#FFFEF2]/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.02)] border-b border-[#EFE8DD]'
+            : 'bg-[#FFFEF2] border-b border-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20 md:h-24">
+            
+            {/* Left side navigation (Desktop) */}
+            <nav className="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-[0.18em]">
+              <button
+                id="nav-home"
+                onClick={() => handleNavClick('home')}
+                className={`transition-colors duration-300 hover:text-[#B89B72] cursor-pointer ${
+                  currentPage === 'home' ? 'text-[#B89B72]' : 'text-[#1D1818]'
+                }`}
+              >
+                Home
+              </button>
+              
+              <button
+                id="nav-shop"
+                onClick={() => handleNavClick('shop')}
+                className={`transition-colors duration-300 hover:text-[#B89B72] cursor-pointer ${
+                  currentPage === 'shop' ? 'text-[#B89B72]' : 'text-[#1D1818]'
+                }`}
+              >
+                Shop
+              </button>
+
+              {/* Mega Dropdown for Categories */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsCategoriesDropdownOpen(true)}
+                onMouseLeave={() => setIsCategoriesDropdownOpen(false)}
+              >
+                <button
+                  id="nav-categories"
+                  className="flex items-center gap-1 transition-colors duration-300 hover:text-[#B89B72] uppercase tracking-[0.18em] cursor-pointer"
+                >
+                  Categories <ChevronDown className="w-3.5 h-3.5 mt-[-2px] text-[#B89B72]" />
+                </button>
+                
+                {isCategoriesDropdownOpen && (
+                  <div className="absolute left-0 mt-0 w-56 bg-[#FFFEF2] border border-[#EFE8DD] shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-none overflow-hidden animate-fade-in">
+                    <div className="py-2">
+                      <button
+                        onClick={() => handleCategoryClick('churidars')}
+                        className="w-full text-left px-6 py-3 text-[11px] uppercase tracking-wider text-[#1D1818]/85 hover:bg-[#EFE8DD] hover:text-[#1D1818] transition-all font-semibold"
+                      >
+                        Churidars
+                      </button>
+                      <button
+                        onClick={() => handleCategoryClick('kurtas')}
+                        className="w-full text-left px-6 py-3 text-[11px] uppercase tracking-wider text-[#1D1818]/85 hover:bg-[#EFE8DD] hover:text-[#1D1818] transition-all font-semibold"
+                      >
+                        Kurtas
+                      </button>
+                      <button
+                        onClick={() => handleCategoryClick('tops')}
+                        className="w-full text-left px-6 py-3 text-[11px] uppercase tracking-wider text-[#1D1818]/85 hover:bg-[#EFE8DD] hover:text-[#1D1818] transition-all font-semibold"
+                      >
+                        Tops & Tunics
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <button
+                id="nav-about"
+                onClick={() => handleNavClick('about')}
+                className={`transition-colors duration-300 hover:text-[#B89B72] cursor-pointer ${
+                  currentPage === 'about' ? 'text-[#B89B72]' : 'text-[#1D1818]'
+                }`}
+              >
+                About
+              </button>
+            </nav>
+
+            {/* Mobile Menu Icon (Left) */}
+            <div className="flex lg:hidden items-center">
+              <button
+                id="mobile-menu-toggle"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-[#1D1818] p-1.5 focus:outline-none cursor-pointer"
+                aria-label="Toggle mobile menu"
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+
+            {/* Centered Premium Logo */}
+            <div
+              id="header-logo-container"
+              onClick={() => handleNavClick('home')}
+              className="flex flex-col items-center justify-center cursor-pointer group text-center select-none py-1 px-3 transition-all duration-300"
+            >
+              <div className="flex items-center gap-1.5">
+                {/* Gold Crest Monogram Logo from the provided reference */}
+                <svg
+                  id="header-logo-svg"
+                  className="w-[100px] h-[80px]"
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  {/* Floral gold branch styling */}
+                  <path d="M40 70C35 60 30 55 25 45M28 50C24 45 23 40 25 35M35 60C30 53 30 48 31 43" stroke="#B89B72" strokeWidth="1" strokeLinecap="round" />
+                  <circle cx="25" cy="35" r="2" fill="#B89B72" />
+                  <circle cx="31" cy="43" r="1.5" fill="#B89B72" />
+                  <path d="M40 75C45 78 50 80 57 80" stroke="#B89B72" strokeWidth="1.2" strokeLinecap="round" />
+                  
+                  {/* High-end serif interlinked monogram H and E */}
+                  {/* H Left stem */}
+                  <rect x="42" y="25" width="4" height="42" fill="#1D1818" rx="0.5" />
+                  <rect x="39" y="25" width="10" height="2" fill="#1D1818" />
+                  <rect x="39" y="65" width="10" height="2" fill="#1D1818" />
+                  
+                  {/* H bar */}
+                  <rect x="46" y="44" width="18" height="3" fill="#B89B72" />
+                  
+                  {/* E Left stem (interlinked, overlapping beautifully) */}
+                  <rect x="60" y="25" width="4" height="42" fill="#1D1818" rx="0.5" />
+                  <rect x="58" y="25" width="14" height="2" fill="#1D1818" />
+                  <rect x="58" y="65" width="14" height="2" fill="#1D1818" />
+                  {/* E top arm */}
+                  <rect x="64" y="25" width="13" height="3" fill="#1D1818" />
+                  {/* E mid arm */}
+                  <rect x="64" y="44" width="9" height="3" fill="#B89B72" />
+                  {/* E bottom arm */}
+                  <rect x="64" y="64" width="15" height="3" fill="#1D1818" />
+                  <path d="M79 67L77 60" stroke="#1D1818" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </div>
+              <span
+                id="header-brand-name"
+                className="font-serif text-lg md:text-2xl font-bold tracking-[0.25em] text-[#1D1818] uppercase mt-0.5 transition-all duration-300 group-hover:text-[#B89B72]"
+              >
+                {BRAND_NAME}
+              </span>
+              <span
+                id="header-brand-slogan"
+                className="text-[7px] md:text-[9px] font-medium tracking-[0.4em] text-[#B89B72] uppercase mt-0.5"
+              >
+                Elegance in Every Thread
+              </span>
+            </div>
+
+            {/* Right side controls */}
+            <div className="flex items-center space-x-4 md:space-x-6 text-[#1D1818]">
+              
+              {/* Search bar button */}
+              <button
+                id="search-btn"
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                className="p-1.5 hover:text-[#B89B72] transition-colors duration-300 relative cursor-pointer"
+                aria-label="Search items"
+              >
+                <Search className="w-5 h-5" />
+              </button>
+
+              {/* Wishlist Icon with count */}
+              <button
+                id="wishlist-btn"
+                onClick={onOpenWishlist}
+                className="p-1.5 hover:text-[#B89B72] transition-colors duration-300 relative cursor-pointer"
+                aria-label="View Wishlist"
+              >
+                <Heart className="w-5 h-5" />
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 bg-[#B89B72] text-[#FFFEF2] text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#FFFEF2]">
+                    {wishlistCount}
+                  </span>
+                )}
+              </button>
+
+              {/* Quick WhatsApp contact icon (Desktop) */}
+              <a
+                href="https://wa.me/918590457509?text=Hello%20HYRA%20ESSENCE!%20I%20am%20browsing%20your%20gorgeous%20website%20and%20would%20love%20to%20learn%20more."
+                target="_blank"
+                rel="noreferrer"
+                className="hidden md:flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#FFFEF2] bg-[#1D1818] hover:bg-[#B89B72] px-4 py-2.5 rounded-xl transition-all duration-300"
+              >
+                <MessageSquare className="w-3.5 h-3.5 text-[#B89B72] group-hover:text-white" />
+                Connect
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Search Overlay */}
+        {isSearchOpen && (
+          <div className="absolute top-full left-0 w-full bg-[#FFFEF2] border-b border-[#EFE8DD] py-5 px-6 shadow-md animate-fade-in">
+            <div className="max-w-3xl mx-auto flex items-center gap-4">
+              <div className="relative flex-1">
+                <input
+                  id="search-input"
+                  type="text"
+                  placeholder="What are you looking for? (e.g. Kasavu, Linen Kurta, Top...)"
+                  className="w-full bg-[#EFE8DD]/40 border border-[#B89B72]/50 rounded-2xl text-sm py-3 px-4.5 focus:outline-none focus:border-[#B89B72] font-medium placeholder-[#666666]/60 text-[#1D1818]"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      setIsSearchOpen(false);
+                      setCurrentPage('shop');
+                    }
+                  }}
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs uppercase font-bold text-[#666666] hover:text-[#1D1818]"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+              <button
+                onClick={() => {
+                  setIsSearchOpen(false);
+                  setCurrentPage('shop');
+                }}
+                className="bg-[#1D1818] hover:bg-[#B89B72] text-[#FFFEF2] text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-2xl transition-all"
+              >
+                Search
+              </button>
+              <button
+                onClick={() => setIsSearchOpen(false)}
+                className="p-2 text-[#666666] hover:text-[#1D1818]"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Mobile Menu Drawer Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-50 flex lg:hidden bg-black/40 backdrop-blur-sm animate-fade-in">
+          <div className="w-[300px] bg-[#FFFEF2] h-full shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+            <div>
+              <div className="flex justify-between items-center pb-6 border-b border-[#EFE8DD]">
+                <span className="font-serif text-sm font-bold tracking-widest text-[#1D1818] uppercase">
+                  Menu
+                </span>
+                <button
+                  id="close-mobile-menu"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-1 text-[#1D1818] hover:text-[#B89B72] cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Mobile Navigation Links */}
+              <div className="py-6 flex flex-col space-y-5 text-sm font-semibold uppercase tracking-widest text-[#1D1818]">
+                <button
+                  onClick={() => handleNavClick('home')}
+                  className={`text-left py-2 hover:text-[#B89B72] ${
+                    currentPage === 'home' ? 'text-[#B89B72]' : ''
+                  }`}
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => handleNavClick('shop')}
+                  className={`text-left py-2 hover:text-[#B89B72] ${
+                    currentPage === 'shop' ? 'text-[#B89B72]' : ''
+                  }`}
+                >
+                  All Products
+                </button>
+
+                {/* Categories sublist */}
+                <div className="py-1">
+                  <div className="text-[10px] tracking-[0.2em] font-bold text-[#B89B72] uppercase mb-3">
+                    Categories
+                  </div>
+                  <div className="pl-4 flex flex-col space-y-3 border-l border-[#EFE8DD]">
+                    <button
+                      onClick={() => handleCategoryClick('churidars')}
+                      className="text-left text-xs uppercase tracking-wider text-[#1D1818]/85 hover:text-[#B89B72]"
+                    >
+                      Churidars
+                    </button>
+                    <button
+                      onClick={() => handleCategoryClick('kurtas')}
+                      className="text-left text-xs uppercase tracking-wider text-[#1D1818]/85 hover:text-[#B89B72]"
+                    >
+                      Kurtas
+                    </button>
+                    <button
+                      onClick={() => handleCategoryClick('tops')}
+                      className="text-left text-xs uppercase tracking-wider text-[#1D1818]/85 hover:text-[#B89B72]"
+                    >
+                      Tops & Tunics
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className={`text-left py-2 hover:text-[#B89B72] ${
+                    currentPage === 'about' ? 'text-[#B89B72]' : ''
+                  }`}
+                >
+                  Our Brand Story
+                </button>
+                <button
+                  onClick={() => handleNavClick('contact')}
+                  className={`text-left py-2 hover:text-[#B89B72] ${
+                    currentPage === 'contact' ? 'text-[#B89B72]' : ''
+                  }`}
+                >
+                  Contact Us
+                </button>
+                <button
+                  onClick={() => handleNavClick('faq')}
+                  className={`text-left py-2 hover:text-[#B89B72] ${
+                    currentPage === 'faq' ? 'text-[#B89B72]' : ''
+                  }`}
+                >
+                  FAQs
+                </button>
+              </div>
+            </div>
+
+            {/* Footer details in Drawer */}
+            <div className="border-t border-[#EFE8DD] pt-6 flex flex-col space-y-4">
+              <div className="flex items-center gap-2 text-xs text-[#666666]">
+                <MapPin className="w-4 h-4 text-[#B89B72]" />
+                <span>Kochi, Kerala, India</span>
+              </div>
+              <a
+                href="https://wa.me/918590457509"
+                target="_blank"
+                rel="noreferrer"
+                className="w-full bg-[#1D1818] text-[#FFFEF2] text-xs font-bold uppercase tracking-widest text-center py-3 hover:bg-[#B89B72] rounded-xl transition-all"
+              >
+                Order on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

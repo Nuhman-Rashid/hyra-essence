@@ -1,0 +1,6 @@
+{
+  "name": "HYRA ESSENCE",
+  "description": "Elegant, modern, and premium women's fashion boutique in Kerala. Explore Churidars, Kurtas, and Tops, and place orders directly on WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

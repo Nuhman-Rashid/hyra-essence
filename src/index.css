@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  
+  --color-primary: #1D1818;
+  --color-bg-ivory: #FFFEF2;
+  --color-secondary-sand: #EFE8DD;
+  --color-accent-gold: #B89B72;
+  --color-text-charcoal: #1D1818;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-ivory);
+    color: var(--color-text-charcoal);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .serif-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+  }
+  
+  .letter-spacing-widest {
+    letter-spacing: 0.25em;
+  }
+  
+  .letter-spacing-wide {
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Custom transitions and scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CEBC;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8A96B;
+}
+
+/* Luxurious hover & transition effects */
+.hover-gold-link {
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+.hover-gold-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #C8A96B;
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-gold-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Premium image hover Zoom */
+.zoom-container {
+  overflow: hidden;
+}
+
+.zoom-image {
+  transition: transform 1.2s cubic-bezier(0.15, 0.85, 0.35, 1);
+}
+
+.zoom-container:hover .zoom-image {
+  transform: scale(1.06);
+}
+
+/* Scroll snap container for mobile galleries */
+.snap-inline {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-inline > * {
+  scroll-snap-align: start;
+}
+
+/* Custom animation classes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.animate-draw-line {
+  transform-origin: left;
+  animation: drawLine 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
