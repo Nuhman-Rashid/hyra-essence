@@ -65,7 +65,7 @@ export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: Fo
                 <MessageSquare className="w-4 h-4" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/hyra.essence?igsh=MTMxcHFwNG1ib29qdQ=="
                 target="_blank"
                 rel="noreferrer"
                 className="p-2.5 rounded-full bg-[#1D1818]/5 hover:bg-[#B89B72] hover:text-[#FFFEF2] transition-all duration-300"
@@ -74,7 +74,7 @@ export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: Fo
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="mailto:hello@hyraessence.com"
+                href="mailto:hyraessence@gmail.com"
                 className="p-2.5 rounded-full bg-[#1D1818]/5 hover:bg-[#B89B72] hover:text-[#FFFEF2] transition-all duration-300"
                 aria-label="Send email"
               >
@@ -189,7 +189,7 @@ export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: Fo
             <div className="flex flex-col space-y-2.5 text-[#1D1818]/70">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#B89B72] shrink-0 mt-0.5" />
-                <span>Panampilly Nagar,<br />Kochi, Kerala 682036</span>
+                <span>Thalassery,<br />Kannur, Kerala 670105</span>
               </div>
               <div className="flex items-center gap-2">
                 <MessageSquare className="w-3.5 h-3.5 text-[#B89B72]" />
@@ -197,7 +197,7 @@ export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: Fo
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#B89B72]" />
-                <span>hello@hyraessence.com</span>
+                <span>hyraessence@gmail.com</span>
               </div>
             </div>
           </div>

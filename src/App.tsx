@@ -21,7 +21,11 @@ import {
   Filter,
   CheckCircle2,
   ChevronDown,
-  Info
+  Info,
+  Search,
+  Tag,
+  ShoppingBag,
+  Home
 } from 'lucide-react';
 
 import Header from './components/Header';
@@ -35,16 +39,98 @@ import WishlistDrawer from './components/WishlistDrawer';
 import { PRODUCTS, CATEGORIES, REVIEWS, FAQS, INSTAGRAM_POSTS, BRAND_NAME } from './data';
 import { Product, Review } from './types';
 
+// Get initial states from URL query parameters (Google SEO and deep linking friendly)
+const getInitialRouting = () => {
+  if (typeof window === 'undefined') {
+    return { initialPage: 'home', initialProduct: null, initialCategory: null };
+  }
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get('page') || 'home';
+  const product = params.get('product') || params.get('id');
+  const category = params.get('category');
+
+  let initialPage = 'home';
+  let initialProduct: string | null = null;
+  let initialCategory: 'churidars' | 'kurtas' | 'tops' | null = null;
+
+  if (product && PRODUCTS.some(p => p.id === product)) {
+    initialProduct = product;
+    initialPage = 'product-detail';
+  } else if (category && ['churidars', 'kurtas', 'tops'].includes(category)) {
+    initialCategory = category as 'churidars' | 'kurtas' | 'tops';
+    initialPage = 'shop';
+  } else if (['shop', 'about', 'contact', 'faq', 'privacy', 'shipping-returns'].includes(page)) {
+    initialPage = page;
+  }
+
+  return { initialPage, initialProduct, initialCategory };
+};
+
 export default function App() {
+  const initialRoute = getInitialRouting();
+
   // Navigation Routing States
-  const [currentPage, setCurrentPage] = useState<string>('home');
-  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<string>(initialRoute.initialPage);
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(initialRoute.initialProduct);
 
   // Shop Page States
-  const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<'churidars' | 'kurtas' | 'tops' | null>(null);
+  const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<'churidars' | 'kurtas' | 'tops' | null>(initialRoute.initialCategory);
   const [activeFilterTab, setActiveFilterTab] = useState<'all' | 'new' | 'best-sellers'>('all');
   const [sortOption, setSortOption] = useState<string>('featured');
   const [shopSearchQuery, setShopSearchQuery] = useState<string>('');
+  const [isShopSearchFocused, setIsShopSearchFocused] = useState<boolean>(false);
+
+
+  // Shop Search Suggestions Generator
+  const getShopSuggestions = (query: string) => {
+    if (!query.trim()) return [];
+    const q = query.toLowerCase().trim();
+    const suggestionsList: Array<{
+      type: 'category' | 'fabric' | 'product';
+      value: string;
+      label: string;
+      categoryFilter?: 'churidars' | 'kurtas' | 'tops' | null;
+    }> = [];
+
+    // 1. Categories
+    CATEGORIES.forEach((cat) => {
+      if (cat.name.toLowerCase().includes(q) || cat.id.toLowerCase().includes(q)) {
+        suggestionsList.push({
+          type: 'category',
+          value: cat.name,
+          label: cat.name,
+          categoryFilter: cat.id as 'churidars' | 'kurtas' | 'tops',
+        });
+      }
+    });
+
+    // 2. Fabric Types
+    const fabricKeywords = ['Linen', 'Cotton', 'Silk', 'Organza', 'Chanderi', 'Tussar', 'Khadi', 'Kasavu'];
+    fabricKeywords.forEach((fab) => {
+      if (fab.toLowerCase().includes(q) && !suggestionsList.some(s => s.type === 'fabric' && s.value === fab)) {
+        suggestionsList.push({
+          type: 'fabric',
+          value: fab,
+          label: `${fab} Fabrics`,
+        });
+      }
+    });
+
+    // 3. Products
+    PRODUCTS.forEach((prod) => {
+      if (prod.name.toLowerCase().includes(q)) {
+        suggestionsList.push({
+          type: 'product',
+          value: prod.name,
+          label: prod.name,
+        });
+      }
+    });
+
+    return suggestionsList.slice(0, 8);
+  };
+
+  const shopSuggestions = getShopSuggestions(shopSearchQuery);
 
   // Wishlist & UI Overlay States
   const [wishlist, setWishlist] = useState<string[]>([]);
@@ -99,6 +185,200 @@ export default function App() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Sync state changes with URL query parameters for Google crawling & sharing
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (currentPage === 'product-detail' && selectedProductId) {
+      params.set('page', 'product-detail');
+      params.set('id', selectedProductId);
+    } else if (currentPage === 'shop') {
+      params.set('page', 'shop');
+      if (selectedCategoryFilter) {
+        params.set('category', selectedCategoryFilter);
+      }
+    } else if (currentPage !== 'home') {
+      params.set('page', currentPage);
+    }
+
+    const queryStr = params.toString();
+    const newUrl = queryStr ? `?${queryStr}` : window.location.pathname;
+
+    if (window.location.search !== (queryStr ? `?${queryStr}` : '')) {
+      window.history.pushState(
+        { page: currentPage, id: selectedProductId, category: selectedCategoryFilter },
+        '',
+        newUrl
+      );
+    }
+  }, [currentPage, selectedProductId, selectedCategoryFilter]);
+
+  // Support native browser back and forward button operations (SEO deep-linking friendly)
+  useEffect(() => {
+    const handlePopState = (e: PopStateEvent) => {
+      const state = e.state;
+      if (state) {
+        if (state.page) setCurrentPage(state.page);
+        if (state.id !== undefined) setSelectedProductId(state.id);
+        if (state.category !== undefined) setSelectedCategoryFilter(state.category);
+      } else {
+        setCurrentPage('home');
+        setSelectedProductId(null);
+        setSelectedCategoryFilter(null);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Update Dynamic SEO Meta Tags, Canonical Link, and Schema.org JSON-LD Markup
+  useEffect(() => {
+    let title = 'HYRA ESSENCE | Premium Women\'s Ethnic Wear & Contemporary Fashion';
+    let description = 'Discover HYRA ESSENCE, a luxury online boutique for premium women\'s ethnic wear. Explore our exquisite handloom Kerala Kasavu Churidars, fine Tussar silk Kurtas, and premium Belgian linen Tops. Hand-crafted elegance designed for modern grace.';
+    let keywords = 'Hyra Essence, women ethnic wear, Kasavu Churidars, silk kurtas, linen tops, Kerala handloom fashion, boutique clothing Kochi, Indian designer wear, designer salwar sets';
+    let image = 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&h=630&q=80';
+
+    if (currentPage === 'shop') {
+      if (selectedCategoryFilter) {
+        const catObj = CATEGORIES.find(c => c.id === selectedCategoryFilter);
+        const catName = catObj ? catObj.name : selectedCategoryFilter;
+        title = `Shop Premium ${catName} | HYRA ESSENCE`;
+        description = catObj ? catObj.description : `Explore the latest collections of premium women's ${selectedCategoryFilter} at HYRA ESSENCE.`;
+        keywords = `Shop ${selectedCategoryFilter}, luxury ${selectedCategoryFilter}, designer ${selectedCategoryFilter} online, Kerala fashion`;
+      } else {
+        title = 'Shop Luxury Collections | HYRA ESSENCE';
+        description = 'Browse the entire catalog of premium women\'s clothing at HYRA ESSENCE. Find elegant handloom Churidars, classic Kurtas, and chic linen Tops with delivery across India.';
+        keywords = 'Shop Indian ethnic wear, online clothing boutique, luxury fashion, ladies kurtas, premium bottoms';
+      }
+    } else if (currentPage === 'product-detail' && selectedProductId) {
+      const product = PRODUCTS.find(p => p.id === selectedProductId);
+      if (product) {
+        title = `${product.name} | Premium ${product.category.toUpperCase()} | HYRA ESSENCE`;
+        description = `${product.name} crafted from ${product.fabric}. ${product.description.slice(0, 150)}...`;
+        keywords = `${product.name}, ${product.fabric}, buy ${product.name} online, premium ${product.category}, Kochi boutique`;
+        if (product.images && product.images[0]) {
+          image = product.images[0];
+        }
+      }
+    } else if (currentPage === 'about') {
+      title = 'Our Heritage & Story | HYRA ESSENCE';
+      description = 'At HYRA ESSENCE, we celebrate the slow craft of weaving. Combining traditional Kerala handlooms with contemporary minimalist silhouettes for modern, graceful women.';
+      keywords = 'about Hyra Essence, slow fashion India, organic cotton ethnic wear, traditional Kerala handlooms, sustainable boutique';
+    } else if (currentPage === 'contact') {
+      title = 'Contact Our Boutique | HYRA ESSENCE';
+      description = 'Have inquiries about fabrics, sizing, or custom orders? Reach out to the HYRA ESSENCE team in Kochi, Kerala via WhatsApp or email. We are here to assist you.';
+      keywords = 'contact Hyra Essence, customer care, Kochi boutique phone, WhatsApp order clothing, support email';
+    } else if (currentPage === 'faq') {
+      title = 'Frequently Asked Questions & Care Guide | HYRA ESSENCE';
+      description = 'Find complete details on sizing guides, fabric care recommendations (silks & linens), shipping timelines, and our easy exchange policies.';
+      keywords = 'Hyra Essence FAQs, wash care silks, delivery times Kerala, return policy online clothing';
+    } else if (currentPage === 'privacy') {
+      title = 'Privacy Policy | HYRA ESSENCE';
+      description = 'Read the privacy policy of HYRA ESSENCE online store. We ensure secure data handling and transparency for all shoppers.';
+      keywords = 'privacy policy, secure shopping, data protection, customer security';
+    } else if (currentPage === 'shipping-returns') {
+      title = 'Shipping, Delivery & Returns | HYRA ESSENCE';
+      description = 'Learn about our delivery timelines, sustainable eco-friendly packaging, and seamless return and exchange guidelines.';
+      keywords = 'shipping guide, refund policy, product return, fast shipping India';
+    }
+
+    // Apply updates to the Document Head
+    document.title = title;
+
+    const updateMeta = (name: string, content: string, isProperty = false) => {
+      const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+      let element = document.head.querySelector(selector);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(isProperty ? 'property' : 'name', name);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+
+    updateMeta('description', description);
+    updateMeta('keywords', keywords);
+
+    // Open Graph
+    updateMeta('og:title', title, true);
+    updateMeta('og:description', description, true);
+    updateMeta('og:image', image, true);
+    updateMeta('og:url', window.location.href, true);
+
+    // Twitter
+    updateMeta('twitter:title', title);
+    updateMeta('twitter:description', description);
+    updateMeta('twitter:image', image);
+    updateMeta('twitter:url', window.location.href);
+
+    // Canonical link
+    let canonical = document.head.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    // Consolidate duplicate URL parameters for search engine indexing
+    canonical.setAttribute('href', window.location.href.split('?')[0]);
+
+    // Dynamic Schema.org structured data injection
+    let schemaScript = document.getElementById('dynamic-schema') as HTMLScriptElement;
+    if (!schemaScript) {
+      schemaScript = document.createElement('script');
+      schemaScript.id = 'dynamic-schema';
+      schemaScript.type = 'application/ld+json';
+      document.head.appendChild(schemaScript);
+    }
+
+    if (currentPage === 'product-detail' && selectedProductId) {
+      const product = PRODUCTS.find(p => p.id === selectedProductId);
+      if (product) {
+        const productSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          'name': product.name,
+          'image': product.images,
+          'description': product.description,
+          'category': product.category,
+          'material': product.fabric,
+          'offers': {
+            '@type': 'Offer',
+            'url': window.location.href,
+            'priceCurrency': 'INR',
+            'price': product.price,
+            'priceValidUntil': '2027-12-31',
+            'itemCondition': 'https://schema.org/NewCondition',
+            'availability': 'https://schema.org/InStock',
+            'seller': {
+              '@type': 'Organization',
+              'name': 'HYRA ESSENCE'
+            }
+          },
+          'aggregateRating': {
+            '@type': 'AggregateRating',
+            'ratingValue': product.rating,
+            'reviewCount': product.reviewsCount
+          }
+        };
+        schemaScript.textContent = JSON.stringify(productSchema);
+      } else {
+        schemaScript.textContent = '';
+      }
+    } else {
+      const webPageSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        'name': title,
+        'description': description,
+        'url': window.location.href,
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'HYRA ESSENCE'
+        }
+      };
+      schemaScript.textContent = JSON.stringify(webPageSchema);
+    }
+  }, [currentPage, selectedProductId, selectedCategoryFilter]);
 
   const handleToggleWishlist = (id: string) => {
     let updatedWishlist = [...wishlist];
@@ -282,6 +562,8 @@ export default function App() {
         setSelectedCategoryFilter={setSelectedCategoryFilter}
         wishlistCount={wishlist.length}
         onOpenWishlist={() => setIsWishlistOpen(true)}
+        shopSearchQuery={shopSearchQuery}
+        setShopSearchQuery={setShopSearchQuery}
       />
 
       {/* 3. DYNAMIC PAGES SWITCHBOARD */}
@@ -300,10 +582,10 @@ export default function App() {
                   [ 01 ] Editorial Collection
                 </div>
                 
-                <h2 className="font-serif text-5xl sm:text-6xl xl:text-7xl font-bold tracking-tight leading-[0.90] text-[#1D1818] uppercase">
+                <h1 className="font-serif text-5xl sm:text-6xl xl:text-7xl font-bold tracking-tight leading-[0.90] text-[#1D1818] uppercase">
                   STYLE THAT <br />
                   <span className="serif-italic text-[#B89B72] font-light normal-case italic">SPEAKS YOU</span>
-                </h2>
+                </h1>
                 
                 <p className="text-xs sm:text-sm text-[#1D1818]/80 leading-relaxed max-w-sm font-medium">
                   Timeless silhouettes, crafted with precision for the modern Kerala landscape. Curated luxury made of premium breathable fabrics.
@@ -397,7 +679,7 @@ export default function App() {
                 </div>
 
                 {/* Grid layout of Featured products */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3.5 gap-y-6 sm:gap-8 md:gap-12">
                   {PRODUCTS.filter((p) => p.isFeatured).map((product) => (
                     <ProductCard
                       key={product.id}
@@ -643,7 +925,14 @@ export default function App() {
               <div className="mb-14 text-center space-y-2">
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B89B72]">Follow us on Instagram</span>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1D1818] tracking-wide">
-                  @HYRA_ESSENCE
+                  <a
+                    href="https://www.instagram.com/hyra.essence?igsh=MTMxcHFwNG1ib29qdQ=="
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#B89B72] transition-colors"
+                  >
+                    @HYRA_ESSENCE
+                  </a>
                 </h2>
                 <div className="w-12 h-[1px] bg-[#B89B72] mx-auto mt-3" />
               </div>
@@ -683,8 +972,8 @@ export default function App() {
           <section id="shop-gallery" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 animate-fade-in text-left">
             
             {/* Shop Page Heading */}
-            <div className="border-b border-[#EFE8DD] pb-8 mb-10 flex flex-col md:flex-row justify-between items-baseline gap-4">
-              <div>
+            <div className="border-b border-[#EFE8DD] pb-8 mb-10 flex flex-col md:flex-row justify-between items-stretch md:items-end gap-5">
+              <div className="flex-1">
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#C8A96B]">The Entire Catalog</span>
                 <h1 className="font-serif text-3xl md:text-5xl font-bold text-[#111111] tracking-wide mt-1">
                   {selectedCategoryFilter ? selectedCategoryFilter : 'Shop All Collections'}
@@ -694,26 +983,75 @@ export default function App() {
                 </p>
               </div>
 
-              {/* Simple Text Search within Shop */}
-              <div className="w-full md:w-72 relative">
+              {/* Simple Text Search within Shop with Predictive Suggestions */}
+              <div className="w-full md:w-72 relative" id="shop-search-container">
                 <input
+                  id="shop-search-input"
                   type="text"
                   placeholder="Filter by keyword..."
-                  className="w-full bg-[#EFE8DD]/40 border border-[#C8A96B]/50 rounded-2xl text-xs py-2 px-4 focus:outline-none focus:border-[#C8A96B] placeholder-[#666666]/50 text-[#111111] font-semibold transition-all"
+                  className="w-full bg-[#EFE8DD]/40 border border-[#C8A96B]/50 rounded-2xl text-xs py-2.5 md:py-2 px-10 pl-4 focus:outline-none focus:border-[#C8A96B] placeholder-[#666666]/50 text-[#111111] font-semibold transition-all min-h-[38px]"
                   value={shopSearchQuery}
                   onChange={(e) => setShopSearchQuery(e.target.value)}
+                  onFocus={() => setIsShopSearchFocused(true)}
+                  onBlur={() => setTimeout(() => setIsShopSearchFocused(false), 200)}
                 />
+                {shopSearchQuery && (
+                  <button
+                    onClick={() => setShopSearchQuery('')}
+                    className="absolute right-10 top-1/2 -translate-y-1/2 text-[10px] uppercase font-bold text-[#666666]/70 hover:text-[#111111] transition-colors px-1"
+                  >
+                    Clear
+                  </button>
+                )}
+                <Search className="w-3.5 h-3.5 text-[#C8A96B] absolute right-4 top-1/2 -translate-y-1/2" />
+
+                {isShopSearchFocused && shopSearchQuery.trim().length > 0 && shopSuggestions.length > 0 && (
+                  <div className="absolute left-0 right-0 top-full mt-2 bg-[#FFFEF2] border border-[#EFE8DD] rounded-xl shadow-lg z-50 overflow-hidden max-h-[45vh] sm:max-h-80 overflow-y-auto animate-fade-in">
+                    <div className="p-2.5 text-[9px] font-bold uppercase tracking-wider text-[#666666]/70 border-b border-[#EFE8DD] bg-[#EFE8DD]/10">
+                      Suggested Matches
+                    </div>
+                    <div className="divide-y divide-[#EFE8DD]/40">
+                      {shopSuggestions.map((suggestion, idx) => (
+                        <button
+                          key={idx}
+                          onMouseDown={() => {
+                            if (suggestion.type === 'category' && suggestion.categoryFilter) {
+                              setSelectedCategoryFilter(suggestion.categoryFilter);
+                              setShopSearchQuery('');
+                            } else {
+                              setShopSearchQuery(suggestion.value);
+                              setSelectedCategoryFilter(null);
+                            }
+                          }}
+                          className="w-full text-left px-4 py-2.5 hover:bg-[#EFE8DD]/20 flex items-center justify-between transition-colors group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-2.5">
+                            {suggestion.type === 'category' && <Tag className="w-3 h-3 text-[#C8A96B]" />}
+                            {suggestion.type === 'fabric' && <Sparkles className="w-3 h-3 text-[#C8A96B]" />}
+                            {suggestion.type === 'product' && <ShoppingBag className="w-3 h-3 text-[#C8A96B]" />}
+                            <span className="text-[11px] font-semibold text-[#111111] group-hover:text-[#C8A96B] transition-colors truncate max-w-[140px] sm:max-w-none">
+                              {suggestion.label}
+                            </span>
+                          </div>
+                          <span className="text-[8px] font-bold uppercase tracking-wider text-[#666666]/40 group-hover:text-[#C8A96B]/60 shrink-0">
+                            {suggestion.type}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Filters Navigation Panel */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10 pb-6 border-b border-[#EFE8DD]/50">
+            <div className="flex flex-col lg:flex-row justify-between items-stretch lg:items-center gap-4 mb-10 pb-6 border-b border-[#EFE8DD]/50">
               
               {/* Category selector pills */}
-              <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wider">
+              <div className="flex flex-wrap gap-1.5 md:gap-2 text-[11px] md:text-xs font-semibold uppercase tracking-wider">
                 <button
                   onClick={() => setSelectedCategoryFilter(null)}
-                  className={`px-5 py-2.5 rounded-xl transition-all cursor-pointer ${
+                  className={`px-3 md:px-5 py-2 md:py-2.5 rounded-xl transition-all cursor-pointer flex-1 sm:flex-none text-center ${
                     selectedCategoryFilter === null
                       ? 'bg-[#111111] text-[#FAF8F5]'
                       : 'border border-[#EFE8DD] hover:border-[#C8A96B] text-[#111111]'
@@ -723,7 +1061,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => setSelectedCategoryFilter('churidars')}
-                  className={`px-5 py-2.5 rounded-xl transition-all cursor-pointer ${
+                  className={`px-3 md:px-5 py-2 md:py-2.5 rounded-xl transition-all cursor-pointer flex-1 sm:flex-none text-center ${
                     selectedCategoryFilter === 'churidars'
                       ? 'bg-[#111111] text-[#FAF8F5]'
                       : 'border border-[#EFE8DD] hover:border-[#C8A96B] text-[#111111]'
@@ -733,7 +1071,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => setSelectedCategoryFilter('kurtas')}
-                  className={`px-5 py-2.5 rounded-xl transition-all cursor-pointer ${
+                  className={`px-3 md:px-5 py-2 md:py-2.5 rounded-xl transition-all cursor-pointer flex-1 sm:flex-none text-center ${
                     selectedCategoryFilter === 'kurtas'
                       ? 'bg-[#111111] text-[#FAF8F5]'
                       : 'border border-[#EFE8DD] hover:border-[#C8A96B] text-[#111111]'
@@ -743,7 +1081,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => setSelectedCategoryFilter('tops')}
-                  className={`px-5 py-2.5 rounded-xl transition-all cursor-pointer ${
+                  className={`px-3 md:px-5 py-2 md:py-2.5 rounded-xl transition-all cursor-pointer flex-1 sm:flex-none text-center ${
                     selectedCategoryFilter === 'tops'
                       ? 'bg-[#111111] text-[#FAF8F5]'
                       : 'border border-[#EFE8DD] hover:border-[#C8A96B] text-[#111111]'
@@ -754,7 +1092,7 @@ export default function App() {
               </div>
 
               {/* Multi sorting & tags */}
-              <div className="flex flex-wrap items-center gap-4 text-xs">
+              <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xs w-full lg:w-auto justify-between sm:justify-start">
                 
                 {/* Secondary Tab filters: All/New/Best Seller */}
                 <div className="flex border border-[#EFE8DD] rounded-xl overflow-hidden">
@@ -817,7 +1155,7 @@ export default function App() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3.5 gap-y-6 sm:gap-8 md:gap-12">
                 {filteredProducts.map((product) => (
                   <ProductCard
                     key={product.id}
@@ -869,9 +1207,9 @@ export default function App() {
               
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
                 <div className="md:col-span-7 space-y-4">
-                  <h3 className="font-serif text-xl md:text-2xl font-bold text-[#111111] tracking-wide">
+                  <h2 className="font-serif text-xl md:text-2xl font-bold text-[#111111] tracking-wide">
                     The Genesis of HYRA ESSENCE
-                  </h3>
+                  </h2>
                   <p>
                     Founded in Kochi, Kerala, <strong>HYRA ESSENCE</strong> emerged out of a desire to bridge the gap between premium luxury fashion and affordable pricing for the modern, style-conscious woman. We noticed that high-street retail brands lacked the premium fabric breathable qualities suited for our humid coastal environments, while local ethnic options often compromised on sophisticated minimalist design aesthetics.
                   </p>
@@ -899,9 +1237,9 @@ export default function App() {
                   />
                 </div>
                 <div className="md:col-span-7 order-1 md:order-2 space-y-4">
-                  <h3 className="font-serif text-xl md:text-2xl font-bold text-[#111111] tracking-wide">
+                  <h2 className="font-serif text-xl md:text-2xl font-bold text-[#111111] tracking-wide">
                     Our Mission & Ethical Fabrics
-                  </h3>
+                  </h2>
                   <p>
                     Our mission is simple: to make every visitor look and feel stunning, premium, and absolutely confident. Every single Kurta, Salwar Set, and Tunic we curate under the HYRA logo must pass stringent parameters of fabric excellence.
                   </p>
@@ -916,27 +1254,27 @@ export default function App() {
 
               {/* Three key pillars */}
               <div className="border-t border-[#EFE8DD] pt-12 md:pt-16">
-                <h3 className="font-serif text-xl md:text-2xl font-bold text-[#111111] text-center mb-10">
+                <h2 className="font-serif text-xl md:text-2xl font-bold text-[#111111] text-center mb-10">
                   Our Uncompromising Commitments
-                </h3>
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   <div className="space-y-2">
                     <span className="font-bold text-[#C8A96B] font-mono text-sm uppercase">01 / Pure Origin</span>
-                    <h4 className="font-serif text-base font-semibold text-[#111111]">100% Honest Fabrics</h4>
+                    <h3 className="font-serif text-base font-semibold text-[#111111]">100% Honest Fabrics</h3>
                     <p className="text-xs text-[#666666] leading-relaxed">
                       We never blend cheap synthetic polyesters. If we label a product as linen, it is certified 100% organic linen. Luxury comfort begins with raw material truth.
                     </p>
                   </div>
                   <div className="space-y-2">
                     <span className="font-bold text-[#C8A96B] font-mono text-sm uppercase">02 / Local Craft</span>
-                    <h4 className="font-serif text-base font-semibold text-[#111111]">Sustaining Communities</h4>
+                    <h3 className="font-serif text-base font-semibold text-[#111111]">Sustaining Communities</h3>
                     <p className="text-xs text-[#666666] leading-relaxed">
                       We collaborate with artisanal handloom weavers in Chendamangalam, Balaramapuram, and Chanderi. Buying HYRA means actively supporting heritage craft preservation.
                     </p>
                   </div>
                   <div className="space-y-2">
                     <span className="font-bold text-[#C8A96B] font-mono text-sm uppercase">03 / Client First</span>
-                    <h4 className="font-serif text-base font-semibold text-[#111111]">Direct Stylist Consultation</h4>
+                    <h3 className="font-serif text-base font-semibold text-[#111111]">Direct Stylist Consultation</h3>
                     <p className="text-xs text-[#666666] leading-relaxed">
                       No automated email replies. Our WhatsApp integration guarantees you chat directly with a real human stylist who takes your measurements and customizes packages with care.
                     </p>
@@ -960,7 +1298,7 @@ export default function App() {
                   Connect With Us
                 </h1>
                 <p className="text-xs text-[#666666] max-w-lg mx-auto leading-relaxed">
-                  Have a question about a product, sizing, or custom shipping requests? Our customer experience boutique team in Kochi is here to assist you.
+                  Have a question about a product, sizing, or custom shipping requests? Our customer experience boutique team in Thalassery is here to assist you.
                 </p>
               </div>
             </section>
@@ -970,9 +1308,9 @@ export default function App() {
               
               {/* Form Side (span 7) */}
               <div className="lg:col-span-7 bg-white p-6 md:p-10 border border-[#EFE8DD] rounded-2xl shadow-sm">
-                <h3 className="font-serif text-2xl font-bold text-[#111111] mb-2 tracking-wide">
+                <h2 className="font-serif text-2xl font-bold text-[#111111] mb-2 tracking-wide">
                   Send A Message
-                </h3>
+                </h2>
                 <p className="text-xs text-[#666666] mb-8">
                   Fill in your details below. We typically respond within 1-2 business hours.
                 </p>
@@ -980,7 +1318,7 @@ export default function App() {
                 {isContactSubmitted ? (
                   <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-6 flex flex-col items-center text-center space-y-3 rounded-xl">
                     <CheckCircle2 className="w-10 h-10 text-emerald-600" />
-                    <h4 className="font-serif text-lg font-bold">Message Received, Thank You!</h4>
+                    <h3 className="font-serif text-lg font-bold">Message Received, Thank You!</h3>
                     <p className="text-xs max-w-sm">
                       We have received your request regarding <strong>"{contactSubject}"</strong>. A HYRA fashion advisor will text or email you shortly.
                     </p>
@@ -1051,15 +1389,15 @@ export default function App() {
                 
                 {/* Physical details cards */}
                 <div className="bg-[#EFE8DD]/30 border border-[#EFE8DD] p-8 space-y-6 rounded-2xl shadow-sm">
-                  <h4 className="font-serif text-lg font-bold text-[#111111] uppercase tracking-wider border-b border-[#EFE8DD] pb-4">
+                  <h2 className="font-serif text-lg font-bold text-[#111111] uppercase tracking-wider border-b border-[#EFE8DD] pb-4">
                     The Boutique Info
-                  </h4>
+                  </h2>
                   <div className="space-y-4 text-xs text-[#333333]">
                     <div className="flex items-start gap-3">
                       <MapPin className="w-5 h-5 text-[#C8A96B] shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold">HYRA ESSENCE Headquarters</p>
-                        <p className="text-[#666666] mt-0.5">32/4A, Panampilly Nagar Ave, Panampilly Nagar, Kochi, Kerala 682036</p>
+                        <p className="text-[#666666] mt-0.5">Thalassery, Kannur, Kerala 670105</p>
                       </div>
                     </div>
 
@@ -1075,7 +1413,7 @@ export default function App() {
                       <Mail className="w-5 h-5 text-[#C8A96B] shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold">Styling & Gifting Inquiries</p>
-                        <p className="text-[#666666] mt-0.5">hello@hyraessence.com</p>
+                        <p className="text-[#666666] mt-0.5">hyraessence@gmail.com</p>
                       </div>
                     </div>
 
@@ -1119,7 +1457,7 @@ export default function App() {
                   </div>
                   
                   <div className="relative space-y-1">
-                    <p className="font-serif text-sm font-semibold text-[#111111] tracking-wide">Panampilly Nagar, Cochin</p>
+                    <p className="font-serif text-sm font-semibold text-[#111111] tracking-wide">Thalassery, Kannur</p>
                     <p className="text-[10px] text-[#666666]">Google Maps Interactive integration pending launch</p>
                   </div>
                 </div>
@@ -1247,7 +1585,7 @@ export default function App() {
 
               <h3 className="font-serif text-xl font-bold text-[#111111] pt-4">2. Expected Timelines</h3>
               <p>
-                All items are dispatched from our packing boutique in Kochi, Kerala. Dispatches happen within 24-48 hours.
+                All items are dispatched from our packing boutique in Thalassery, Kerala. Dispatches happen within 24-48 hours.
               </p>
               <ul className="list-disc pl-5 space-y-1">
                 <li><strong>Within Kerala:</strong> Delivered in 2-3 business days.</li>
@@ -1274,12 +1612,85 @@ export default function App() {
         href={floatWhatsappUrl}
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-6 right-6 z-40 bg-[#111111] hover:bg-[#C8A96B] text-[#FAF8F5] p-4 shadow-2xl transition-all duration-300 border border-[#C8A96B]/50 cursor-pointer group flex items-center justify-center relative rounded-full"
+        className={`fixed right-4 lg:right-6 z-40 bg-[#111111] hover:bg-[#1D1A16] text-[#FAF8F5] py-2.5 px-4 sm:py-3 sm:px-5 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_40px_rgba(200,169,107,0.25)] transition-all duration-300 border border-[#C8A96B]/60 cursor-pointer group flex items-center gap-2.5 rounded-full ${
+          currentPage === 'product-detail' ? 'bottom-20 sm:bottom-6' : 'bottom-[76px] lg:bottom-6'
+        }`}
         aria-label="Direct Chat on WhatsApp"
       >
-        <span className="absolute inset-0 border border-[#C8A96B] opacity-45 scale-100 group-hover:scale-110 transition-transform duration-1000 rounded-full" />
-        <MessageSquare className="w-5 h-5 text-[#C8A96B] fill-[#C8A96B]" />
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8A96B] opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C8A96B]"></span>
+        </span>
+        <MessageSquare className="w-4 h-4 text-[#C8A96B] fill-[#C8A96B]/20 group-hover:scale-110 transition-transform duration-300" />
+        <span className="text-[11px] sm:text-xs uppercase tracking-[0.2em] font-sans font-semibold text-[#FAF8F5] transition-colors">
+          Assistance
+        </span>
       </a>
+
+      {/* 4b. MOBILE BOTTOM NAVIGATION (effortless one-hand thumb browsing, hidden on product-detail page where special sticky buy bar is shown) */}
+      {currentPage !== 'product-detail' && (
+        <div className="block lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FFFEF2]/95 backdrop-blur-md border-t border-[#EFE8DD] shadow-[0_-8px_30px_rgba(0,0,0,0.05)] pb-safe">
+          <div className="grid grid-cols-4 items-center h-16 max-w-md mx-auto">
+            {/* Home Tab */}
+            <button
+              onClick={() => {
+                setCurrentPage('home');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className={`flex flex-col items-center justify-center h-full transition-colors cursor-pointer ${
+                currentPage === 'home' ? 'text-[#B89B72]' : 'text-[#1D1818]/70 hover:text-[#B89B72]'
+              }`}
+            >
+              <Home className="w-5 h-5 mb-1" />
+              <span className="text-[9px] font-bold uppercase tracking-wider">Home</span>
+            </button>
+
+            {/* Shop Tab */}
+            <button
+              onClick={() => {
+                setSelectedCategoryFilter(null);
+                setCurrentPage('shop');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className={`flex flex-col items-center justify-center h-full transition-colors cursor-pointer ${
+                currentPage === 'shop' ? 'text-[#B89B72]' : 'text-[#1D1818]/70 hover:text-[#B89B72]'
+              }`}
+            >
+              <ShoppingBag className="w-5 h-5 mb-1" />
+              <span className="text-[9px] font-bold uppercase tracking-wider">Shop</span>
+            </button>
+
+            {/* Wishlist Tab (Saved items) */}
+            <button
+              onClick={() => setIsWishlistOpen(true)}
+              className={`flex flex-col items-center justify-center h-full transition-colors relative cursor-pointer ${
+                isWishlistOpen ? 'text-[#B89B72]' : 'text-[#1D1818]/70 hover:text-[#B89B72]'
+              }`}
+            >
+              <div className="relative mb-1">
+                <Heart className="w-5 h-5" />
+                {wishlist.length > 0 && (
+                  <span className="absolute -top-1 -right-1.5 bg-[#B89B72] text-[#FFFEF2] text-[8px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#FFFEF2]">
+                    {wishlist.length}
+                  </span>
+                )}
+              </div>
+              <span className="text-[9px] font-bold uppercase tracking-wider">Saved</span>
+            </button>
+
+            {/* WhatsApp Direct Chat Tab */}
+            <a
+              href={floatWhatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex flex-col items-center justify-center h-full text-[#1D1818]/70 hover:text-[#B89B72] transition-colors"
+            >
+              <MessageSquare className="w-5 h-5 mb-1 text-[#B89B72] fill-[#B89B72]/10" />
+              <span className="text-[9px] font-bold uppercase tracking-wider text-[#1D1818]/70">Chat</span>
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* 5. SLIDING WISHLIST SIDE DRAWER PANEL */}
       <WishlistDrawer

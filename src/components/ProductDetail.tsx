@@ -82,7 +82,7 @@ export default function ProductDetail({
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 animate-fade-in">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 pb-24 sm:pb-16 animate-fade-in">
       
       {/* Back button */}
       <button
@@ -387,7 +387,7 @@ export default function ProductDetail({
           </div>
 
           {/* Related items shelf */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3.5 gap-y-6 sm:gap-8">
             {relatedProducts.map((p) => (
               <div
                 key={p.id}
@@ -422,6 +422,31 @@ export default function ProductDetail({
           </div>
         </div>
       )}
+
+      {/* Mobile Sticky Bottom CTA Bar */}
+      <div className="block sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FFFEF2]/95 backdrop-blur-md border-t border-[#EFE8DD] p-3 shadow-[0_-8px_30px_rgba(0,0,0,0.06)]">
+        <div className="flex items-center gap-2 max-w-md mx-auto">
+          {/* Wishlist Icon Button */}
+          <button
+            onClick={() => onToggleWishlist(product.id)}
+            className="w-12 h-12 flex items-center justify-center border border-[#111111] hover:bg-[#EFE8DD]/40 text-[#111111] transition-colors rounded-xl shrink-0 cursor-pointer"
+            aria-label="Toggle wishlist"
+          >
+            <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-[#C8A96B] stroke-[#C8A96B]' : ''}`} />
+          </button>
+
+          {/* Primary buy button */}
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`}
+            target="_blank"
+            rel="noreferrer"
+            className="flex-grow flex items-center justify-center gap-2 h-12 bg-[#111111] hover:bg-[#C8A96B] text-[#FAF8F5] text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-xl text-center"
+          >
+            <MessageSquare className="w-4 h-4 text-[#C8A96B] fill-[#C8A96B] shrink-0" />
+            <span className="truncate">Order size {selectedSize} on WhatsApp</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

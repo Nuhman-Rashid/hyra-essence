@@ -39,7 +39,7 @@ export default function ProductCard({
     : 0;
 
   return (
-    <div
+    <article
       className="group relative flex flex-col bg-transparent animate-fade-in"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -175,6 +175,6 @@ export default function ProductCard({
           </a>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

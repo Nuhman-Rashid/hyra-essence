@@ -4,8 +4,15 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Heart, Search, ChevronDown, MessageSquare, MapPin } from 'lucide-react';
-import { BRAND_NAME } from '../data';
+import { Menu, X, Heart, Search, ChevronDown, MessageSquare, MapPin, Tag, Sparkles, ShoppingBag } from 'lucide-react';
+import { BRAND_NAME, CATEGORIES, PRODUCTS } from '../data';
+
+interface SearchSuggestion {
+  type: 'category' | 'fabric' | 'product';
+  value: string;
+  label: string;
+  categoryFilter?: 'churidars' | 'kurtas' | 'tops' | null;
+}
 
 interface HeaderProps {
   currentPage: string;
@@ -13,6 +20,8 @@ interface HeaderProps {
   setSelectedCategoryFilter: (category: 'churidars' | 'kurtas' | 'tops' | null) => void;
   wishlistCount: number;
   onOpenWishlist: () => void;
+  shopSearchQuery?: string;
+  setShopSearchQuery?: (query: string) => void;
 }
 
 export default function Header({
@@ -21,12 +30,76 @@ export default function Header({
   setSelectedCategoryFilter,
   wishlistCount,
   onOpenWishlist,
+  shopSearchQuery,
+  setShopSearchQuery,
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoriesDropdownOpen, setIsCategoriesDropdownOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [localSearchQuery, setLocalSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+
+  const queryValue = shopSearchQuery !== undefined ? shopSearchQuery : localSearchQuery;
+  const setQueryValue = setShopSearchQuery !== undefined ? setShopSearchQuery : setLocalSearchQuery;
+
+  // Generate suggestions based on queryValue
+  const getSuggestions = (query: string): SearchSuggestion[] => {
+    if (!query.trim()) return [];
+    const q = query.toLowerCase().trim();
+    const suggestionsList: SearchSuggestion[] = [];
+
+    // 1. Categories
+    CATEGORIES.forEach((cat) => {
+      if (cat.name.toLowerCase().includes(q) || cat.id.toLowerCase().includes(q)) {
+        suggestionsList.push({
+          type: 'category',
+          value: cat.name,
+          label: cat.name,
+          categoryFilter: cat.id as 'churidars' | 'kurtas' | 'tops',
+        });
+      }
+    });
+
+    // 2. Fabric Types
+    const fabricKeywords = ['Linen', 'Cotton', 'Silk', 'Organza', 'Chanderi', 'Tussar', 'Khadi', 'Kasavu'];
+    fabricKeywords.forEach((fab) => {
+      if (fab.toLowerCase().includes(q) && !suggestionsList.some(s => s.type === 'fabric' && s.value === fab)) {
+        suggestionsList.push({
+          type: 'fabric',
+          value: fab,
+          label: `${fab} Fabrics`,
+        });
+      }
+    });
+
+    // 3. Products
+    PRODUCTS.forEach((prod) => {
+      if (prod.name.toLowerCase().includes(q)) {
+        suggestionsList.push({
+          type: 'product',
+          value: prod.name,
+          label: prod.name,
+        });
+      }
+    });
+
+    return suggestionsList.slice(0, 8);
+  };
+
+  const headerSuggestions = getSuggestions(queryValue);
+
+  const handleSuggestionClick = (suggestion: SearchSuggestion) => {
+    if (suggestion.type === 'category' && suggestion.categoryFilter) {
+      setSelectedCategoryFilter(suggestion.categoryFilter);
+      setQueryValue('');
+    } else {
+      setQueryValue(suggestion.value);
+      setSelectedCategoryFilter(null);
+    }
+    setIsSearchOpen(false);
+    setCurrentPage('shop');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -169,55 +242,58 @@ export default function Header({
             <div
               id="header-logo-container"
               onClick={() => handleNavClick('home')}
-              className="flex flex-col items-center justify-center cursor-pointer group text-center select-none py-1 px-3 transition-all duration-300"
+              className="flex flex-col items-center justify-center cursor-pointer group text-center select-none pt-1 pb-2 px-3 transition-all duration-300"
             >
-              <div className="flex items-center gap-1.5">
-                {/* Gold Crest Monogram Logo from the provided reference */}
-                <svg
-                  id="header-logo-svg"
-                  className="w-[100px] h-[80px]"
-                  viewBox="0 0 100 100"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  preserveAspectRatio="xMidYMid meet"
-                >
-                  {/* Floral gold branch styling */}
-                  <path d="M40 70C35 60 30 55 25 45M28 50C24 45 23 40 25 35M35 60C30 53 30 48 31 43" stroke="#B89B72" strokeWidth="1" strokeLinecap="round" />
-                  <circle cx="25" cy="35" r="2" fill="#B89B72" />
-                  <circle cx="31" cy="43" r="1.5" fill="#B89B72" />
-                  <path d="M40 75C45 78 50 80 57 80" stroke="#B89B72" strokeWidth="1.2" strokeLinecap="round" />
-                  
-                  {/* High-end serif interlinked monogram H and E */}
-                  {/* H Left stem */}
-                  <rect x="42" y="25" width="4" height="42" fill="#1D1818" rx="0.5" />
-                  <rect x="39" y="25" width="10" height="2" fill="#1D1818" />
-                  <rect x="39" y="65" width="10" height="2" fill="#1D1818" />
-                  
-                  {/* H bar */}
-                  <rect x="46" y="44" width="18" height="3" fill="#B89B72" />
-                  
-                  {/* E Left stem (interlinked, overlapping beautifully) */}
-                  <rect x="60" y="25" width="4" height="42" fill="#1D1818" rx="0.5" />
-                  <rect x="58" y="25" width="14" height="2" fill="#1D1818" />
-                  <rect x="58" y="65" width="14" height="2" fill="#1D1818" />
-                  {/* E top arm */}
-                  <rect x="64" y="25" width="13" height="3" fill="#1D1818" />
-                  {/* E mid arm */}
-                  <rect x="64" y="44" width="9" height="3" fill="#B89B72" />
-                  {/* E bottom arm */}
-                  <rect x="64" y="64" width="15" height="3" fill="#1D1818" />
-                  <path d="M79 67L77 60" stroke="#1D1818" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
+              {/* Gold Crest Monogram Logo from the provided reference */}
+              <svg
+                id="header-logo-svg"
+                className="w-[42px] h-[34px] sm:w-[48px] sm:h-[38px] md:w-[58px] md:h-[46px] transition-transform duration-300 group-hover:scale-105"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                {/* Floral gold branch styling */}
+                <path d="M40 70C35 60 30 55 25 45M28 50C24 45 23 40 25 35M35 60C30 53 30 48 31 43" stroke="#B89B72" strokeWidth="1" strokeLinecap="round" />
+                <circle cx="25" cy="35" r="2" fill="#B89B72" />
+                <circle cx="31" cy="43" r="1.5" fill="#B89B72" />
+                <path d="M40 75C45 78 50 80 57 80" stroke="#B89B72" strokeWidth="1.2" strokeLinecap="round" />
+                
+                {/* High-end serif interlinked monogram H and E */}
+                {/* H Left stem */}
+                <rect x="42" y="25" width="4" height="42" fill="#1D1818" rx="0.5" />
+                <rect x="39" y="25" width="10" height="2" fill="#1D1818" />
+                <rect x="39" y="65" width="10" height="2" fill="#1D1818" />
+                
+                {/* H bar */}
+                <rect x="46" y="44" width="18" height="3" fill="#B89B72" />
+                
+                {/* E Left stem (interlinked, overlapping beautifully) */}
+                <rect x="60" y="25" width="4" height="42" fill="#1D1818" rx="0.5" />
+                <rect x="58" y="25" width="14" height="2" fill="#1D1818" />
+                <rect x="58" y="65" width="14" height="2" fill="#1D1818" />
+                
+                {/* E top arm */}
+                <rect x="64" y="25" width="13" height="3" fill="#1D1818" />
+                
+                {/* E mid arm */}
+                <rect x="64" y="44" width="9" height="3" fill="#B89B72" />
+                
+                {/* E bottom arm */}
+                <rect x="64" y="64" width="15" height="3" fill="#1D1818" />
+                <path d="M79 67L77 60" stroke="#1D1818" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+              
               <span
                 id="header-brand-name"
-                className="font-serif text-lg md:text-2xl font-bold tracking-[0.25em] text-[#1D1818] uppercase mt-0.5 transition-all duration-300 group-hover:text-[#B89B72]"
+                className="font-serif text-sm sm:text-base md:text-xl font-bold tracking-[0.25em] text-[#1D1818] uppercase mt-1.5 md:mt-2.5 transition-all duration-300 group-hover:text-[#B89B72]"
               >
                 {BRAND_NAME}
               </span>
+              
               <span
                 id="header-brand-slogan"
-                className="text-[7px] md:text-[9px] font-medium tracking-[0.4em] text-[#B89B72] uppercase mt-0.5"
+                className="text-[6px] sm:text-[7.5px] md:text-[8px] font-medium tracking-[0.32em] text-[#B89B72] uppercase mt-0.5 md:mt-1"
               >
                 Elegance in Every Thread
               </span>
@@ -267,16 +343,18 @@ export default function Header({
 
         {/* Floating Search Overlay */}
         {isSearchOpen && (
-          <div className="absolute top-full left-0 w-full bg-[#FFFEF2] border-b border-[#EFE8DD] py-5 px-6 shadow-md animate-fade-in">
-            <div className="max-w-3xl mx-auto flex items-center gap-4">
+          <div className="absolute top-full left-0 w-full bg-[#FFFEF2] border-b border-[#EFE8DD] py-4 md:py-5 px-4 md:px-6 shadow-lg animate-fade-in z-50">
+            <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3 md:gap-4">
               <div className="relative flex-1">
                 <input
                   id="search-input"
                   type="text"
-                  placeholder="What are you looking for? (e.g. Kasavu, Linen Kurta, Top...)"
-                  className="w-full bg-[#EFE8DD]/40 border border-[#B89B72]/50 rounded-2xl text-sm py-3 px-4.5 focus:outline-none focus:border-[#B89B72] font-medium placeholder-[#666666]/60 text-[#1D1818]"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="What are you looking for? (e.g. Kasavu, Linen...)"
+                  className="w-full bg-[#EFE8DD]/40 border border-[#B89B72]/50 rounded-2xl text-xs md:text-sm py-2.5 md:py-3 px-4 md:px-4.5 pr-12 focus:outline-none focus:border-[#B89B72] font-semibold placeholder-[#666666]/60 text-[#1D1818]"
+                  value={queryValue}
+                  onChange={(e) => setQueryValue(e.target.value)}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setTimeout(() => setIsFocused(false), 200)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                       setIsSearchOpen(false);
@@ -284,30 +362,65 @@ export default function Header({
                     }
                   }}
                 />
-                {searchQuery && (
+                {queryValue && (
                   <button
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs uppercase font-bold text-[#666666] hover:text-[#1D1818]"
+                    onClick={() => setQueryValue('')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] md:text-xs uppercase font-bold text-[#666666] hover:text-[#1D1818] px-1 py-0.5"
                   >
                     Clear
                   </button>
                 )}
+
+                {/* Suggestions Dropdown for Header */}
+                {isFocused && queryValue.trim().length > 0 && headerSuggestions.length > 0 && (
+                  <div className="absolute left-0 right-0 top-full mt-2 bg-[#FFFEF2] border border-[#EFE8DD] rounded-2xl shadow-xl z-50 overflow-hidden max-h-[50vh] sm:max-h-80 overflow-y-auto animate-fade-in">
+                    <div className="p-3 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-[#666666]/70 border-b border-[#EFE8DD] bg-[#EFE8DD]/20">
+                      Suggested Matches
+                    </div>
+                    <div className="divide-y divide-[#EFE8DD]/50">
+                      {headerSuggestions.map((suggestion, idx) => (
+                        <button
+                          key={idx}
+                          onMouseDown={() => handleSuggestionClick(suggestion)}
+                          className="w-full text-left px-4 md:px-5 py-3 md:py-3.5 hover:bg-[#EFE8DD]/30 flex items-center justify-between transition-colors group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-2.5 md:gap-3">
+                            {suggestion.type === 'category' && <Tag className="w-3.5 h-3.5 text-[#B89B72]" />}
+                            {suggestion.type === 'fabric' && <Sparkles className="w-3.5 h-3.5 text-[#B89B72]" />}
+                            {suggestion.type === 'product' && <ShoppingBag className="w-3.5 h-3.5 text-[#B89B72]" />}
+                            <span className="text-xs font-semibold text-[#1D1818] group-hover:text-[#B89B72] transition-colors truncate max-w-[150px] sm:max-w-none">
+                              {suggestion.label}
+                            </span>
+                          </div>
+                          <span className="text-[8px] md:text-[9px] font-bold uppercase tracking-wider text-[#666666]/50 group-hover:text-[#B89B72]/70 shrink-0">
+                            {suggestion.type}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-              <button
-                onClick={() => {
-                  setIsSearchOpen(false);
-                  setCurrentPage('shop');
-                }}
-                className="bg-[#1D1818] hover:bg-[#B89B72] text-[#FFFEF2] text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-2xl transition-all"
-              >
-                Search
-              </button>
-              <button
-                onClick={() => setIsSearchOpen(false)}
-                className="p-2 text-[#666666] hover:text-[#1D1818]"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              
+              {/* Actions row on mobile, side-by-side on desktop */}
+              <div className="flex items-center gap-2.5 justify-end">
+                <button
+                  onClick={() => {
+                    setIsSearchOpen(false);
+                    setCurrentPage('shop');
+                  }}
+                  className="flex-1 sm:flex-none text-center bg-[#1D1818] hover:bg-[#B89B72] text-[#FFFEF2] text-xs font-bold uppercase tracking-widest px-5 py-2.5 md:py-3 rounded-2xl transition-all min-h-[40px] flex items-center justify-center cursor-pointer"
+                >
+                  Search
+                </button>
+                <button
+                  onClick={() => setIsSearchOpen(false)}
+                  className="p-2.5 text-[#666666] hover:text-[#1D1818] hover:bg-[#EFE8DD]/30 rounded-full transition-colors cursor-pointer"
+                  aria-label="Close search"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
           </div>
         )}
