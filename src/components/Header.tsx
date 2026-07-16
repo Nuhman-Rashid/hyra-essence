@@ -152,7 +152,7 @@ export default function Header({
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20 md:h-24">
+          <div className="flex justify-between items-center h-20 md:h-24 relative">
             
             {/* Left side navigation (Desktop) */}
             <nav className="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-[0.18em]">
@@ -242,12 +242,12 @@ export default function Header({
             <div
               id="header-logo-container"
               onClick={() => handleNavClick('home')}
-              className="flex flex-col items-center justify-center cursor-pointer group text-center select-none pt-1 pb-2 px-3 transition-all duration-300"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group text-center select-none pt-1 pb-2 px-3 transition-all duration-300 z-10"
             >
               {/* Gold Crest Monogram Logo from the provided reference */}
               <svg
                 id="header-logo-svg"
-                className="w-[42px] h-[34px] sm:w-[48px] sm:h-[38px] md:w-[58px] md:h-[46px] transition-transform duration-300 group-hover:scale-105"
+                className="w-[52px] h-[42px] sm:w-[60px] sm:h-[48px] md:w-[72px] md:h-[58px] transition-transform duration-300 group-hover:scale-105"
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -286,14 +286,14 @@ export default function Header({
               
               <span
                 id="header-brand-name"
-                className="font-serif text-sm sm:text-base md:text-xl font-bold tracking-[0.25em] text-[#1D1818] uppercase mt-1.5 md:mt-2.5 transition-all duration-300 group-hover:text-[#B89B72]"
+                className="font-serif text-base sm:text-lg md:text-2xl font-bold tracking-[0.25em] text-[#1D1818] uppercase -mt-1 sm:-mt-1.5 md:-mt-2 transition-all duration-300 group-hover:text-[#B89B72]"
               >
                 {BRAND_NAME}
               </span>
               
               <span
                 id="header-brand-slogan"
-                className="text-[6px] sm:text-[7.5px] md:text-[8px] font-medium tracking-[0.32em] text-[#B89B72] uppercase mt-0.5 md:mt-1"
+                className="text-[7px] sm:text-[8px] md:text-[9.5px] font-medium tracking-[0.32em] text-[#B89B72] uppercase mt-0.5 sm:mt-1"
               >
                 Elegance in Every Thread
               </span>
@@ -329,12 +329,19 @@ export default function Header({
 
               {/* Quick WhatsApp contact icon (Desktop) */}
               <a
-                href="https://wa.me/918590457509?text=Hello%20HYRA%20ESSENCE!%20I%20am%20browsing%20your%20gorgeous%20website%20and%20would%20love%20to%20learn%20more."
+                href="https://wa.me/919526228491?text=Hello%20HYRA%20ESSENCE!%20I%20am%20browsing%20your%20gorgeous%20website%20and%20would%20love%20to%20learn%20more."
                 target="_blank"
                 rel="noreferrer"
-                className="hidden md:flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#FFFEF2] bg-[#1D1818] hover:bg-[#B89B72] px-4 py-2.5 rounded-xl transition-all duration-300"
+                className="hidden md:flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white bg-[#C8A96B] hover:bg-[#B89B72] px-4 py-2.5 rounded-xl transition-all duration-300 group shadow-sm"
               >
-                <MessageSquare className="w-3.5 h-3.5 text-[#B89B72] group-hover:text-white" />
+                <svg
+                  className="w-3.5 h-3.5 text-white transition-colors duration-300"
+                  viewBox="0 0 448 512"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l112.5-29.5c32.9 17.9 69.6 27.3 107.1 27.3 122.4 0 222-99.6 222-222 0-59.3-23.2-115-65.1-157M223.9 445.5c-33.2 0-65.7-8.9-94-25.7l-6.7-4-66.8 17.5 17.8-65.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                </svg>
                 Connect
               </a>
             </div>

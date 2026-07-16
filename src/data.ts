@@ -6,8 +6,8 @@
 import { Product, Review, FAQItem } from './types';
 
 export const BRAND_NAME = 'HYRA ESSENCE';
-export const WHATSAPP_NUMBER = '918590457509';
-export const WHATSAPP_LINK_BASE = 'https://wa.me/918590457509';
+export const WHATSAPP_NUMBER = '919526228491';
+export const WHATSAPP_LINK_BASE = 'https://wa.me/919526228491';
 
 export const CATEGORIES = [
   {

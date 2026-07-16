@@ -56,7 +56,7 @@ export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: Fo
             </p>
             <div className="flex space-x-4 pt-2">
               <a
-                href="https://wa.me/918590457509"
+                href="https://wa.me/919526228491"
                 target="_blank"
                 rel="noreferrer"
                 className="p-2.5 rounded-full bg-[#1D1818]/5 hover:bg-[#B89B72] hover:text-[#FFFEF2] transition-all duration-300"
@@ -193,7 +193,7 @@ export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: Fo
               </div>
               <div className="flex items-center gap-2">
                 <MessageSquare className="w-3.5 h-3.5 text-[#B89B72]" />
-                <span>+91 8590457509</span>
+                <span>+91 9526228491</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#B89B72]" />
