@@ -25,11 +25,25 @@ export const CATEGORIES = [
     count: 18
   },
   {
-    id: 'tops',
-    name: 'Tops & Tunics',
-    description: 'Chic minimalism. Refined contemporary cuts designed for daily comfort and poise.',
-    image: 'https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=800&q=80',
+    id: 'co-ord-sets',
+    name: 'Co-ord Sets',
+    description: 'Chic matching ensembles. Effortless coordination with contemporary tailored cuts.',
+    image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
+    count: 8
+  },
+  {
+    id: 'materials',
+    name: 'Materials',
+    description: 'Premium unstitched fabric sets. Custom-tailor your dream outfit with high-grade weaves.',
+    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
     count: 15
+  },
+  {
+    id: 'modern-wears',
+    name: 'Modern Wears',
+    description: 'Trendy daily fashion. Refined contemporary cuts designed for student and working life.',
+    image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80',
+    count: 10
   }
 ];
 
@@ -187,7 +201,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'tp-01',
     name: 'Aura Linen Cropped Top',
-    category: 'tops',
+    category: 'modern-wears',
     price: 1199,
     originalPrice: 1799,
     fabric: 'Organic Slub Linen Cotton',
@@ -212,12 +226,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'tp-02',
-    name: 'Monochrome Linen Resort Tunic',
-    category: 'tops',
-    price: 1499,
-    originalPrice: 1999,
+    name: 'Elysian Premium Linen Co-ord Set',
+    category: 'co-ord-sets',
+    price: 2499,
+    originalPrice: 3499,
     fabric: 'Premium French Linen',
-    description: 'The epitome of high-fashion minimalism. Featuring a rich beige-sand tone, this longline tunic top exudes elegance. Designed with structural side slits and a soft collar, it balances effortless street style with boutique luxury.',
+    description: 'The epitome of contemporary fashion. Featuring a perfectly matched linen shirt and trousers set. Colored in a rich, minimalist beige-sand tone, it offers effortless elegance and premium comfort for both casual outings and workspace chic.',
     sizes: ['S', 'M', 'L', 'XL'],
     images: [
       'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
@@ -226,10 +240,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Dry clean recommended, or machine wash on delicate cycle. Warm iron.',
     deliveryInfo: 'Standard free shipping across India. Ships in 2 days.',
     features: [
-      'Sophisticated high-low asymmetric hemline',
+      'Sophisticated double-breasted matching silhouette',
       'Premium breathable French linen fabric',
-      'Mother of pearl button highlights',
-      'Can be worn as a dress or styled over trousers'
+      'Straight-fit trousers with comfy semi-elasticated waist',
+      'Highly versatile matching elements'
     ],
     isFeatured: true,
     rating: 4.8,
@@ -237,12 +251,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'tp-03',
-    name: 'Elysian Meadow Smocked Top',
-    category: 'tops',
-    price: 1299,
-    originalPrice: 1899,
-    fabric: 'Soft Cotton Cambric',
-    description: 'Charming and soft. A delightful, lightweight cotton cambric top featuring an elegant smocked bodice and delicate puff sleeves. Colored in a subtle pastel mint, it adds a touch of gentle femininity to your casual daily style.',
+    name: 'Elysian Meadow Unstitched Material Set',
+    category: 'materials',
+    price: 1599,
+    originalPrice: 2299,
+    fabric: 'Premium Soft Cotton Cambric',
+    description: 'Charming, custom-tailorable, and soft. A delightful, lightweight cotton cambric dress material set featuring pre-designed beautiful embroidery layouts. Colored in a subtle pastel mint, it allows you to custom stitch the perfect fit and custom silhouette.',
     sizes: ['XS', 'S', 'M', 'L'],
     images: [
       'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80',

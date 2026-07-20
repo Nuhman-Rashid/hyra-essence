@@ -51,13 +51,13 @@ const getInitialRouting = () => {
 
   let initialPage = 'home';
   let initialProduct: string | null = null;
-  let initialCategory: 'churidars' | 'kurtas' | 'tops' | null = null;
+  let initialCategory: string | null = null;
 
   if (product && PRODUCTS.some(p => p.id === product)) {
     initialProduct = product;
     initialPage = 'product-detail';
-  } else if (category && ['churidars', 'kurtas', 'tops'].includes(category)) {
-    initialCategory = category as 'churidars' | 'kurtas' | 'tops';
+  } else if (category && CATEGORIES.some(c => c.id === category)) {
+    initialCategory = category;
     initialPage = 'shop';
   } else if (['shop', 'about', 'contact', 'faq', 'privacy', 'shipping-returns'].includes(page)) {
     initialPage = page;
@@ -74,7 +74,7 @@ export default function App() {
   const [selectedProductId, setSelectedProductId] = useState<string | null>(initialRoute.initialProduct);
 
   // Shop Page States
-  const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<'churidars' | 'kurtas' | 'tops' | null>(initialRoute.initialCategory);
+  const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<string | null>(initialRoute.initialCategory);
   const [activeFilterTab, setActiveFilterTab] = useState<'all' | 'new' | 'best-sellers'>('all');
   const [sortOption, setSortOption] = useState<string>('featured');
   const [shopSearchQuery, setShopSearchQuery] = useState<string>('');
@@ -89,7 +89,7 @@ export default function App() {
       type: 'category' | 'fabric' | 'product';
       value: string;
       label: string;
-      categoryFilter?: 'churidars' | 'kurtas' | 'tops' | null;
+      categoryFilter?: string | null;
     }> = [];
 
     // 1. Categories
@@ -99,7 +99,7 @@ export default function App() {
           type: 'category',
           value: cat.name,
           label: cat.name,
-          categoryFilter: cat.id as 'churidars' | 'kurtas' | 'tops',
+          categoryFilter: cat.id,
         });
       }
     });
@@ -627,32 +627,59 @@ export default function App() {
             </section>
 
             {/* Shop By Category Section */}
-            <section id="categories-shelf" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
-              <div className="mb-14 text-center space-y-2">
+            <section id="categories-shelf" className="w-full py-20 md:py-28 text-center bg-[#FAF8F5] overflow-hidden relative">
+              <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes marquee {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+                .animate-marquee {
+                  display: flex;
+                  width: max-content;
+                  animation: marquee 35s linear infinite;
+                }
+                .animate-marquee:hover {
+                  animation-play-state: paused;
+                }
+              `}} />
+              
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 text-center space-y-2">
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B89B72]">The Collections</span>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1D1818] tracking-wide">
                   Shop by Category
                 </h2>
                 <div className="w-12 h-[1px] bg-[#B89B72] mx-auto mt-3" />
+                <p className="text-[10px] text-[#1D1818]/50 uppercase tracking-[0.15em] mt-3">Hover to pause • Click to explore</p>
               </div>
 
-              {/* Category Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {CATEGORIES.map((cat) => (
-                  <CategoryCard
-                    key={cat.id}
-                    id={cat.id}
-                    name={cat.name}
-                    description={cat.description}
-                    image={cat.image}
-                    count={cat.count}
-                    onClick={(id) => {
-                      setSelectedCategoryFilter(id as any);
-                      setCurrentPage('shop');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                  />
-                ))}
+              {/* Infinite Horizontal Scroll Track */}
+              <div className="relative w-full overflow-hidden py-4">
+                {/* Gradient Fades for Premium Visual Finish */}
+                <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
+
+                <div className="animate-marquee flex gap-6 sm:gap-8 px-4 sm:px-8">
+                  {/* Duplicate to ensure continuous smooth infinite sliding without visual jumps */}
+                  {[...CATEGORIES, ...CATEGORIES].map((cat, idx) => (
+                    <div 
+                      key={`${cat.id}-${idx}`}
+                      className="w-[280px] sm:w-[320px] md:w-[340px] shrink-0"
+                    >
+                      <CategoryCard
+                        id={cat.id}
+                        name={cat.name}
+                        description={cat.description}
+                        image={cat.image}
+                        count={cat.count}
+                        onClick={(id) => {
+                          setSelectedCategoryFilter(id as any);
+                          setCurrentPage('shop');
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
 
@@ -1059,36 +1086,19 @@ export default function App() {
                 >
                   All Categories
                 </button>
-                <button
-                  onClick={() => setSelectedCategoryFilter('churidars')}
-                  className={`px-3 md:px-5 py-2 md:py-2.5 rounded-xl transition-all cursor-pointer flex-1 sm:flex-none text-center ${
-                    selectedCategoryFilter === 'churidars'
-                      ? 'bg-[#111111] text-[#FAF8F5]'
-                      : 'border border-[#EFE8DD] hover:border-[#C8A96B] text-[#111111]'
-                  }`}
-                >
-                  Churidars
-                </button>
-                <button
-                  onClick={() => setSelectedCategoryFilter('kurtas')}
-                  className={`px-3 md:px-5 py-2 md:py-2.5 rounded-xl transition-all cursor-pointer flex-1 sm:flex-none text-center ${
-                    selectedCategoryFilter === 'kurtas'
-                      ? 'bg-[#111111] text-[#FAF8F5]'
-                      : 'border border-[#EFE8DD] hover:border-[#C8A96B] text-[#111111]'
-                  }`}
-                >
-                  Kurtas
-                </button>
-                <button
-                  onClick={() => setSelectedCategoryFilter('tops')}
-                  className={`px-3 md:px-5 py-2 md:py-2.5 rounded-xl transition-all cursor-pointer flex-1 sm:flex-none text-center ${
-                    selectedCategoryFilter === 'tops'
-                      ? 'bg-[#111111] text-[#FAF8F5]'
-                      : 'border border-[#EFE8DD] hover:border-[#C8A96B] text-[#111111]'
-                  }`}
-                >
-                  Tops & Tunics
-                </button>
+                {CATEGORIES.map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedCategoryFilter(cat.id)}
+                    className={`px-3 md:px-5 py-2 md:py-2.5 rounded-xl transition-all cursor-pointer flex-1 sm:flex-none text-center ${
+                      selectedCategoryFilter === cat.id
+                        ? 'bg-[#111111] text-[#FAF8F5]'
+                        : 'border border-[#EFE8DD] hover:border-[#C8A96B] text-[#111111]'
+                    }`}
+                  >
+                    {cat.name}
+                  </button>
+                ))}
               </div>
 
               {/* Multi sorting & tags */}
@@ -1208,13 +1218,13 @@ export default function App() {
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
                 <div className="md:col-span-7 space-y-4">
                   <h2 className="font-serif text-xl md:text-2xl font-bold text-[#111111] tracking-wide">
-                    The Genesis of HYRA ESSENCE
+                    Express Confidence & Style
                   </h2>
                   <p>
-                    Founded in Kochi, Kerala, <strong>HYRA ESSENCE</strong> emerged out of a desire to bridge the gap between premium luxury fashion and affordable pricing for the modern, style-conscious woman. We noticed that high-street retail brands lacked the premium fabric breathable qualities suited for our humid coastal environments, while local ethnic options often compromised on sophisticated minimalist design aesthetics.
+                    At <strong>HYRA ESSENCE</strong>, we believe that fashion is more than just clothing—it's a way to express confidence, individuality, and style. Our goal is to bring carefully selected, trendy, and high-quality outfits that help every woman feel beautiful and confident every day.
                   </p>
                   <p>
-                    Our response was simple: a design label deeply rooted in Kerala’s rich handloom traditions, combined with contemporary European minimalism (inspired by Zara and Mango) that college students and young professionals adore.
+                    Based in Thalassery, Kannur, we specialize in stylish kurtas, churidars, tops, and ethnic wear, thoughtfully curated for college students, working women, and anyone who loves elegant yet comfortable fashion. Every collection is chosen with attention to quality, design, and affordability, ensuring you receive the best value without compromising on style.
                   </p>
                 </div>
                 <div className="md:col-span-5 aspect-[4/5] bg-[#EFE8DD]/40 overflow-hidden rounded-2xl">
@@ -1238,16 +1248,13 @@ export default function App() {
                 </div>
                 <div className="md:col-span-7 order-1 md:order-2 space-y-4">
                   <h2 className="font-serif text-xl md:text-2xl font-bold text-[#111111] tracking-wide">
-                    Our Mission & Ethical Fabrics
+                    Our Commitment to You
                   </h2>
                   <p>
-                    Our mission is simple: to make every visitor look and feel stunning, premium, and absolutely confident. Every single Kurta, Salwar Set, and Tunic we curate under the HYRA logo must pass stringent parameters of fabric excellence.
+                    We are committed to providing a seamless shopping experience, excellent customer service, and fashion that keeps you ahead of the trends. Whether you're dressing for college, work, casual outings, or special occasions, <strong>HYRA ESSENCE</strong> is here to help you find outfits you'll love to wear.
                   </p>
                   <p>
-                    We prioritize raw materials that allow your skin to breathe. From authentic organic Belgian flax linens, high-grade mulberry and Tussar silks, to handwoven cotton yarns crafted by local artisans across India. We believe that true luxury lies in the touch of raw, high-quality fabric against the skin.
-                  </p>
-                  <p>
-                    Slow fashion is our guiding light. Instead of massive industrial roll-outs, we produce small, exclusive batches that reduce textile waste, support local weaver cooperatives, and guarantee you wear a design that remains highly exclusive and unique.
+                    Thank you for being a part of our journey. We look forward to becoming your trusted destination for fashionable women's wear.
                   </p>
                 </div>
               </div>
@@ -1405,7 +1412,7 @@ export default function App() {
                       <MessageSquare className="w-5 h-5 text-[#C8A96B] shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold">WhatsApp Hotline</p>
-                        <p className="text-[#666666] mt-0.5">+91 8590457509</p>
+                        <p className="text-[#666666] mt-0.5">+91 9526228491</p>
                       </div>
                     </div>
 
@@ -1428,7 +1435,7 @@ export default function App() {
 
                   <div className="pt-4 border-t border-[#EFE8DD]">
                     <a
-                      href="https://wa.me/918590457509"
+                      href="https://wa.me/919526228491"
                       target="_blank"
                       rel="noreferrer"
                       className="w-full flex items-center justify-center gap-2.5 py-3.5 bg-[#111111] hover:bg-[#C8A96B] text-[#FAF8F5] text-[10px] font-bold uppercase tracking-[0.18em] transition-all rounded-xl shadow-sm"
@@ -1514,7 +1521,7 @@ export default function App() {
                   Our WhatsApp support is active 7 days a week. Ask us about chest measurements, print close-ups, or custom salwar tailoring options.
                 </p>
                 <a
-                  href="https://wa.me/918590457509"
+                  href="https://wa.me/919526228491"
                   target="_blank"
                   rel="noreferrer"
                   className="bg-[#111111] hover:bg-[#C8A96B] text-[#FAF8F5] text-[10px] font-bold uppercase tracking-widest px-6 py-3.5 inline-block rounded-xl shadow-sm"

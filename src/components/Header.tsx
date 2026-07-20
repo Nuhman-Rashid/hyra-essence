@@ -11,13 +11,13 @@ interface SearchSuggestion {
   type: 'category' | 'fabric' | 'product';
   value: string;
   label: string;
-  categoryFilter?: 'churidars' | 'kurtas' | 'tops' | null;
+  categoryFilter?: string | null;
 }
 
 interface HeaderProps {
   currentPage: string;
   setCurrentPage: (page: string) => void;
-  setSelectedCategoryFilter: (category: 'churidars' | 'kurtas' | 'tops' | null) => void;
+  setSelectedCategoryFilter: (category: string | null) => void;
   wishlistCount: number;
   onOpenWishlist: () => void;
   shopSearchQuery?: string;
@@ -56,7 +56,7 @@ export default function Header({
           type: 'category',
           value: cat.name,
           label: cat.name,
-          categoryFilter: cat.id as 'churidars' | 'kurtas' | 'tops',
+          categoryFilter: cat.id,
         });
       }
     });
@@ -113,7 +113,7 @@ export default function Header({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleCategoryClick = (category: 'churidars' | 'kurtas' | 'tops') => {
+  const handleCategoryClick = (category: string) => {
     setSelectedCategoryFilter(category);
     setCurrentPage('shop');
     setIsMobileMenuOpen(false);
@@ -192,24 +192,15 @@ export default function Header({
                 {isCategoriesDropdownOpen && (
                   <div className="absolute left-0 mt-0 w-56 bg-[#FFFEF2] border border-[#EFE8DD] shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-none overflow-hidden animate-fade-in">
                     <div className="py-2">
-                      <button
-                        onClick={() => handleCategoryClick('churidars')}
-                        className="w-full text-left px-6 py-3 text-[11px] uppercase tracking-wider text-[#1D1818]/85 hover:bg-[#EFE8DD] hover:text-[#1D1818] transition-all font-semibold"
-                      >
-                        Churidars
-                      </button>
-                      <button
-                        onClick={() => handleCategoryClick('kurtas')}
-                        className="w-full text-left px-6 py-3 text-[11px] uppercase tracking-wider text-[#1D1818]/85 hover:bg-[#EFE8DD] hover:text-[#1D1818] transition-all font-semibold"
-                      >
-                        Kurtas
-                      </button>
-                      <button
-                        onClick={() => handleCategoryClick('tops')}
-                        className="w-full text-left px-6 py-3 text-[11px] uppercase tracking-wider text-[#1D1818]/85 hover:bg-[#EFE8DD] hover:text-[#1D1818] transition-all font-semibold"
-                      >
-                        Tops & Tunics
-                      </button>
+                      {CATEGORIES.map((cat) => (
+                        <button
+                          key={cat.id}
+                          onClick={() => handleCategoryClick(cat.id)}
+                          className="w-full text-left px-6 py-3 text-[11px] uppercase tracking-wider text-[#1D1818]/85 hover:bg-[#EFE8DD] hover:text-[#1D1818] transition-all font-semibold"
+                        >
+                          {cat.name}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 )}
@@ -476,24 +467,15 @@ export default function Header({
                     Categories
                   </div>
                   <div className="pl-4 flex flex-col space-y-3 border-l border-[#EFE8DD]">
-                    <button
-                      onClick={() => handleCategoryClick('churidars')}
-                      className="text-left text-xs uppercase tracking-wider text-[#1D1818]/85 hover:text-[#B89B72]"
-                    >
-                      Churidars
-                    </button>
-                    <button
-                      onClick={() => handleCategoryClick('kurtas')}
-                      className="text-left text-xs uppercase tracking-wider text-[#1D1818]/85 hover:text-[#B89B72]"
-                    >
-                      Kurtas
-                    </button>
-                    <button
-                      onClick={() => handleCategoryClick('tops')}
-                      className="text-left text-xs uppercase tracking-wider text-[#1D1818]/85 hover:text-[#B89B72]"
-                    >
-                      Tops & Tunics
-                    </button>
+                    {CATEGORIES.map((cat) => (
+                      <button
+                        key={cat.id}
+                        onClick={() => handleCategoryClick(cat.id)}
+                        className="text-left text-xs uppercase tracking-wider text-[#1D1818]/85 hover:text-[#B89B72]"
+                      >
+                        {cat.name}
+                      </button>
+                    ))}
                   </div>
                 </div>
 
@@ -528,10 +510,10 @@ export default function Header({
             <div className="border-t border-[#EFE8DD] pt-6 flex flex-col space-y-4">
               <div className="flex items-center gap-2 text-xs text-[#666666]">
                 <MapPin className="w-4 h-4 text-[#B89B72]" />
-                <span>Kochi, Kerala, India</span>
+                <span>Thalassery, Kannur, Kerala, India</span>
               </div>
               <a
-                href="https://wa.me/918590457509"
+                href="https://wa.me/919526228491"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full bg-[#1D1818] text-[#FFFEF2] text-xs font-bold uppercase tracking-widest text-center py-3 hover:bg-[#B89B72] rounded-xl transition-all"

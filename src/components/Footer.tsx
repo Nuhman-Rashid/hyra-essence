@@ -3,28 +3,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, MessageSquare, Instagram, MapPin, ArrowRight, Heart } from 'lucide-react';
-import { BRAND_NAME } from '../data';
+import { BRAND_NAME, CATEGORIES } from '../data';
 
 interface FooterProps {
   setCurrentPage: (page: string) => void;
-  setSelectedCategoryFilter: (category: 'churidars' | 'kurtas' | 'tops' | null) => void;
+  setSelectedCategoryFilter: (category: string | null) => void;
 }
 
 export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: FooterProps) {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 5000);
-    }
-  };
-
   const handleNavClick = (page: string) => {
     if (page === 'shop') {
       setSelectedCategoryFilter(null);
@@ -33,7 +21,7 @@ export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: Fo
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleCategoryClick = (category: 'churidars' | 'kurtas' | 'tops') => {
+  const handleCategoryClick = (category: string) => {
     setSelectedCategoryFilter(category);
     setCurrentPage('shop');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -83,41 +71,26 @@ export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: Fo
             </div>
           </div>
 
-          {/* Newsletter signup */}
+          {/* WhatsApp Group Join Section */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-4">
             <h3 className="font-serif text-lg font-medium text-[#1D1818] uppercase tracking-wider">
-              Join the HYRA Circle
+              Join Our WhatsApp Community
             </h3>
-            <p className="text-[#1D1818]/70 text-xs">
-              Subscribe to receive exclusive access to early collections, special seasonal offers, and styling tips.
+            <p className="text-[#1D1818]/70 text-xs max-w-lg leading-relaxed">
+              Become a part of our exclusive WhatsApp group to receive instant alerts on new stock arrivals, premium collection launches, and special group-only discount offers.
             </p>
             
-            <form onSubmit={handleSubscribe} className="relative max-w-md">
-              <div className="flex border border-[#1D1818]/20 focus-within:border-[#B89B72] rounded-2xl bg-[#1D1818]/5 focus-within:bg-[#1D1818]/10 overflow-hidden transition-all p-1">
-                <input
-                  type="email"
-                  required
-                  placeholder="Your email address"
-                  className="bg-transparent text-xs w-full py-2 px-3.5 focus:outline-none placeholder-[#1D1818]/40 text-[#1D1818]"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <button
-                  type="submit"
-                  className="p-2.5 text-[#B89B72] hover:text-[#1D1818] transition-colors flex items-center gap-1 cursor-pointer"
-                  aria-label="Submit subscription"
-                >
-                  {subscribed ? (
-                    <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest">Subscribed</span>
-                  ) : (
-                    <>
-                      <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:inline">Join</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </>
-                  )}
-                </button>
-              </div>
-            </form>
+            <div className="pt-1">
+              <a
+                href="https://chat.whatsapp.com/F8lCXkoADL69EQEb92CvtC?s=cl&p=a&ilr=0"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#1D1818] hover:bg-[#25D366] text-[#FFFEF2] text-[10px] font-bold uppercase tracking-[0.2em] transition-all rounded-xl shadow-sm hover:shadow-md hover:scale-[1.02] duration-300"
+              >
+                <MessageSquare className="w-4 h-4 text-[#B89B72]" />
+                Join WhatsApp Group
+              </a>
+            </div>
           </div>
         </div>
 
@@ -151,15 +124,15 @@ export default function Footer({ setCurrentPage, setSelectedCategoryFilter }: Fo
               Collections
             </h4>
             <div className="flex flex-col space-y-2.5 text-[#1D1818]/70">
-              <button onClick={() => handleCategoryClick('churidars')} className="hover:text-[#B89B72] text-left transition-colors cursor-pointer">
-                Churidars
-              </button>
-              <button onClick={() => handleCategoryClick('kurtas')} className="hover:text-[#B89B72] text-left transition-colors cursor-pointer">
-                Kurtas
-              </button>
-              <button onClick={() => handleCategoryClick('tops')} className="hover:text-[#B89B72] text-left transition-colors cursor-pointer">
-                Tops & Tunics
-              </button>
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => handleCategoryClick(cat.id)}
+                  className="hover:text-[#B89B72] text-left transition-colors cursor-pointer text-xs"
+                >
+                  {cat.name}
+                </button>
+              ))}
             </div>
           </div>
 

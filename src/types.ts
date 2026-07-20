@@ -6,7 +6,7 @@
 export interface Product {
   id: string;
   name: string;
-  category: 'churidars' | 'kurtas' | 'tops';
+  category: string;
   price: number;
   originalPrice?: number;
   fabric: string;
