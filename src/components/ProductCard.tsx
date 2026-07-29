@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Heart, ShoppingBag, Eye, MessageSquare } from 'lucide-react';
+import { Heart, ShoppingBag, Eye, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Product } from '../types';
 import { WHATSAPP_NUMBER } from '../data';
 
@@ -25,6 +25,34 @@ export default function ProductCard({
   onToggleWishlist,
 }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [activeImageIdx, setActiveImageIdx] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+  const minSwipeDistance = 40;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartX || !touchEndX || !product.images || product.images.length <= 1) return;
+    const distance = touchStartX - touchEndX;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      setActiveImageIdx((prev) => (prev < product.images.length - 1 ? prev + 1 : 0));
+    } else if (isRightSwipe) {
+      setActiveImageIdx((prev) => (prev > 0 ? prev - 1 : product.images.length - 1));
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
 
   // Prefilled WhatsApp message for instant purchase
   const whatsappMessage = encodeURIComponent(
@@ -41,8 +69,16 @@ export default function ProductCard({
   return (
     <article
       className="group relative flex flex-col bg-transparent animate-fade-in"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        if (product.images && product.images.length > 1 && activeImageIdx === 0) {
+          setActiveImageIdx(1);
+        }
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setActiveImageIdx(0);
+      }}
     >
       {/* Visual stage / Image container */}
       <div className="relative w-full aspect-[3/4] bg-[#EFE8DD]/30 overflow-hidden rounded-2xl cursor-pointer" onClick={() => onProductClick(product.id)}>
@@ -82,26 +118,81 @@ export default function ProductCard({
           />
         </button>
 
-        {/* Product Images (Fades between primary and secondary on hover) */}
-        <img
-          src={product.images[0]}
-          alt={product.name}
-          referrerPolicy="no-referrer"
-          loading="lazy"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-out-expo ${
-            isHovered && product.images[1] ? 'opacity-0' : 'opacity-100'
-          }`}
-        />
-        {product.images[1] && (
-          <img
-            src={product.images[1]}
-            alt={`${product.name} Alternate View`}
-            referrerPolicy="no-referrer"
-            loading="lazy"
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out-expo scale-100 group-hover:scale-105 ${
-              isHovered ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
+        {/* Product Images (Interactive Swipe Style & Hover Carousel) */}
+        {(!product.images || product.images.length === 0 || !product.images[0]) ? (
+          <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-[#FAF8F5] border border-[#EFE8DD]/50 p-6 text-center">
+            <div className="w-10 h-10 rounded-full bg-[#EFE8DD]/60 flex items-center justify-center mb-3 text-[#C8A96B]">
+              <Eye className="w-5 h-5 opacity-60" />
+            </div>
+            <span className="font-serif text-lg tracking-[0.25em] font-bold text-[#1D1818]/80 mb-1">HYRA</span>
+            <span className="text-[9px] uppercase tracking-[0.2em] text-[#B89B72] font-semibold">Photo Coming Soon</span>
+          </div>
+        ) : (
+          <div
+            className="absolute inset-0 w-full h-full"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {product.images.map((img, idx) => (
+              <img
+                key={idx}
+                src={img}
+                alt={`${product.name} - View ${idx + 1}`}
+                referrerPolicy="no-referrer"
+                loading="lazy"
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out-expo ${
+                  idx === activeImageIdx
+                    ? 'opacity-100 scale-100 group-hover:scale-105 pointer-events-auto'
+                    : 'opacity-0 scale-95 pointer-events-none'
+                }`}
+              />
+            ))}
+
+            {/* Swipe Arrows (appear on hover when multiple photos exist) */}
+            {product.images.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveImageIdx((prev) => (prev > 0 ? prev - 1 : product.images.length - 1));
+                  }}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-[#FFFEF2]/85 hover:bg-[#FFFEF2] text-[#1D1818] hover:text-[#C8A96B] flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveImageIdx((prev) => (prev < product.images.length - 1 ? prev + 1 : 0));
+                  }}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-[#FFFEF2]/85 hover:bg-[#FFFEF2] text-[#1D1818] hover:text-[#C8A96B] flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+                  aria-label="Next photo"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+
+                {/* Bottom Dot Indicators / Swipe Style */}
+                <div className="absolute bottom-3 group-hover:bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-black/45 backdrop-blur-sm px-2.5 py-1 rounded-full pointer-events-auto transition-all duration-500">
+                  {product.images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveImageIdx(idx);
+                      }}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        idx === activeImageIdx ? 'w-3.5 bg-[#C8A96B]' : 'w-1.5 bg-white/60 hover:bg-white'
+                      }`}
+                      aria-label={`Go to photo ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         )}
 
         {/* Quick View slide-up overlay */}

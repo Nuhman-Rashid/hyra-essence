@@ -92,18 +92,22 @@ export default function WishlistDrawer({
                   >
                     {/* Thumbnail */}
                     <div
-                      className="w-20 aspect-[3/4] overflow-hidden bg-[#EFE8DD]/25 rounded-lg shrink-0 cursor-pointer"
+                      className="w-20 aspect-[3/4] overflow-hidden bg-[#EFE8DD]/25 rounded-lg shrink-0 cursor-pointer flex items-center justify-center bg-[#FAF8F5] border border-[#EFE8DD]/50"
                       onClick={() => {
                         onViewProduct(p.id);
                         onClose();
                       }}
                     >
-                      <img
-                        src={p.images[0]}
-                        alt={p.name}
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover"
-                      />
+                      {(!p.images || p.images.length === 0 || !p.images[0]) ? (
+                        <span className="font-serif text-[10px] tracking-widest font-bold text-[#1D1818]/70">HYRA</span>
+                      ) : (
+                        <img
+                          src={p.images[0]}
+                          alt={p.name}
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover"
+                        />
+                      )}
                     </div>
 
                     {/* Meta info */}

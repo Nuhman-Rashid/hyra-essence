@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Heart, MessageSquare, ArrowLeft, ShieldCheck, Truck, RotateCcw, Sparkles, HelpCircle, Eye } from 'lucide-react';
+import { Heart, MessageSquare, ArrowLeft, ShieldCheck, Truck, RotateCcw, Sparkles, HelpCircle, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Product } from '../types';
 import { PRODUCTS, WHATSAPP_NUMBER } from '../data';
 
@@ -30,6 +30,33 @@ export default function ProductDetail({
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
   const [isSizeChartOpen, setIsSizeChartOpen] = useState<boolean>(false);
   const [zoomStyle, setZoomStyle] = useState<React.CSSProperties>({ backgroundPosition: '0% 0%' });
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+  const minSwipeDistance = 40;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartX || !touchEndX || !product?.images || product.images.length <= 1) return;
+    const distance = touchStartX - touchEndX;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      setActiveImageIdx((prev) => (prev < product.images.length - 1 ? prev + 1 : 0));
+    } else if (isRightSwipe) {
+      setActiveImageIdx((prev) => (prev > 0 ? prev - 1 : product.images.length - 1));
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
 
   useEffect(() => {
     const foundProduct = PRODUCTS.find((p) => p.id === productId);
@@ -100,48 +127,109 @@ export default function ProductDetail({
         <div className="lg:col-span-7 flex flex-col md:flex-row gap-4">
           
           {/* Vertical thumbnail list (desktop) */}
-          <div className="order-2 md:order-1 flex md:flex-col gap-2.5 overflow-x-auto md:overflow-visible shrink-0 pb-2 md:pb-0">
-            {product.images.map((img, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveImageIdx(idx)}
-                className={`w-16 md:w-20 aspect-[3/4] border rounded-lg overflow-hidden transition-all shrink-0 cursor-pointer ${
-                  idx === activeImageIdx
-                    ? 'border-[#C8A96B] p-0.5 bg-[#FAF8F5]'
-                    : 'border-[#EFE8DD] opacity-70 hover:opacity-100'
-                }`}
-              >
-                <img
-                  src={img}
-                  alt={`Thumbnail ${idx + 1}`}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
-                />
-              </button>
-            ))}
-          </div>
-
-          {/* Active image stage with interactive zoom */}
-          <div className="order-1 md:order-2 flex-1 relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#EFE8DD]/20 border border-[#EFE8DD]/40">
-            <div
-              className="w-full h-full overflow-hidden cursor-zoom-in"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-            >
-              <img
-                src={product.images[activeImageIdx]}
-                alt={product.name}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-200"
-                style={zoomStyle}
-              />
+          {product.images && product.images.length > 0 && (
+            <div className="order-2 md:order-1 flex md:flex-col gap-2.5 overflow-x-auto md:overflow-visible shrink-0 pb-2 md:pb-0">
+              {product.images.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveImageIdx(idx)}
+                  className={`w-16 md:w-20 aspect-[3/4] border rounded-lg overflow-hidden transition-all shrink-0 cursor-pointer ${
+                    idx === activeImageIdx
+                      ? 'border-[#C8A96B] p-0.5 bg-[#FAF8F5]'
+                      : 'border-[#EFE8DD] opacity-70 hover:opacity-100'
+                  }`}
+                >
+                  <img
+                    src={img}
+                    alt={`Thumbnail ${idx + 1}`}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
             </div>
+          )}
 
-            {/* Float zoom text indicator */}
-            <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-[8px] tracking-widest text-white uppercase px-2 py-1 flex items-center gap-1 pointer-events-none">
-              <Eye className="w-3 h-3" />
-              Hover to Zoom
-            </div>
+          {/* Active image stage with interactive zoom & swipe */}
+          <div 
+            className="order-1 md:order-2 flex-1 relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#EFE8DD]/20 border border-[#EFE8DD]/40 group"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {(!product.images || product.images.length === 0 || !product.images[activeImageIdx]) ? (
+              <div className="w-full h-full flex flex-col items-center justify-center bg-[#FAF8F5] p-8 text-center min-h-[400px]">
+                <div className="w-16 h-16 rounded-full bg-[#EFE8DD]/50 flex items-center justify-center mb-4 text-[#C8A96B] shadow-sm">
+                  <Sparkles className="w-8 h-8 opacity-75" />
+                </div>
+                <span className="font-serif text-3xl tracking-[0.25em] font-bold text-[#1D1818]/85 mb-2">HYRA ESSENCE</span>
+                <span className="text-[10px] uppercase tracking-[0.25em] text-[#B89B72] font-bold">Product Shoot in Progress · Photo Coming Soon</span>
+              </div>
+            ) : (
+              <>
+                <div
+                  className="w-full h-full overflow-hidden cursor-zoom-in"
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <img
+                    src={product.images[activeImageIdx]}
+                    alt={product.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-200 animate-fade-in"
+                    style={zoomStyle}
+                  />
+                </div>
+
+                {/* Swipe Navigation Arrows */}
+                {product.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveImageIdx((prev) => (prev > 0 ? prev - 1 : product.images.length - 1));
+                      }}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#FFFEF2]/85 hover:bg-[#FFFEF2] text-[#1D1818] hover:text-[#C8A96B] flex items-center justify-center shadow-md opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+                      aria-label="Previous photo"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveImageIdx((prev) => (prev < product.images.length - 1 ? prev + 1 : 0));
+                      }}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#FFFEF2]/85 hover:bg-[#FFFEF2] text-[#1D1818] hover:text-[#C8A96B] flex items-center justify-center shadow-md opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+                      aria-label="Next photo"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+
+                    {/* Photo Counter & Dot Indicator */}
+                    <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-[10px] font-bold tracking-widest text-white uppercase px-3 py-1.5 rounded-full flex items-center gap-2 pointer-events-none z-10 shadow-sm">
+                      <span>{activeImageIdx + 1} / {product.images.length}</span>
+                      <div className="flex items-center gap-1">
+                        {product.images.map((_, idx) => (
+                          <div
+                            key={idx}
+                            className={`h-1 rounded-full transition-all duration-300 ${
+                              idx === activeImageIdx ? 'w-3 bg-[#C8A96B]' : 'w-1 bg-white/50'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* Float zoom text indicator */}
+                <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-[8px] tracking-widest text-white uppercase px-2.5 py-1.5 rounded-full flex items-center gap-1 pointer-events-none">
+                  <Eye className="w-3 h-3" />
+                  Hover to Zoom
+                </div>
+              </>
+            )}
           </div>
         </div>
 

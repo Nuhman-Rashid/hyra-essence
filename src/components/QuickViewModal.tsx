@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { X, MessageSquare, ArrowRight, ShieldCheck, Truck } from 'lucide-react';
+import { X, MessageSquare, ArrowRight, ShieldCheck, Truck, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Product } from '../types';
 import { WHATSAPP_NUMBER } from '../data';
 
@@ -17,6 +17,33 @@ interface QuickViewModalProps {
 export default function QuickViewModal({ product, onClose, onViewDetails }: QuickViewModalProps) {
   const [selectedSize, setSelectedSize] = useState<string>(product.sizes[0]);
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+  const minSwipeDistance = 40;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartX || !touchEndX || !product?.images || product.images.length <= 1) return;
+    const distance = touchStartX - touchEndX;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      setActiveImageIdx((prev) => (prev < product.images.length - 1 ? prev + 1 : 0));
+    } else if (isRightSwipe) {
+      setActiveImageIdx((prev) => (prev > 0 ? prev - 1 : product.images.length - 1));
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
 
   // Prefilled WhatsApp order text with selected size
   const whatsappMessage = encodeURIComponent(
@@ -43,17 +70,76 @@ export default function QuickViewModal({ product, onClose, onViewDetails }: Quic
 
         {/* Left Side: Images Section */}
         <div className="md:w-1/2 flex flex-col p-4 md:p-6 bg-[#EFE8DD]/20 border-b md:border-b-0 md:border-r border-[#EFE8DD]">
-          <div className="relative aspect-[3/4] overflow-hidden bg-white rounded-xl">
-            <img
-              src={product.images[activeImageIdx]}
-              alt={product.name}
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover animate-fade-in"
-            />
+          <div 
+            className="relative aspect-[3/4] overflow-hidden bg-white rounded-xl group"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {(!product.images || product.images.length === 0 || !product.images[activeImageIdx]) ? (
+              <div className="w-full h-full flex flex-col items-center justify-center bg-[#FAF8F5] p-6 text-center">
+                <div className="w-12 h-12 rounded-full bg-[#EFE8DD]/50 flex items-center justify-center mb-3 text-[#C8A96B]">
+                  <Sparkles className="w-6 h-6 opacity-75" />
+                </div>
+                <span className="font-serif text-2xl tracking-[0.2em] font-bold text-[#1D1818]/85 mb-1.5">HYRA</span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-[#B89B72] font-semibold">Photo Coming Soon</span>
+              </div>
+            ) : (
+              <>
+                <img
+                  src={product.images[activeImageIdx]}
+                  alt={product.name}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover animate-fade-in"
+                />
+
+                {/* Swipe Navigation Arrows */}
+                {product.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveImageIdx((prev) => (prev > 0 ? prev - 1 : product.images.length - 1));
+                      }}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#FFFEF2]/85 hover:bg-[#FFFEF2] text-[#1D1818] hover:text-[#C8A96B] flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+                      aria-label="Previous photo"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveImageIdx((prev) => (prev < product.images.length - 1 ? prev + 1 : 0));
+                      }}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-[#FFFEF2]/85 hover:bg-[#FFFEF2] text-[#1D1818] hover:text-[#C8A96B] flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+                      aria-label="Next photo"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+
+                    {/* Photo Counter & Dot Indicator */}
+                    <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm text-[9px] font-bold tracking-widest text-white uppercase px-2.5 py-1 rounded-full flex items-center gap-1.5 pointer-events-none z-10 shadow-sm">
+                      <span>{activeImageIdx + 1} / {product.images.length}</span>
+                      <div className="flex items-center gap-1">
+                        {product.images.map((_, idx) => (
+                          <div
+                            key={idx}
+                            className={`h-1 rounded-full transition-all duration-300 ${
+                              idx === activeImageIdx ? 'w-2.5 bg-[#C8A96B]' : 'w-1 bg-white/50'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                )}
+              </>
+            )}
           </div>
           
           {/* Thumbnail triggers */}
-          {product.images.length > 1 && (
+          {product.images && product.images.length > 1 && (
             <div className="flex gap-2.5 mt-3 justify-center">
               {product.images.map((img, idx) => (
                 <button
