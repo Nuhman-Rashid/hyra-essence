@@ -21,6 +21,8 @@ import {
   Filter,
   CheckCircle2,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Info,
   Search,
   Tag,
@@ -79,6 +81,59 @@ export default function App() {
   const [sortOption, setSortOption] = useState<string>('featured');
   const [shopSearchQuery, setShopSearchQuery] = useState<string>('');
   const [isShopSearchFocused, setIsShopSearchFocused] = useState<boolean>(false);
+
+  // Categories Shelf Ref & Swipe Handler
+  const categoryTrackRef = React.useRef<HTMLDivElement>(null);
+
+  const scrollCategories = (direction: 'left' | 'right') => {
+    if (categoryTrackRef.current) {
+      const scrollAmount = 340;
+      categoryTrackRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  useEffect(() => {
+    const container = categoryTrackRef.current;
+    if (!container) return;
+    let animationFrameId: number;
+    let isHovered = false;
+
+    const handleMouseEnter = () => { isHovered = true; };
+    const handleMouseLeave = () => { isHovered = false; };
+    const handleTouchStart = () => { isHovered = true; };
+    const handleTouchEnd = () => { isHovered = false; };
+
+    container.addEventListener('mouseenter', handleMouseEnter);
+    container.addEventListener('mouseleave', handleMouseLeave);
+    container.addEventListener('touchstart', handleTouchStart);
+    container.addEventListener('touchend', handleTouchEnd);
+
+    const step = () => {
+      if (!isHovered && container) {
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft = 0;
+        } else {
+          container.scrollLeft += 0.8;
+        }
+      }
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      if (container) {
+        container.removeEventListener('mouseenter', handleMouseEnter);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, []);
 
 
   // Shop Search Suggestions Generator
@@ -628,39 +683,68 @@ export default function App() {
 
             {/* Shop By Category Section */}
             <section id="categories-shelf" className="w-full py-20 md:py-28 text-center bg-[#FAF8F5] overflow-hidden relative">
-              <style dangerouslySetInnerHTML={{ __html: `
-                @keyframes marquee {
-                  0% { transform: translateX(0); }
-                  100% { transform: translateX(-50%); }
-                }
-                .animate-marquee {
-                  display: flex;
-                  width: max-content;
-                  animation: marquee 35s linear infinite;
-                }
-                .animate-marquee:hover {
-                  animation-play-state: paused;
-                }
-              `}} />
-              
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 text-center space-y-2">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center space-y-2">
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B89B72]">The Collections</span>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1D1818] tracking-wide">
                   Shop by Category
                 </h2>
                 <div className="w-12 h-[1px] bg-[#B89B72] mx-auto mt-3" />
-                <p className="text-[10px] text-[#1D1818]/50 uppercase tracking-[0.15em] mt-3">Hover to pause • Click to explore</p>
+                <p className="text-[10px] text-[#1D1818]/50 uppercase tracking-[0.15em] mt-2">
+                  Use swipe buttons or drag to explore
+                </p>
+
+                {/* Swipe Control Buttons */}
+                <div className="flex items-center justify-center gap-3 pt-3">
+                  <button
+                    onClick={() => scrollCategories('left')}
+                    aria-label="Swipe Left"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#EFE8DD] text-[#1D1818] text-xs font-semibold shadow-xs hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 group cursor-pointer"
+                  >
+                    <ChevronLeft className="w-4 h-4 text-[#C8A96B] group-hover:text-white transition-colors" />
+                    <span>Swipe Left</span>
+                  </button>
+
+                  <button
+                    onClick={() => scrollCategories('right')}
+                    aria-label="Swipe Right"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#EFE8DD] text-[#1D1818] text-xs font-semibold shadow-xs hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 group cursor-pointer"
+                  >
+                    <span>Swipe Right</span>
+                    <ChevronRight className="w-4 h-4 text-[#C8A96B] group-hover:text-white transition-colors" />
+                  </button>
+                </div>
               </div>
 
-              {/* Infinite Horizontal Scroll Track */}
-              <div className="relative w-full overflow-hidden py-4">
-                {/* Gradient Fades for Premium Visual Finish */}
-                <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
+              {/* Horizontal Scroll Track with Side Floating Swipe Buttons */}
+              <div className="relative w-full max-w-[1400px] mx-auto px-2 sm:px-6 py-4">
+                {/* Side Floating Swipe Left Button */}
+                <button
+                  onClick={() => scrollCategories('left')}
+                  aria-label="Swipe Left"
+                  className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-[#1D1818] shadow-md border border-[#EFE8DD] flex items-center justify-center hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 active:scale-95 cursor-pointer"
+                >
+                  <ChevronLeft className="w-5 h-5 text-[#C8A96B] hover:text-white" />
+                </button>
 
-                <div className="animate-marquee flex gap-6 sm:gap-8 px-4 sm:px-8">
-                  {/* Duplicate to ensure continuous smooth infinite sliding without visual jumps */}
-                  {[...CATEGORIES, ...CATEGORIES].map((cat, idx) => (
+                {/* Side Floating Swipe Right Button */}
+                <button
+                  onClick={() => scrollCategories('right')}
+                  aria-label="Swipe Right"
+                  className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-[#1D1818] shadow-md border border-[#EFE8DD] flex items-center justify-center hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 active:scale-95 cursor-pointer"
+                >
+                  <ChevronRight className="w-5 h-5 text-[#C8A96B] hover:text-white" />
+                </button>
+
+                {/* Edge Gradient Fades */}
+                <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
+
+                {/* Interactive Animated Scroll Track */}
+                <div
+                  ref={categoryTrackRef}
+                  className="flex gap-6 sm:gap-8 px-8 sm:px-16 overflow-x-auto scroll-smooth [ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden py-2"
+                >
+                  {[...CATEGORIES, ...CATEGORIES, ...CATEGORIES].map((cat, idx) => (
                     <div 
                       key={`${cat.id}-${idx}`}
                       className="w-[280px] sm:w-[320px] md:w-[340px] shrink-0"
