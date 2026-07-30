@@ -948,47 +948,35 @@ export default function App() {
             </section>
 
             {/* Instagram Gallery Section */}
-            <section id="instagram-gallery" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-              <div className="mb-14 text-center space-y-2">
+            <section id="instagram-gallery" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+              <div className="bg-[#FAF8F5] border border-[#EFE8DD]/80 rounded-2xl p-8 md:p-12 text-center space-y-4 max-w-2xl mx-auto shadow-xs">
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B89B72]">Follow us on Instagram</span>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1D1818] tracking-wide">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#1D1818] tracking-wide">
                   <a
                     href="https://www.instagram.com/hyra.essence?igsh=MTMxcHFwNG1ib29qdQ=="
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#B89B72] transition-colors"
+                    className="hover:text-[#B89B72] transition-colors inline-flex items-center gap-2"
                   >
+                    <Instagram className="w-6 h-6 text-[#C8A96B]" />
                     @HYRA_ESSENCE
                   </a>
                 </h2>
-                <div className="w-12 h-[1px] bg-[#B89B72] mx-auto mt-3" />
-              </div>
-
-              {/* Instagram Feed Grid */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                {INSTAGRAM_POSTS.map((post) => (
-                  <div
-                    key={post.id}
-                    className="group relative aspect-square bg-[#EFE8DD]/30 overflow-hidden rounded-2xl cursor-pointer"
+                <div className="w-12 h-[1px] bg-[#B89B72] mx-auto" />
+                <p className="text-xs text-[#666666]">
+                  Stay updated with our latest collections, exclusive arrivals, and styling inspiration.
+                </p>
+                <div className="pt-2">
+                  <a
+                    href="https://www.instagram.com/hyra.essence?igsh=MTMxcHFwNG1ib29qdQ=="
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#1D1818] text-[#FAF8F5] text-xs font-semibold hover:bg-[#C8A96B] transition-colors shadow-xs"
                   >
-                    <img
-                      src={post.imageUrl}
-                      alt="Instagram Style Showcase"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-[#FAF8F5] text-xs font-semibold">
-                      <div className="flex items-center gap-1.5">
-                        <Heart className="w-4 h-4 text-[#C8A96B] fill-[#C8A96B]" />
-                        <span>{post.likes}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <MessageSquare className="w-4 h-4 text-[#C8A96B] fill-[#C8A96B]" />
-                        <span>{post.comments}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                    <Instagram className="w-4 h-4" />
+                    Visit Instagram Page
+                  </a>
+                </div>
               </div>
             </section>
           </div>
