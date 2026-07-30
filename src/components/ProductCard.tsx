@@ -221,33 +221,33 @@ export default function ProductCard({
       </div>
 
       {/* Info details */}
-      <div className="mt-4 flex flex-col space-y-1 text-left cursor-pointer" onClick={() => onProductClick(product.id)}>
+      <div className="mt-2.5 sm:mt-4 flex flex-col space-y-0.5 sm:space-y-1 text-left cursor-pointer" onClick={() => onProductClick(product.id)}>
         
         {/* Fabric description */}
-        <span className="text-[10px] font-semibold text-[#666666] tracking-wider uppercase">
+        <span className="text-[9px] sm:text-[10px] font-semibold text-[#666666] tracking-wider uppercase truncate">
           {product.fabric.split('with')[0].trim()}
         </span>
 
         {/* Product title */}
-        <h3 className="font-serif text-base font-semibold text-[#1D1818] tracking-wide group-hover:text-[#B89B72] transition-colors line-clamp-1">
+        <h3 className="font-serif text-xs sm:text-base font-semibold text-[#1D1818] tracking-wide group-hover:text-[#B89B72] transition-colors line-clamp-1">
           {product.name}
         </h3>
 
         {/* Available Sizes preview */}
-        <div className="text-[9px] text-[#666666]/70 uppercase tracking-widest font-medium py-0.5">
+        <div className="text-[8px] sm:text-[9px] text-[#666666]/70 uppercase tracking-widest font-medium py-0.5 truncate">
           Sizes: {product.sizes.join(' · ')}
         </div>
 
         {/* Price & Action Container */}
-        <div className="flex justify-between items-center pt-2">
+        <div className="flex items-center justify-between pt-1.5 sm:pt-2 gap-1 flex-wrap sm:flex-nowrap">
           
           {/* Price tags */}
-          <div className="flex items-baseline space-x-2">
-            <span className="font-semibold text-[#1D1818] text-sm">
+          <div className="flex items-baseline space-x-1 sm:space-x-2">
+            <span className="font-semibold text-[#1D1818] text-xs sm:text-sm">
               ₹{product.price.toLocaleString('en-IN')}
             </span>
             {product.originalPrice && (
-              <span className="text-xs text-[#666666]/60 line-through">
+              <span className="text-[10px] sm:text-xs text-[#666666]/60 line-through">
                 ₹{product.originalPrice.toLocaleString('en-IN')}
               </span>
             )}
@@ -259,10 +259,10 @@ export default function ProductCard({
             target="_blank"
             rel="noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white bg-[#C8A96B] hover:bg-[#B89B72] px-3.5 py-2 rounded-xl transition-all duration-300 group shadow-sm"
+            className="flex items-center gap-1 sm:gap-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-white bg-[#C8A96B] hover:bg-[#B89B72] px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl transition-all duration-300 group shadow-xs shrink-0"
           >
             <svg
-              className="w-3.5 h-3.5 text-white transition-colors duration-300"
+              className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white transition-colors duration-300"
               viewBox="0 0 448 512"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"

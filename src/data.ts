@@ -61,20 +61,23 @@ export const PRODUCTS: Product[] = [
     category: 'churidars',
     price: 1099,
     originalPrice: 1599,
-    fabric: 'Premium Georgette & Silk Blend with Intricate White & Silver Embroidery',
-    description: 'A breathtaking statement piece inspired by royal heritage palettes. Featuring exquisite white and silver floral zari embroidery cascading along the neckline, sleeves, and lower hem of a rich cocoa taupe canvas. Paired with embroidered gharara churidar trousers and a flowing sheer dupatta with delicate border embroidery.',
+    fabric: 'Rayon top & Cotton Shall',
+    description: 'designed for comfort and timeless beauty. The premium rayon top offers a soft, breathable feel with a graceful drape, making it perfect for all-day wear. Paired with a lightweight cotton shawl, this outfit combines sophistication with effortless comfort.',
     sizes: ['L', 'XL', 'XXL' , '3XL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_black_churidhar_pjmehc',
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_black_churidhar_pjmehc'
     ],
     washCare: 'Dry clean recommended to preserve the delicate silver embroidery and sheer fabric drape. Alternatively, gentle hand wash in cold water.',
     deliveryInfo: 'Ships within 24-48 hours from Thalassery, Kannur, Kerala. Express delivery across Kerala in 1-2 business days. All-India delivery in 4-6 business days.',
     features: [
-      'Warm cocoa taupe palette with intricate silver and white floral embroidery',
-      'Soft breathable lining for luxurious all-day comfort',
-      'Matching embroidered gharara churidar trousers',
-      'Sheer flowing dupatta with delicate embroidered border detailing'
+        'Premium Soft Rayon Top',
+        'Lightweight & Breathable Cotton Shawl',
+        'Comfortable Fit for Everyday Wear',
+        'Elegant Pakistani-Inspired Design',
+        'Suitable for Casual, Office & Festive Occasions',
+        'Soft, Skin-Friendly Fabric',
+        'Easy to Wash & Maintain'
     ],
     isNewArrival: true,
     isFeatured: true,
@@ -85,12 +88,12 @@ export const PRODUCTS: Product[] = [
  
   {
       id: 'ch-02',
-    name: 'Gulnar Pastel Organza Salwar Set',
+    name: 'Churidhar',
     category: 'churidars',
     price: 2999,
     originalPrice: 3899,
-    fabric: 'Premium Sheer Organza & Silk Crepe Lining',
-    description: 'Designed for the festive collegiate look. Featuring a beautiful dusty rose shade, this salwar set is layered with sheer, weightless organza and embellished with delicate hand-embroidered floral motifs along the neckline. Paired with comfortable semi-elasticated tapered pants.',
+    fabric: 'Rayon Churidhar & shifon shall',
+    description: 'Designed for the festive collegiate look, weightless organza and embellished with delicate hand-embroidered floral motifs along the neckline. Paired with comfortable patiyala pants.',
     sizes: [ 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/2099_2XL_FOUR_COLOUR_jr0xz0',
@@ -103,7 +106,6 @@ export const PRODUCTS: Product[] = [
     deliveryInfo: 'Ships within 2 days. Express delivery option available for Kochi and Trivandrum.',
     features: [
       'Delicate hand-done botanical beadwork',
-      'Premium soft satin lining for ultimate comfort',
       'Exquisite scalloped edges on the dupatta',
       'Perfect for campus festivals and formal gatherings'
     ],
@@ -127,10 +129,13 @@ export const PRODUCTS: Product[] = [
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
     features: [
-      'Hand-block printed using authentic natural vegetable indigo dyes',
-      'High-grade Chanderi weave with lightweight feel',
-      'Contrast piping details',
-      'Breathable cotton lining'
+      'Premium Soft Rayon Top',
+        'Lightweight & Breathable Cotton Shawl',
+        'Comfortable Fit for Everyday Wear',
+        'Elegant Pakistani-Inspired Design',
+        'Suitable for Casual, Office & Festive Occasions',
+        'Soft, Skin-Friendly Fabric',
+        'Easy to Wash & Maintain'
     ],
     rating: 4.7,
     reviewsCount: 19
@@ -151,10 +156,13 @@ export const PRODUCTS: Product[] = [
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
     features: [
-      'Hand-block printed using authentic natural vegetable indigo dyes',
-      'High-grade Chanderi weave with lightweight feel',
-      'Contrast piping details',
-      'Breathable cotton lining'
+      'Premium Soft Rayon Top',
+        'Lightweight & Breathable Cotton Shawl',
+        'Comfortable Fit for Everyday Wear',
+        'Elegant Pakistani-Inspired Design',
+        'Suitable for Casual, Office & Festive Occasions',
+        'Soft, Skin-Friendly Fabric',
+        'Easy to Wash & Maintain'
     ],
     rating: 4.7,
     reviewsCount: 19
@@ -165,68 +173,68 @@ export const PRODUCTS: Product[] = [
     category: 'churidars',
     price: 3200,
     originalPrice: 4200,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
-    description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
+    fabric: 'Muslin churidhar & Rayon pant',
+    description: 'Grace meets comfort in this elegant Muslin Churidhar set paired with a soft Rayon Pant. Crafted from lightweight, breathable fabrics, its perfect for everyday wear, office, college, and casual outings. A stylish blend of comfort and timeless elegance.',
     sizes: ['M','L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1399_M_-_XXL_yc8hql',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1399_M_-_XXL_yc8hql'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
     features: [
-      'Hand-block printed using authentic natural vegetable indigo dyes',
-      'High-grade Chanderi weave with lightweight feel',
-      'Contrast piping details',
-      'Breathable cotton lining'
+      'Premium Soft Muslin Fabric',
+      'Comfortable Rayon Pant',
+      'Lightweight & Breathable',
+      'Perfect for Daily & Casual Wear',
     ],
     rating: 4.7,
     reviewsCount: 19
   },
    {
     id: 'ch-06',
-    name: 'Pakistani Churidhar',
+    name: 'Shifon Churidhar',
     category: 'churidars',
     price: 1999,
     originalPrice: 3499,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
-    description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
+    fabric: 'Shifon',
+    description: 'Made from soft, lightweight fabric, it offers a graceful drape and all-day comfort, making it perfect for casual outings, festive occasions, and everyday wear.',
     sizes: [ '3XL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0447_uuyqg0',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0447_uuyqg0'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
     features: [
-      'Hand-block printed using authentic natural vegetable indigo dyes',
-      'High-grade Chanderi weave with lightweight feel',
-      'Contrast piping details',
-      'Breathable cotton lining'
+      'Premium Soft Chiffon Fabric',
+      'Lightweight & Breathable',
+      'Elegant & Comfortable Fit',
+      'Perfect for Casual & Festive Wear'
     ],
     rating: 4.7,
     reviewsCount: 19
   },
    {
     id: 'ch-07',
-    name: 'AREELA',
+    name: 'Chanderi silk churidhar',
     category: 'churidars',
     price: 0,
     originalPrice: 3499,
     fabric: 'Pure Chanderi Silk-Cotton Blend',
-    description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
+    description: 'Crafted from premium Chanderi silk, it offers a luxurious feel, graceful shine, and exceptional comfort—perfect for festive celebrations, special occasions, and elegant everyday wear.',
     sizes: [ '3XL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/sqo8qmuqhunohgbzgyey',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/sqo8qmuqhunohgbzgyey'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
     features: [
-      'Hand-block printed using authentic natural vegetable indigo dyes',
-      'High-grade Chanderi weave with lightweight feel',
-      'Contrast piping details',
-      'Breathable cotton lining'
+      'Premium Chanderi Silk Fabric',
+      'Soft & Comfortable Feel',
+      'Elegant Traditional Design',
+      'Perfect for Festive & Special Occasions'
     ],
     rating: 4.7,
     reviewsCount: 19
@@ -242,7 +250,7 @@ export const PRODUCTS: Product[] = [
     sizes: ['L', 'XL', 'XXL', '3XL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_L-XXXL_tpqtx9',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_L-XXXL_tpqtx9'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
@@ -281,48 +289,48 @@ export const PRODUCTS: Product[] = [
   },
    {
     id: 'ch-10',
-    name: 'Pakistani Churidhar',
+    name: 'Churidar',
     category: 'churidars',
     price: 1199,
     originalPrice: 1699,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
-    description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
+    fabric: 'Roman silk',
+    description: 'Made from premium-quality Roman silk, it features a smooth texture, rich finish, and comfortable fit, making it an ideal choice for festive occasions, parties, and elegant everyday wear.',
     sizes: ['M','L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1199_M_-_XXL_vfwww6',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1199_M_-_XXL_vfwww6'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
     features: [
-      'Hand-block printed using authentic natural vegetable indigo dyes',
-      'High-grade Chanderi weave with lightweight feel',
-      'Contrast piping details',
-      'Breathable cotton lining'
+      'Premium Roman Silk Fabric',
+      'Smooth & Luxurious Finish',
+      'Comfortable & Elegant Fit',
+      'Perfect for Festive & Party Wear'
     ],
     rating: 4.7,
     reviewsCount: 19
   },
   {
     id: 'ch-11',
-    name: 'Pakistani Churidhar',
+    name: 'Churidhar',
     category: 'churidars',
     price: 1499,
     originalPrice: 2299,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
-    description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
+    fabric: 'Roman silk',
+    description: 'Designed with premium Roman silk, it offers a smooth texture, graceful drape, and lasting comfort. Perfect for festive occasions, family gatherings, office wear, and special events.',
     sizes: [ '3XL','4XL','5XL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1499_3XL_-_5XL_h1jyo7',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1499_3XL_-_5XL_h1jyo7'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
     features: [
-      'Hand-block printed using authentic natural vegetable indigo dyes',
-      'High-grade Chanderi weave with lightweight feel',
-      'Contrast piping details',
-      'Breathable cotton lining'
+      'Premium Roman Silk Fabric',
+      'Soft & Smooth Texture',
+      'Elegant & Comfortable Fit',
+      'Ideal for Festive & Everyday Wear'
     ],
     rating: 4.7,
     reviewsCount: 19
