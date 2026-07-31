@@ -266,13 +266,17 @@ export default function ProductDetail({
             </div>
 
             {/* Small review summary */}
-            <div className="flex items-center gap-2 text-xs text-[#666666]">
-              <div className="flex text-[#C8A96B] font-bold">
-                {'★'.repeat(Math.floor(product.rating))}
-                {product.rating % 1 !== 0 && '½'}
+            {product.rating !== undefined && product.rating > 0 && (
+              <div className="flex items-center gap-2 text-xs text-[#666666]">
+                <div className="flex text-[#C8A96B] font-bold">
+                  {'★'.repeat(Math.floor(product.rating))}
+                  {product.rating % 1 !== 0 && '½'}
+                </div>
+                {product.reviewsCount !== undefined && (
+                  <span>({product.reviewsCount} verified customer reviews)</span>
+                )}
               </div>
-              <span>({product.reviewsCount} verified customer reviews)</span>
-            </div>
+            )}
           </div>
 
           {/* Deep Description */}

@@ -413,11 +413,13 @@ export default function App() {
               'name': 'HYRA ESSENCE'
             }
           },
-          'aggregateRating': {
-            '@type': 'AggregateRating',
-            'ratingValue': product.rating,
-            'reviewCount': product.reviewsCount
-          }
+          ...(product.rating ? {
+            'aggregateRating': {
+              '@type': 'AggregateRating',
+              'ratingValue': product.rating,
+              'reviewCount': product.reviewsCount || 0
+            }
+          } : {})
         };
         schemaScript.textContent = JSON.stringify(productSchema);
       } else {
@@ -553,7 +555,7 @@ export default function App() {
     } else if (sortOption === 'high-to-low') {
       list.sort((a, b) => b.price - a.price);
     } else if (sortOption === 'rating') {
-      list.sort((a, b) => b.rating - a.rating);
+      list.sort((a, b) => (b.rating || 0) - (a.rating || 0));
     }
 
     return list;
@@ -1434,7 +1436,6 @@ export default function App() {
                     <option value="featured">Featured First</option>
                     <option value="low-to-high">Price: Low to High</option>
                     <option value="high-to-low">Price: High to Low</option>
-                    <option value="rating">Rating Score</option>
                   </select>
                 </div>
               </div>

@@ -78,7 +78,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_L-XXXL_tpqtx9",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_L-XXXL_tpqtx9"
     ],
     "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
     "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
@@ -88,8 +87,6 @@ export const PRODUCTS: Product[] = [
       "Contrast piping details",
       "Breathable cotton lining"
     ],
-    "rating": 4.7,
-    "reviewsCount": 19
   },
   {
     "id": "ch-09",
@@ -107,7 +104,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_M_-_2XL_uldods",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_M_-_2XL_uldods"
     ],
     "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
     "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
@@ -117,8 +113,6 @@ export const PRODUCTS: Product[] = [
       "Comfortable All-Day Fit",
       "Ideal for Daily & Casual Wear"
     ],
-    "rating": 4.7,
-    "reviewsCount": 19
   },
   {
     "id": "ch-00",
@@ -136,7 +130,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_black_churidhar_pjmehc",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_black_churidhar_pjmehc"
     ],
     "washCare": "Dry clean recommended to preserve the delicate silver embroidery and sheer fabric drape. Alternatively, gentle hand wash in cold water.",
     "deliveryInfo": "Ships within 24-48 hours from Thalassery, Kannur, Kerala. Express delivery across Kerala in 1-2 business days. All-India delivery in 4-6 business days.",
@@ -152,8 +145,6 @@ export const PRODUCTS: Product[] = [
     "isNewArrival": true,
     "isFeatured": true,
     "isBestSeller": true,
-    "rating": 4.9,
-    "reviewsCount": 42
   },
   {
     "id": "ch-03",
@@ -184,8 +175,6 @@ export const PRODUCTS: Product[] = [
       "Soft, Skin-Friendly Fabric",
       "Easy to Wash & Maintain"
     ],
-    "rating": 4.7,
-    "reviewsCount": 19
   },
   {
     "id": "ch-04",
@@ -216,8 +205,6 @@ export const PRODUCTS: Product[] = [
       "Soft, Skin-Friendly Fabric",
       "Easy to Wash & Maintain"
     ],
-    "rating": 4.7,
-    "reviewsCount": 19
   },
   {
     "id": "ch-10",
@@ -245,8 +232,6 @@ export const PRODUCTS: Product[] = [
       "Comfortable & Elegant Fit",
       "Perfect for Festive & Party Wear"
     ],
-    "rating": 4.7,
-    "reviewsCount": 19
   },
   {
     "id": "ch-05",
@@ -274,8 +259,6 @@ export const PRODUCTS: Product[] = [
       "Lightweight & Breathable",
       "Perfect for Daily & Casual Wear"
     ],
-    "rating": 4.7,
-    "reviewsCount": 19
   },
   {
     "id": "ch-07",
@@ -300,8 +283,6 @@ export const PRODUCTS: Product[] = [
       "Elegant Traditional Design",
       "Perfect for Festive & Special Occasions"
     ],
-    "rating": 4.7,
-    "reviewsCount": 19
   },
   {
     "id": "ch-11",
@@ -328,8 +309,6 @@ export const PRODUCTS: Product[] = [
       "Elegant & Comfortable Fit",
       "Ideal for Festive & Everyday Wear"
     ],
-    "rating": 4.7,
-    "reviewsCount": 19
   },
   {
     "id": "ch-06",
@@ -354,8 +333,6 @@ export const PRODUCTS: Product[] = [
       "Elegant & Comfortable Fit",
       "Perfect for Casual & Festive Wear"
     ],
-    "rating": 4.7,
-    "reviewsCount": 19
   },
   {
     "id": "ch-02",
@@ -382,8 +359,6 @@ export const PRODUCTS: Product[] = [
       "Perfect for campus festivals and formal gatherings"
     ],
     "isBestSeller": true,
-    "rating": 4.8,
-    "reviewsCount": 24
   },
   {
     "id": "ku-01",
@@ -414,8 +389,6 @@ export const PRODUCTS: Product[] = [
     "isNewArrival": true,
     "isFeatured": true,
     "isBestSeller": true,
-    "rating": 4.9,
-    "reviewsCount": 45
   },
   {
     "id": "ku-02",
@@ -444,8 +417,6 @@ export const PRODUCTS: Product[] = [
       "Comfortable Regular Fit",
       "Perfect for Daily & Casual Wear"
     ],
-    "rating": 4.6,
-    "reviewsCount": 15
   },
   {
     "id": "ku-03",
@@ -474,8 +445,6 @@ export const PRODUCTS: Product[] = [
       "Comfortable Regular Fit",
       "Perfect for Daily & Casual Wear"
     ],
-    "rating": 4.8,
-    "reviewsCount": 28
   },
   {
     "id": "ku-04",
@@ -500,8 +469,6 @@ export const PRODUCTS: Product[] = [
       "Comfortable Regular Fit",
       "Perfect for Daily & Casual Wear"
     ],
-    "rating": 4.8,
-    "reviewsCount": 28
   },
   {
     "id": "co-01",
@@ -530,8 +497,6 @@ export const PRODUCTS: Product[] = [
       "Perfect for Daily & Casual Wear"
     ],
     "isFeatured": true,
-    "rating": 4.8,
-    "reviewsCount": 37
   },
   {
     "id": "co-02",
@@ -560,8 +525,6 @@ export const PRODUCTS: Product[] = [
       "Perfect for Daily & Casual Wear"
     ],
     "isNewArrival": true,
-    "rating": 4.9,
-    "reviewsCount": 24
   },
   {
     "id": "co-03",
@@ -590,8 +553,6 @@ export const PRODUCTS: Product[] = [
       "Perfect for Daily & Casual Wear"
     ],
     "isBestSeller": true,
-    "rating": 4.7,
-    "reviewsCount": 42
   },
   {
     "id": "co-04",
@@ -620,8 +581,6 @@ export const PRODUCTS: Product[] = [
       "Perfect for Daily & Casual Wear"
     ],
     "isFeatured": true,
-    "rating": 4.9,
-    "reviewsCount": 31
   },
   {
     "id": "co-05",
@@ -649,8 +608,6 @@ export const PRODUCTS: Product[] = [
       "Stylish Coordinated Design",
       "Perfect for Daily & Casual Wear"
     ],
-    "rating": 4.6,
-    "reviewsCount": 18
   },
   {
     "id": "co-06",
@@ -679,8 +636,6 @@ export const PRODUCTS: Product[] = [
       "Perfect for Daily & Casual Wear"
     ],
     "isNewArrival": true,
-    "rating": 4.8,
-    "reviewsCount": 29
   },
   {
     "id": "co-07",
@@ -709,8 +664,6 @@ export const PRODUCTS: Product[] = [
       "Stylish Coordinated Design",
       "Comfortable All-Day Wear"
     ],
-    "rating": 4.7,
-    "reviewsCount": 22
   },
   {
     "id": "co-08",
@@ -740,8 +693,6 @@ export const PRODUCTS: Product[] = [
       "Perfect for Daily & Casual Wear"
     ],
     "isFeatured": true,
-    "rating": 4.9,
-    "reviewsCount": 35
   },
   {
     "id": "mat-01",
@@ -757,7 +708,8 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/750_MT_vzkl0v",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/750_MT_vzkl0v"
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0837_rmlffy",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/WhatsApp_Image_2026-07-31_at_2.12.29_PM_clceiu"
     ],
     "washCare": "Hand wash in cold water with similar colors. Do not wring. Line dry.",
     "deliveryInfo": "Ships within 48 hours. Express shipping available on checkout request via WhatsApp.",
@@ -768,45 +720,39 @@ export const PRODUCTS: Product[] = [
       "Ideal for Custom Stitching"
     ],
     "isFeatured": true,
-    "rating": 4.8,
-    "reviewsCount": 19
   },
   {
     "id": "mat-02",
-    "name": "Malabar Kasavu Pure Handloom Material Set",
+    "name": " Material ",
     "category": "materials",
     "price": 799,
-    "originalPrice": 2599,
-    "fabric": "Pure Kerala Handloom Cotton with Gold Zari",
-    "description": "Embody traditional grace with our authentic Malabar Kasavu unstitched dress material. Hand-woven by master artisans in Kerala, featuring rich antique gold zari borders across an off-white breathable cotton canvas.",
+    "originalPrice": 999,
+    "fabric": "Soft Rayon",
+    "description": "Premium Soft Rayon Material – Soft, breathable, lightweight, and comfortable fabric with a graceful fall. Ideal for stitching kurtis, churidars, gowns, and ethnic wear.",
     "sizes": [
       "Unstitched (2.5m Top / 2m Bottom)",
       "Custom Tailoring Available"
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_MT_vuu2cz",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_MT_vuu2cz"
     ],
     "washCare": "Gentle hand wash in cold water with mild starch or dry clean recommended to preserve gold zari weave.",
     "deliveryInfo": "Ships within 24-48 hours from Thalassery, Kannur, Kerala. Free express delivery across Kerala.",
     "features": [
       "Authentic Kerala handloom weaves",
-      "Intricate antique gold zari border detailing",
       "Includes matching Kasavu dupatta with tassels",
       "Lightweight, breathable, and culturally rich"
     ],
     "isNewArrival": true,
     "isBestSeller": true,
-    "rating": 4.9,
-    "reviewsCount": 42
   },
   {
     "id": "mat-03",
-    "name": "Royal Chanderi Silk Zari Embroidered Material",
+    "name": "Material",
     "category": "materials",
     "price": 1499,
     "originalPrice": 3499,
-    "fabric": "Pure Chanderi Silk with Organza Dupatta",
+    "fabric": "Banaras silk Soft Organza Shawl",
     "description": "An opulent statement unstitched material set for weddings and celebrations. Crafted from sheer Chanderi silk with delicate floral silver and gold zari motifs, paired with a matching bottom fabric and a scalloped organza dupatta.",
     "sizes": [
       "Unstitched (2.5m Top / 2.5m Bottom)",
@@ -819,14 +765,12 @@ export const PRODUCTS: Product[] = [
     "washCare": "Dry clean strictly recommended to preserve the metallic embroidery and delicate Chanderi silk weave.",
     "deliveryInfo": "Ships within 24 hours. Express delivery across Kerala and India.",
     "features": [
-      "Sheer Chanderi silk with rich zari embroidery",
-      "Scalloped embroidered organza dupatta",
-      "Soft cotton lining material included",
-      "Ideal for festive occasions and custom boutique tailoring"
+      "Premium Banaras Silk Fabric",
+      "Soft & Lightweight Organza Shawl",
+      "Elegant Traditional Finish",
+      "Ideal for Festive & Wedding Wear"
     ],
     "isFeatured": true,
-    "rating": 4.7,
-    "reviewsCount": 24
   },
   {
     "id": "mat-04",
@@ -834,7 +778,7 @@ export const PRODUCTS: Product[] = [
     "category": "materials",
     "price": 1499,
     "originalPrice": 1999,
-    "fabric": "Banaras silk Soft Organza Shawl",
+    "fabric": "chanderi silk",
     "description": "Featuring a luxurious texture, graceful finish, and lightweight comfort, its perfect for creating stunning outfits for festive occasions, weddings, and celebrations.",
     "sizes": [
       "Unstitched (2.5m Top / 2m Bottom)",
@@ -847,13 +791,9 @@ export const PRODUCTS: Product[] = [
     "washCare": "Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.",
     "deliveryInfo": "Standard free shipping across India in 3-5 business days.",
     "features": [
-      "Premium Banaras Silk Fabric",
-      "Soft & Lightweight Organza Shawl",
       "Elegant Traditional Finish",
       "Ideal for Festive & Wedding Wear"
     ],
-    "rating": 4.6,
-    "reviewsCount": 15
   },
   {
     "id": "mat-05",
@@ -874,13 +814,9 @@ export const PRODUCTS: Product[] = [
     "washCare": "Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.",
     "deliveryInfo": "Standard free shipping across India in 3-5 business days.",
     "features": [
-      "Premium Crepe Silk Fabric",
-      "Soft & Smooth Texture",
-      "Elegant & Lightweight Material",
-      "Ideal for Custom Stitching"
+            "Elegant Traditional Finish",
+      "Ideal for Festive & Wedding Wear"
     ],
-    "rating": 4.6,
-    "reviewsCount": 15
   },
   {
     "id": "pa-03",
@@ -898,7 +834,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0686_o7dibg",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0686_o7dibg"
     ],
     "washCare": "Dry clean recommended or gentle hand wash in cold water.",
     "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
@@ -909,8 +844,6 @@ export const PRODUCTS: Product[] = [
       "Versatile styling for festive and formal wear"
     ],
     "isBestSeller": true,
-    "rating": 4.9,
-    "reviewsCount": 27
   },
   {
     "id": "pa-02",
@@ -928,7 +861,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_28_30_32_36_ekfsux",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_28_30_32_36_ekfsux"
     ],
     "washCare": "Dry clean recommended or gentle hand wash in cold water.",
     "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
@@ -939,8 +871,6 @@ export const PRODUCTS: Product[] = [
       "Perfect for Daily & Office Wear"
     ],
     "isBestSeller": true,
-    "rating": 4.9,
-    "reviewsCount": 27
   },
   {
     "id": "pa-01",
@@ -959,7 +889,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/850_28_30_32_x3eayr",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/850_28_30_32_x3eayr"
     ],
     "washCare": "Gentle machine wash on cold or hand wash. Hang dry in shade. Warm iron while slightly damp.",
     "deliveryInfo": "Ships within 24-48 hours. Express delivery across Kerala in 1-2 business days.",
@@ -970,8 +899,6 @@ export const PRODUCTS: Product[] = [
       "Perfect for Casual & Everyday Wear"
     ],
     "isNewArrival": true,
-    "rating": 4.8,
-    "reviewsCount": 19
   },
   {
     "id": "nw-01",
@@ -1001,15 +928,13 @@ export const PRODUCTS: Product[] = [
       "Ideal for restful sleep and cozy lounging"
     ],
     "isNewArrival": true,
-    "rating": 4.8,
-    "reviewsCount": 16
   },
   {
     "id": "nw-02",
     "name": "Rayon Khaftan",
     "category": "night-wear",
-    "price": 449,
-    "originalPrice": 1499,
+    "price": 399,
+    "originalPrice":499,
     "fabric": "Premium 100% Pure Rayon",
     "description": "Made from premium soft rayon fabric, it offers a lightweight feel, breathable comfort, and a relaxed fit, making it perfect for a restful nights sleep and comfortable lounging at home.",
     "sizes": [
@@ -1032,21 +957,17 @@ export const PRODUCTS: Product[] = [
       "Perfect for Nightwear & Loungewear"
     ],
     "isNewArrival": true,
-    "rating": 4.8,
-    "reviewsCount": 16
   },
   {
     "id": "pd-01",
     "name": "Prayer Dress",
     "category": "prayer-dresses",
-    "price": 599,
-    "originalPrice": 999,
-    "fabric": "100% Pure Soft Cotton",
+    "price": 399,
+    "originalPrice": 499,
+    "fabric": "Soft Crepe",
     "description": "Crafted from ultra-soft, breathable 100% cotton, this elegant prayer dress offers complete modest coverage and maximum comfort during daily prayers and peaceful reflection.",
     "sizes": [
-      "Free Size",
-      "XL",
-      "XXL"
+      "Free Size"
     ],
     "images": [
       "https://res.cloudinary.com/tlzj92qq/image/upload/v1785482166/IMG_0441_y5ootj.jpg"
@@ -1060,21 +981,17 @@ export const PRODUCTS: Product[] = [
       "Easy Slip-on Design for Daily Prayer"
     ],
     "isNewArrival": true,
-    "rating": 4.9,
-    "reviewsCount": 12
   },
   {
     "id": "pd-02",
     "name": "Prayer Dress",
     "category": "prayer-dresses",
-    "price": 699,
-    "originalPrice": 1199,
-    "fabric": "Premium Viscose Rayon",
+    "price": 349,
+    "originalPrice": 399,
+    "fabric": "Soft Crepe",
     "description": "Designed with lightweight and silky-soft viscose rayon for a graceful drape and cool feel. Features comfortable elasticated wrist cuffs and an easy-wear silhouette.",
     "sizes": [
-      "Free Size",
-      "L",
-      "XL"
+      "Free Size"
     ],
     "images": [
       "https://res.cloudinary.com/tlzj92qq/image/upload/v1785482167/IMG_0439_y1m1jn.jpg"
@@ -1088,8 +1005,6 @@ export const PRODUCTS: Product[] = [
       "Ideal for Daily Prayers & Travel"
     ],
     "isNewArrival": true,
-    "rating": 4.8,
-    "reviewsCount": 9
   }
 ];
 

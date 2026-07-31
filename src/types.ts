@@ -19,8 +19,8 @@ export interface Product {
   isNewArrival?: boolean;
   isBestSeller?: boolean;
   isFeatured?: boolean;
-  rating: number;
-  reviewsCount: number;
+  rating?: number;
+  reviewsCount?: number;
 }
 
 export interface Review {
