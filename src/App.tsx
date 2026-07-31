@@ -82,6 +82,10 @@ export default function App() {
   const [shopSearchQuery, setShopSearchQuery] = useState<string>('');
   const [isShopSearchFocused, setIsShopSearchFocused] = useState<boolean>(false);
 
+  // Home Page Collections Filter State
+  const [homeCategoryFilter, setHomeCategoryFilter] = useState<string>('all');
+  const [categoryViewMode, setCategoryViewMode] = useState<'carousel' | 'grid'>('carousel');
+
   // Categories Shelf Ref & Swipe Handler
   const categoryTrackRef = React.useRef<HTMLDivElement>(null);
 
@@ -690,66 +694,116 @@ export default function App() {
                 </h2>
                 <div className="w-12 h-[1px] bg-[#B89B72] mx-auto mt-3" />
                 <p className="text-[10px] text-[#1D1818]/50 uppercase tracking-[0.15em] mt-2">
-                  Use swipe buttons or drag to explore
+                  Select a category to explore our handpicked designs
                 </p>
 
-                {/* Swipe Control Buttons */}
-                <div className="flex items-center justify-center gap-3 pt-3">
-                  <button
-                    onClick={() => scrollCategories('left')}
-                    aria-label="Swipe Left"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#EFE8DD] text-[#1D1818] text-xs font-semibold shadow-xs hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 group cursor-pointer"
-                  >
-                    <ChevronLeft className="w-4 h-4 text-[#C8A96B] group-hover:text-white transition-colors" />
-                    <span>Swipe Left</span>
-                  </button>
+                {/* View Mode & Swipe Control Buttons */}
+                <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
+                  <div className="inline-flex rounded-full bg-white border border-[#EFE8DD] p-1 shadow-xs">
+                    <button
+                      onClick={() => setCategoryViewMode('carousel')}
+                      className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer ${
+                        categoryViewMode === 'carousel'
+                          ? 'bg-[#1D1818] text-white shadow-xs'
+                          : 'text-[#1D1818]/70 hover:text-[#1D1818]'
+                      }`}
+                    >
+                      Carousel View
+                    </button>
+                    <button
+                      onClick={() => setCategoryViewMode('grid')}
+                      className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer ${
+                        categoryViewMode === 'grid'
+                          ? 'bg-[#1D1818] text-white shadow-xs'
+                          : 'text-[#1D1818]/70 hover:text-[#1D1818]'
+                      }`}
+                    >
+                      All Grid View ({CATEGORIES.length})
+                    </button>
+                  </div>
 
-                  <button
-                    onClick={() => scrollCategories('right')}
-                    aria-label="Swipe Right"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#EFE8DD] text-[#1D1818] text-xs font-semibold shadow-xs hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 group cursor-pointer"
-                  >
-                    <span>Swipe Right</span>
-                    <ChevronRight className="w-4 h-4 text-[#C8A96B] group-hover:text-white transition-colors" />
-                  </button>
+                  {categoryViewMode === 'carousel' && (
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => scrollCategories('left')}
+                        aria-label="Swipe Left"
+                        className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#EFE8DD] text-[#1D1818] text-xs font-semibold shadow-xs hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 group cursor-pointer"
+                      >
+                        <ChevronLeft className="w-4 h-4 text-[#C8A96B] group-hover:text-white transition-colors" />
+                        <span>Swipe Left</span>
+                      </button>
+
+                      <button
+                        onClick={() => scrollCategories('right')}
+                        aria-label="Swipe Right"
+                        className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#EFE8DD] text-[#1D1818] text-xs font-semibold shadow-xs hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 group cursor-pointer"
+                      >
+                        <span>Swipe Right</span>
+                        <ChevronRight className="w-4 h-4 text-[#C8A96B] group-hover:text-white transition-colors" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
 
-              {/* Horizontal Scroll Track with Side Floating Swipe Buttons */}
-              <div className="relative w-full max-w-[1400px] mx-auto px-2 sm:px-6 py-4">
-                {/* Side Floating Swipe Left Button */}
-                <button
-                  onClick={() => scrollCategories('left')}
-                  aria-label="Swipe Left"
-                  className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-[#1D1818] shadow-md border border-[#EFE8DD] flex items-center justify-center hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 active:scale-95 cursor-pointer"
-                >
-                  <ChevronLeft className="w-5 h-5 text-[#C8A96B] hover:text-white" />
-                </button>
+              {categoryViewMode === 'carousel' ? (
+                /* Horizontal Scroll Track with Side Floating Swipe Buttons */
+                <div className="relative w-full max-w-[1400px] mx-auto px-2 sm:px-6 py-4">
+                  {/* Side Floating Swipe Left Button */}
+                  <button
+                    onClick={() => scrollCategories('left')}
+                    aria-label="Swipe Left"
+                    className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-[#1D1818] shadow-md border border-[#EFE8DD] flex items-center justify-center hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 active:scale-95 cursor-pointer"
+                  >
+                    <ChevronLeft className="w-5 h-5 text-[#C8A96B] hover:text-white" />
+                  </button>
 
-                {/* Side Floating Swipe Right Button */}
-                <button
-                  onClick={() => scrollCategories('right')}
-                  aria-label="Swipe Right"
-                  className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-[#1D1818] shadow-md border border-[#EFE8DD] flex items-center justify-center hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 active:scale-95 cursor-pointer"
-                >
-                  <ChevronRight className="w-5 h-5 text-[#C8A96B] hover:text-white" />
-                </button>
+                  {/* Side Floating Swipe Right Button */}
+                  <button
+                    onClick={() => scrollCategories('right')}
+                    aria-label="Swipe Right"
+                    className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-[#1D1818] shadow-md border border-[#EFE8DD] flex items-center justify-center hover:bg-[#C8A96B] hover:text-white hover:border-[#C8A96B] transition-all duration-300 active:scale-95 cursor-pointer"
+                  >
+                    <ChevronRight className="w-5 h-5 text-[#C8A96B] hover:text-white" />
+                  </button>
 
-                {/* Edge Gradient Fades */}
-                <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
+                  {/* Edge Gradient Fades */}
+                  <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
+                  <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
 
-                {/* Interactive Animated Scroll Track */}
-                <div
-                  ref={categoryTrackRef}
-                  className="flex gap-6 sm:gap-8 px-8 sm:px-16 overflow-x-auto scroll-smooth [ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden py-2"
-                >
-                  {[...CATEGORIES, ...CATEGORIES, ...CATEGORIES].map((cat, idx) => (
-                    <div 
-                      key={`${cat.id}-${idx}`}
-                      className="w-[280px] sm:w-[320px] md:w-[340px] shrink-0"
-                    >
+                  {/* Interactive Animated Scroll Track */}
+                  <div
+                    ref={categoryTrackRef}
+                    className="flex gap-6 sm:gap-8 px-8 sm:px-16 overflow-x-auto scroll-smooth [ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden py-2"
+                  >
+                    {[...CATEGORIES, ...CATEGORIES, ...CATEGORIES].map((cat, idx) => (
+                      <div 
+                        key={`${cat.id}-${idx}`}
+                        className="w-[280px] sm:w-[320px] md:w-[340px] shrink-0"
+                      >
+                        <CategoryCard
+                          id={cat.id}
+                          name={cat.name}
+                          description={cat.description}
+                          image={cat.image}
+                          count={cat.count}
+                          onClick={(id) => {
+                            setSelectedCategoryFilter(id as any);
+                            setCurrentPage('shop');
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                /* All Collections 7 Grid Layout */
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+                    {CATEGORIES.map((cat) => (
                       <CategoryCard
+                        key={cat.id}
                         id={cat.id}
                         name={cat.name}
                         description={cat.description}
@@ -761,9 +815,174 @@ export default function App() {
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
                       />
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
+              )}
+            </section>
+
+            {/* Explore All Collections Showcase Section */}
+            <section id="all-collections-showcase" className="w-full py-20 md:py-28 bg-white border-t border-[#EFE8DD]">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Section Title & Category Filter Tabs */}
+                <div className="text-center mb-14 space-y-4">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B89B72]">Complete Catalog</span>
+                  <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#1D1818] tracking-wide">
+                    Explore All Collections
+                  </h2>
+                  <div className="w-16 h-[1px] bg-[#B89B72] mx-auto" />
+                  <p className="text-xs text-[#1D1818]/60 uppercase tracking-[0.15em] max-w-xl mx-auto">
+                    Browse designs from every signature collection sorted by price
+                  </p>
+
+                  {/* Filter Pills for All 7 Collections */}
+                  <div className="flex flex-wrap items-center justify-center gap-2 pt-6">
+                    <button
+                      onClick={() => setHomeCategoryFilter('all')}
+                      className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
+                        homeCategoryFilter === 'all'
+                          ? 'bg-[#C8A96B] text-white shadow-md'
+                          : 'bg-[#FAF8F5] text-[#1D1818]/80 border border-[#EFE8DD] hover:border-[#C8A96B]'
+                      }`}
+                    >
+                      All Collections ({CATEGORIES.length})
+                    </button>
+                    {CATEGORIES.map((cat) => {
+                      const count = PRODUCTS.filter((p) => p.category === cat.id).length;
+                      return (
+                        <button
+                          key={cat.id}
+                          onClick={() => setHomeCategoryFilter(cat.id)}
+                          className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
+                            homeCategoryFilter === cat.id
+                              ? 'bg-[#C8A96B] text-white shadow-md'
+                              : 'bg-[#FAF8F5] text-[#1D1818]/80 border border-[#EFE8DD] hover:border-[#C8A96B]'
+                          }`}
+                        >
+                          {cat.name} ({count})
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Render Products by Collection */}
+                {homeCategoryFilter === 'all' ? (
+                  /* Display Section for EVERY Category in Order */
+                  <div className="space-y-20">
+                    {CATEGORIES.map((cat) => {
+                      const catProducts = PRODUCTS.filter((p) => p.category === cat.id);
+                      if (catProducts.length === 0) return null;
+                      const lowestPrice = Math.min(...catProducts.map((p) => p.price));
+                      const highestPrice = Math.max(...catProducts.map((p) => p.price));
+
+                      return (
+                        <div key={cat.id} className="border-b border-[#EFE8DD]/70 pb-16 last:border-b-0 last:pb-0">
+                          {/* Collection Header Banner */}
+                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4 bg-[#FAF8F5] p-6 rounded-2xl border border-[#EFE8DD]/80">
+                            <div className="space-y-1">
+                              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#B89B72]">Collection Showcase</span>
+                              <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#1D1818]">
+                                {cat.name}
+                              </h3>
+                              <p className="text-xs text-[#1D1818]/60 max-w-xl">
+                                {cat.description}
+                              </p>
+                            </div>
+                            <div className="flex flex-col sm:items-end gap-2 shrink-0">
+                              <span className="text-xs font-semibold text-[#1D1818]/70">
+                                {catProducts.length} Products · From ₹{lowestPrice} {lowestPrice !== highestPrice ? `to ₹${highestPrice}` : ''}
+                              </span>
+                              <button
+                                onClick={() => {
+                                  setSelectedCategoryFilter(cat.id);
+                                  setCurrentPage('shop');
+                                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#C8A96B] hover:text-[#1D1818] transition-colors cursor-pointer group"
+                              >
+                                <span>Shop Entire {cat.name}</span>
+                                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Product Grid for this Collection */}
+                          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3.5 gap-y-6 sm:gap-6 md:gap-8">
+                            {catProducts.map((product) => (
+                              <ProductCard
+                                key={product.id}
+                                product={product}
+                                onQuickView={handleQuickView}
+                                onProductClick={handleProductClick}
+                                isWishlisted={wishlist.includes(product.id)}
+                                onToggleWishlist={handleToggleWishlist}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  /* Display Selected Category Only */
+                  <div>
+                    {(() => {
+                      const currentCat = CATEGORIES.find((c) => c.id === homeCategoryFilter);
+                      const catProducts = PRODUCTS.filter((p) => p.category === homeCategoryFilter);
+                      if (!currentCat) return null;
+                      const lowestPrice = catProducts.length > 0 ? Math.min(...catProducts.map((p) => p.price)) : 0;
+                      const highestPrice = catProducts.length > 0 ? Math.max(...catProducts.map((p) => p.price)) : 0;
+
+                      return (
+                        <div className="space-y-8">
+                          {/* Selected Collection Header Banner */}
+                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end bg-[#FAF8F5] p-6 rounded-2xl border border-[#EFE8DD]/80">
+                            <div className="space-y-1">
+                              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#B89B72]">Selected Collection</span>
+                              <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#1D1818]">
+                                {currentCat.name}
+                              </h3>
+                              <p className="text-xs text-[#1D1818]/60 max-w-xl">
+                                {currentCat.description}
+                              </p>
+                            </div>
+                            <div className="flex flex-col sm:items-end gap-2 shrink-0 mt-4 sm:mt-0">
+                              <span className="text-xs font-semibold text-[#1D1818]/70">
+                                {catProducts.length} Products · From ₹{lowestPrice} {lowestPrice !== highestPrice ? `to ₹${highestPrice}` : ''}
+                              </span>
+                              <button
+                                onClick={() => {
+                                  setSelectedCategoryFilter(currentCat.id);
+                                  setCurrentPage('shop');
+                                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#C8A96B] hover:text-[#1D1818] transition-colors cursor-pointer group"
+                              >
+                                <span>Open in Full Shop View</span>
+                                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Product Grid */}
+                          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3.5 gap-y-6 sm:gap-6 md:gap-8">
+                            {catProducts.map((product) => (
+                              <ProductCard
+                                key={product.id}
+                                product={product}
+                                onQuickView={handleQuickView}
+                                onProductClick={handleProductClick}
+                                isWishlisted={wishlist.includes(product.id)}
+                                onToggleWishlist={handleToggleWishlist}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })()}
+                  </div>
+                )}
               </div>
             </section>
 

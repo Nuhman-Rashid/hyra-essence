@@ -63,879 +63,1034 @@ export const CATEGORIES = [
 
 export const PRODUCTS: Product[] = [
   {
-    id: 'ch-00',
-    name: 'Pakistani Churidhar',
-    category: 'churidars',
-    price: 1099,
-    originalPrice: 1599,
-    fabric: 'Rayon top & Cotton Shall',
-    description: 'designed for comfort and timeless beauty. The premium rayon top offers a soft, breathable feel with a graceful drape, making it perfect for all-day wear. Paired with a lightweight cotton shawl, this outfit combines sophistication with effortless comfort.',
-    sizes: ['L', 'XL', 'XXL' , '3XL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_black_churidhar_pjmehc',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_black_churidhar_pjmehc'
+    "id": "ch-08",
+    "name": "Pakistani Churidhar",
+    "category": "churidars",
+    "price": 999,
+    "originalPrice": 1499,
+    "fabric": "Pure Chanderi Silk-Cotton Blend",
+    "description": "Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.",
+    "sizes": [
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
     ],
-    washCare: 'Dry clean recommended to preserve the delicate silver embroidery and sheer fabric drape. Alternatively, gentle hand wash in cold water.',
-    deliveryInfo: 'Ships within 24-48 hours from Thalassery, Kannur, Kerala. Express delivery across Kerala in 1-2 business days. All-India delivery in 4-6 business days.',
-    features: [
-        'Premium Soft Rayon Top',
-        'Lightweight & Breathable Cotton Shawl',
-        'Comfortable Fit for Everyday Wear',
-        'Elegant Pakistani-Inspired Design',
-        'Suitable for Casual, Office & Festive Occasions',
-        'Soft, Skin-Friendly Fabric',
-        'Easy to Wash & Maintain'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_L-XXXL_tpqtx9",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_L-XXXL_tpqtx9"
     ],
-    isNewArrival: true,
-    isFeatured: true,
-    isBestSeller: true,
-    rating: 4.9,
-    reviewsCount: 42
-  },
- 
-  {
-      id: 'ch-02',
-    name: 'Churidhar',
-    category: 'churidars',
-    price: 2099,
-    originalPrice: 2549,
-    fabric: 'Rayon Churidhar & shifon shall',
-    description: 'Designed for the festive collegiate look, weightless organza and embellished with delicate hand-embroidered floral motifs along the neckline. Paired with comfortable patiyala pants.',
-    sizes: [ 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/2099_2XL_FOUR_COLOUR_jr0xz0',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0688_dt32bj',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0692_awivmr',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0690_c3drti'
-
+    "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
+    "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
+    "features": [
+      "Hand-block printed using authentic natural vegetable indigo dyes",
+      "High-grade Chanderi weave with lightweight feel",
+      "Contrast piping details",
+      "Breathable cotton lining"
     ],
-    washCare: 'Dry clean only. Iron on ultra-low heat setting with a protective cloth layer.',
-    deliveryInfo: 'Ships within 2 days. Express delivery option available for Kochi and Trivandrum.',
-    features: [
-      'Delicate hand-done botanical beadwork',
-      'Exquisite scalloped edges on the dupatta',
-      'Perfect for campus festivals and formal gatherings'
-    ],
-    isBestSeller: true,
-    rating: 4.8,
-    reviewsCount: 24
+    "rating": 4.7,
+    "reviewsCount": 19
   },
   {
-    id: 'ch-03',
-    name: 'Pakistani Churidhar',
-    category: 'churidars',
-    price: 1099,
-    originalPrice: 1500,
-    fabric: 'Rayon top & Cotton Shall',
-    description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
-    sizes: ['L', 'XL', 'XXL' , '3XL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_L-XXXL_2_xqo76m',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_L-XXXL_2_xqo76m'
+    "id": "ch-09",
+    "name": "Churidhar",
+    "category": "churidars",
+    "price": 999,
+    "originalPrice": 1499,
+    "fabric": "Imported Cotton",
+    "description": "Stay stylish and comfortable with this Imported Cotton Churidhar. Crafted from premium-quality imported cotton, it offers exceptional softness, breathability, and a comfortable fit. Perfect for daily wear, office, college, and casual outings.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
-    deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
-    features: [
-      'Premium Soft Rayon Top',
-        'Lightweight & Breathable Cotton Shawl',
-        'Comfortable Fit for Everyday Wear',
-        'Elegant Pakistani-Inspired Design',
-        'Suitable for Casual, Office & Festive Occasions',
-        'Soft, Skin-Friendly Fabric',
-        'Easy to Wash & Maintain'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_M_-_2XL_uldods",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_M_-_2XL_uldods"
     ],
-    rating: 4.7,
-    reviewsCount: 19
-  },
-   {
-    id: 'ch-04',
-    name: 'Pakistani Churidhar',
-    category: 'churidars',
-    price: 1099,
-    originalPrice: 1500,
-    fabric: 'Rayon top & Cotton Shall',
-    description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
-    sizes: ['L', 'XL', 'XXL' , '3XL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0572_gqxtjn',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0572_gqxtjn'
+    "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
+    "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
+    "features": [
+      "Premium Imported Cotton Fabric",
+      "Soft & Breathable Material",
+      "Comfortable All-Day Fit",
+      "Ideal for Daily & Casual Wear"
     ],
-    washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
-    deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
-    features: [
-      'Premium Soft Rayon Top',
-        'Lightweight & Breathable Cotton Shawl',
-        'Comfortable Fit for Everyday Wear',
-        'Elegant Pakistani-Inspired Design',
-        'Suitable for Casual, Office & Festive Occasions',
-        'Soft, Skin-Friendly Fabric',
-        'Easy to Wash & Maintain'
-    ],
-    rating: 4.7,
-    reviewsCount: 19
-  },
-   {
-    id: 'ch-05',
-    name: ' Churidhar',
-    category: 'churidars',
-    price: 1399,
-    originalPrice: 1600,
-    fabric: 'Muslin churidhar & Rayon pant',
-    description: 'Grace meets comfort in this elegant Muslin Churidhar set paired with a soft Rayon Pant. Crafted from lightweight, breathable fabrics, its perfect for everyday wear, office, college, and casual outings. A stylish blend of comfort and timeless elegance.',
-    sizes: ['M','L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1399_M_-_XXL_yc8hql',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1399_M_-_XXL_yc8hql'
-    ],
-    washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
-    deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
-    features: [
-      'Premium Soft Muslin Fabric',
-      'Comfortable Rayon Pant',
-      'Lightweight & Breathable',
-      'Perfect for Daily & Casual Wear',
-    ],
-    rating: 4.7,
-    reviewsCount: 19
-  },
-   {
-    id: 'ch-06',
-    name: 'Shifon Churidhar',
-    category: 'churidars',
-    price: 1999,
-    originalPrice: 3499,
-    fabric: 'Shifon',
-    description: 'Made from soft, lightweight fabric, it offers a graceful drape and all-day comfort, making it perfect for casual outings, festive occasions, and everyday wear.',
-    sizes: [ '3XL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0447_uuyqg0',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0447_uuyqg0'
-    ],
-    washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
-    deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
-    features: [
-      'Premium Soft Chiffon Fabric',
-      'Lightweight & Breathable',
-      'Elegant & Comfortable Fit',
-      'Perfect for Casual & Festive Wear'
-    ],
-    rating: 4.7,
-    reviewsCount: 19
-  },
-   {
-    id: 'ch-07',
-    name: 'Chanderi silk churidhar',
-    category: 'churidars',
-    price: 1499,
-    originalPrice: 1999,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
-    description: 'Crafted from premium Chanderi silk, it offers a luxurious feel, graceful shine, and exceptional comfort—perfect for festive celebrations, special occasions, and elegant everyday wear.',
-    sizes: [ '3XL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/sqo8qmuqhunohgbzgyey',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/sqo8qmuqhunohgbzgyey'
-    ],
-    washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
-    deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
-    features: [
-      'Premium Chanderi Silk Fabric',
-      'Soft & Comfortable Feel',
-      'Elegant Traditional Design',
-      'Perfect for Festive & Special Occasions'
-    ],
-    rating: 4.7,
-    reviewsCount: 19
+    "rating": 4.7,
+    "reviewsCount": 19
   },
   {
-    id: 'ch-08',
-    name: 'Pakistani Churidhar',
-    category: 'churidars',
-    price: 999,
-    originalPrice: 1499,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
-    description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
-    sizes: ['L', 'XL', 'XXL', '3XL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_L-XXXL_tpqtx9',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_L-XXXL_tpqtx9'
+    "id": "ch-00",
+    "name": "Pakistani Churidhar",
+    "category": "churidars",
+    "price": 1099,
+    "originalPrice": 1599,
+    "fabric": "Rayon top & Cotton Shall",
+    "description": "designed for comfort and timeless beauty. The premium rayon top offers a soft, breathable feel with a graceful drape, making it perfect for all-day wear. Paired with a lightweight cotton shawl, this outfit combines sophistication with effortless comfort.",
+    "sizes": [
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
     ],
-    washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
-    deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
-    features: [
-      'Hand-block printed using authentic natural vegetable indigo dyes',
-      'High-grade Chanderi weave with lightweight feel',
-      'Contrast piping details',
-      'Breathable cotton lining'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_black_churidhar_pjmehc",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_black_churidhar_pjmehc"
     ],
-    rating: 4.7,
-    reviewsCount: 19
-  },
-   {
-    id: 'ch-09',
-    name: ' Churidhar',
-    category: 'churidars',
-    price: 999,
-    originalPrice: 1499,
-    fabric: 'Imported Cotton',
-    description: 'Stay stylish and comfortable with this Imported Cotton Churidhar. Crafted from premium-quality imported cotton, it offers exceptional softness, breathability, and a comfortable fit. Perfect for daily wear, office, college, and casual outings.',
-    sizes: ['M','L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_M_-_2XL_uldods',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_M_-_2XL_uldods'
+    "washCare": "Dry clean recommended to preserve the delicate silver embroidery and sheer fabric drape. Alternatively, gentle hand wash in cold water.",
+    "deliveryInfo": "Ships within 24-48 hours from Thalassery, Kannur, Kerala. Express delivery across Kerala in 1-2 business days. All-India delivery in 4-6 business days.",
+    "features": [
+      "Premium Soft Rayon Top",
+      "Lightweight & Breathable Cotton Shawl",
+      "Comfortable Fit for Everyday Wear",
+      "Elegant Pakistani-Inspired Design",
+      "Suitable for Casual, Office & Festive Occasions",
+      "Soft, Skin-Friendly Fabric",
+      "Easy to Wash & Maintain"
     ],
-    washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
-    deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
-    features: [
-      'Premium Imported Cotton Fabric',
-      'Soft & Breathable Material',
-      'Comfortable All-Day Fit',
-      'Ideal for Daily & Casual Wear'
-    ],
-    rating: 4.7,
-    reviewsCount: 19
-  },
-   {
-    id: 'ch-10',
-    name: 'Churidar',
-    category: 'churidars',
-    price: 1199,
-    originalPrice: 1699,
-    fabric: 'Roman silk',
-    description: 'Made from premium-quality Roman silk, it features a smooth texture, rich finish, and comfortable fit, making it an ideal choice for festive occasions, parties, and elegant everyday wear.',
-    sizes: ['M','L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1199_M_-_XXL_vfwww6',
-      'https://res.cloudinary.com/tlzj92qq/image/upload/v1785482850/IMG_0831_uvugrl.png'
-    ],
-    washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
-    deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
-    features: [
-      'Premium Roman Silk Fabric',
-      'Smooth & Luxurious Finish',
-      'Comfortable & Elegant Fit',
-      'Perfect for Festive & Party Wear'
-    ],
-    rating: 4.7,
-    reviewsCount: 19
+    "isNewArrival": true,
+    "isFeatured": true,
+    "isBestSeller": true,
+    "rating": 4.9,
+    "reviewsCount": 42
   },
   {
-    id: 'ch-11',
-    name: 'Churidhar',
-    category: 'churidars',
-    price: 1499,
-    originalPrice: 2299,
-    fabric: 'Roman silk',
-    description: 'Designed with premium Roman silk, it offers a smooth texture, graceful drape, and lasting comfort. Perfect for festive occasions, family gatherings, office wear, and special events.',
-    sizes: [ '3XL','4XL','5XL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1499_3XL_-_5XL_h1jyo7',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1499_3XL_-_5XL_h1jyo7'
+    "id": "ch-03",
+    "name": "Pakistani Churidhar",
+    "category": "churidars",
+    "price": 1099,
+    "originalPrice": 1500,
+    "fabric": "Rayon top & Cotton Shall",
+    "description": "Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.",
+    "sizes": [
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
     ],
-    washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
-    deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
-    features: [
-      'Premium Roman Silk Fabric',
-      'Soft & Smooth Texture',
-      'Elegant & Comfortable Fit',
-      'Ideal for Festive & Everyday Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_L-XXXL_2_xqo76m",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_L-XXXL_2_xqo76m"
     ],
-    rating: 4.7,
-    reviewsCount: 19
+    "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
+    "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
+    "features": [
+      "Premium Soft Rayon Top",
+      "Lightweight & Breathable Cotton Shawl",
+      "Comfortable Fit for Everyday Wear",
+      "Elegant Pakistani-Inspired Design",
+      "Suitable for Casual, Office & Festive Occasions",
+      "Soft, Skin-Friendly Fabric",
+      "Easy to Wash & Maintain"
+    ],
+    "rating": 4.7,
+    "reviewsCount": 19
   },
   {
-    id: 'ku-01',
-    name: 'Long Kurta',
-    category: 'kurtas',
-    price: 299,
-    originalPrice: 799,
-    fabric: 'Cotton',
-    description: 'Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.',
-    sizes: [ 'M', 'L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/300_mc7ipo',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/300_mc7ipo'
+    "id": "ch-04",
+    "name": "Pakistani Churidhar",
+    "category": "churidars",
+    "price": 1099,
+    "originalPrice": 1500,
+    "fabric": "Rayon top & Cotton Shall",
+    "description": "Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.",
+    "sizes": [
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
     ],
-    washCare: 'Dry clean recommended. Gentle hand wash in lukewarm water with wool/silk wash liquid if necessary.',
-    deliveryInfo: 'Ships within 24 hours. Delivery within Kerala in 1-2 days.',
-    features: [
-      'Premium Cotton Fabric',
-      'Soft & Breathable Material',
-      'Comfortable Regular Fit',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0572_gqxtjn",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0572_gqxtjn"
     ],
-    isNewArrival: true,
-    isFeatured: true,
-    isBestSeller: true,
-    rating: 4.9,
-    reviewsCount: 45
+    "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
+    "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
+    "features": [
+      "Premium Soft Rayon Top",
+      "Lightweight & Breathable Cotton Shawl",
+      "Comfortable Fit for Everyday Wear",
+      "Elegant Pakistani-Inspired Design",
+      "Suitable for Casual, Office & Festive Occasions",
+      "Soft, Skin-Friendly Fabric",
+      "Easy to Wash & Maintain"
+    ],
+    "rating": 4.7,
+    "reviewsCount": 19
   },
   {
-    id: 'ku-02',
-    name: 'Short Kurti',
-    category: 'kurtas',
-    price: 499,
-    originalPrice: 799,
-    fabric: '100% Cotton',
-    description: 'Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.',
-    sizes: ['S', 'M', 'L', 'XL','XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/500_S_-_2XL_q4nkwa',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/500_S_-_2XL_q4nkwa'
+    "id": "ch-10",
+    "name": "Churidar",
+    "category": "churidars",
+    "price": 1199,
+    "originalPrice": 1699,
+    "fabric": "Roman silk",
+    "description": "Made from premium-quality Roman silk, it features a smooth texture, rich finish, and comfortable fit, making it an ideal choice for festive occasions, parties, and elegant everyday wear.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Machine wash on cold, gentle cycle. Hang dry in shade. Warm iron while slightly damp for that crisp linen luxury feel.',
-    deliveryInfo: 'Ships in 1-2 business days. Delivered in sustainable eco-packaging.',
-    features: [
-       'Premium Cotton Fabric',
-      'Soft & Breathable Material',
-      'Comfortable Regular Fit',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1199_M_-_XXL_vfwww6",
+      "https://res.cloudinary.com/tlzj92qq/image/upload/v1785482850/IMG_0831_uvugrl.png"
     ],
-    rating: 4.6,
-    reviewsCount: 15
+    "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
+    "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
+    "features": [
+      "Premium Roman Silk Fabric",
+      "Smooth & Luxurious Finish",
+      "Comfortable & Elegant Fit",
+      "Perfect for Festive & Party Wear"
+    ],
+    "rating": 4.7,
+    "reviewsCount": 19
   },
   {
-    id: 'ku-03',
-    name: 'Short Kurta',
-    category: 'kurtas',
-    price: 549,
-    originalPrice: 749,
-    fabric: 'Imported Cotton',
-    description: 'Woven with dedication. This rich saffron-hued kurta features fine hand-spun cotton yarns blended with linen. The slightly irregular, organic texture represents the beauty of traditional slow fashion.',
-    sizes: ['S','M', 'L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/550_S_-_2XL_evpifk',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/550_S_-_2XL_evpifk'
+    "id": "ch-05",
+    "name": " Churidhar",
+    "category": "churidars",
+    "price": 1399,
+    "originalPrice": 1600,
+    "fabric": "Muslin churidhar & Rayon pant",
+    "description": "Grace meets comfort in this elegant Muslin Churidhar set paired with a soft Rayon Pant. Crafted from lightweight, breathable fabrics, its perfect for everyday wear, office, college, and casual outings. A stylish blend of comfort and timeless elegance.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Gentle hand wash. Do not bleach. Reverse iron.',
-    deliveryInfo: 'Standard Kerala delivery in 3 days. Standard rest of India in 5 days.',
-    features: [
-       'Premium Imported Cotton Fabric',
-      'Soft & Breathable Material',
-      'Comfortable Regular Fit',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1399_M_-_XXL_yc8hql",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1399_M_-_XXL_yc8hql"
     ],
-    rating: 4.8,
-    reviewsCount: 28
+    "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
+    "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
+    "features": [
+      "Premium Soft Muslin Fabric",
+      "Comfortable Rayon Pant",
+      "Lightweight & Breathable",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "rating": 4.7,
+    "reviewsCount": 19
   },
   {
-    id: 'ku-04',
-    name: 'Short Kurta',
-    category: 'kurtas',
-    price: 649,
-    originalPrice: 749,
-    fabric: 'Imported Cotton',
-    description: 'Woven with dedication. This rich saffron-hued kurta features fine hand-spun cotton yarns blended with linen. The slightly irregular, organic texture represents the beauty of traditional slow fashion.',
-    sizes: [ 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/650_XXL_vleeo2',
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80'
+    "id": "ch-07",
+    "name": "Chanderi silk churidhar",
+    "category": "churidars",
+    "price": 1499,
+    "originalPrice": 1999,
+    "fabric": "Pure Chanderi Silk-Cotton Blend",
+    "description": "Crafted from premium Chanderi silk, it offers a luxurious feel, graceful shine, and exceptional comfort—perfect for festive celebrations, special occasions, and elegant everyday wear.",
+    "sizes": [
+      "3XL"
     ],
-    washCare: 'Gentle hand wash. Do not bleach. Reverse iron.',
-    deliveryInfo: 'Standard Kerala delivery in 3 days. Standard rest of India in 5 days.',
-    features: [
-        'Premium Imported Cotton Fabric',
-      'Soft & Breathable Material',
-      'Comfortable Regular Fit',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/sqo8qmuqhunohgbzgyey",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/sqo8qmuqhunohgbzgyey"
     ],
-    rating: 4.8,
-    reviewsCount: 28
+    "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
+    "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
+    "features": [
+      "Premium Chanderi Silk Fabric",
+      "Soft & Comfortable Feel",
+      "Elegant Traditional Design",
+      "Perfect for Festive & Special Occasions"
+    ],
+    "rating": 4.7,
+    "reviewsCount": 19
   },
   {
-    id: 'co-01',
-    name: '2PCS Co-ord-sets',
-    category: 'co-ord-sets',
-    price: 399,
-    originalPrice: 3499,
-    fabric: 'Mixed Cotton',
-    description: 'Crafted from premium mixed cotton fabric, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for casual outings, travel, office wear, and everyday fashion.',
-    sizes: [ 'M', 'L', 'XL','XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/400_M-2XL_p7sbdv',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/400_M-2XL_p7sbdv'
+    "id": "ch-11",
+    "name": "Churidhar",
+    "category": "churidars",
+    "price": 1499,
+    "originalPrice": 2299,
+    "fabric": "Roman silk",
+    "description": "Designed with premium Roman silk, it offers a smooth texture, graceful drape, and lasting comfort. Perfect for festive occasions, family gatherings, office wear, and special events.",
+    "sizes": [
+      "3XL",
+      "4XL",
+      "5XL"
     ],
-    washCare: 'Dry clean recommended, or machine wash on delicate cycle. Warm iron.',
-    deliveryInfo: 'Standard free shipping across India. Ships in 2 days.',
-    features: [
-      'Premium Mixed Cotton Fabric',
-      'Soft & Breathable Material',
-      'Stylish 2-Piece Coordinated Set',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1499_3XL_-_5XL_h1jyo7",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1499_3XL_-_5XL_h1jyo7"
     ],
-    isFeatured: true,
-    rating: 4.8,
-    reviewsCount: 37
+    "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
+    "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
+    "features": [
+      "Premium Roman Silk Fabric",
+      "Soft & Smooth Texture",
+      "Elegant & Comfortable Fit",
+      "Ideal for Festive & Everyday Wear"
+    ],
+    "rating": 4.7,
+    "reviewsCount": 19
   },
   {
-    id: 'co-02',
-    name: 'Cotton Co-ord Set',
-    category: 'co-ord-sets',
-    price: 499,
-    originalPrice: 3899,
-    fabric: 'Cotton ',
-    description : 'Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.',
-    sizes: [ 'M', 'L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_yzmlqj',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_yzmlqj'
+    "id": "ch-06",
+    "name": "Shifon Churidhar",
+    "category": "churidars",
+    "price": 1999,
+    "originalPrice": 3499,
+    "fabric": "Shifon",
+    "description": "Made from soft, lightweight fabric, it offers a graceful drape and all-day comfort, making it perfect for casual outings, festive occasions, and everyday wear.",
+    "sizes": [
+      "3XL"
     ],
-    washCare: 'Dry clean strictly recommended to preserve the silk luster and weave.',
-    deliveryInfo: 'Ships within 24-48 hours. Express delivery available across Kerala.',
-    features: [
-      'Premium Cotton Fabric',
-      'Soft & Breathable Material',
-      'Stylish Coordinated Design',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0447_uuyqg0",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0447_uuyqg0"
     ],
-    isNewArrival: true,
-    rating: 4.9,
-    reviewsCount: 24
+    "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
+    "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
+    "features": [
+      "Premium Soft Chiffon Fabric",
+      "Lightweight & Breathable",
+      "Elegant & Comfortable Fit",
+      "Perfect for Casual & Festive Wear"
+    ],
+    "rating": 4.7,
+    "reviewsCount": 19
   },
   {
-    id: 'co-03',
-    name: 'Premium Rayon Co-ord Set',
-    category: 'co-ord-sets',
-    price: 499,
-    originalPrice: 3199,
-    fabric: 'Wrinkle-free Japanese Pleated Crepe',
-    description: 'Crafted from high-quality rayon fabric, it offers a soft feel, breathable comfort, and a flattering fit. Perfect for everyday wear, office, travel, and casual outings with effortless style.',
-    sizes: [ 'M', 'L', 'XL','XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_nibgjj',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_nibgjj'
+    "id": "ch-02",
+    "name": "Churidhar",
+    "category": "churidars",
+    "price": 2099,
+    "originalPrice": 2549,
+    "fabric": "Rayon Churidhar & shifon shall",
+    "description": "Designed for the festive collegiate look, weightless organza and embellished with delicate hand-embroidered floral motifs along the neckline. Paired with comfortable patiyala pants.",
+    "sizes": [
+      "XXL"
     ],
-    washCare: 'Gentle machine wash or hand wash in cold water. Do not iron directly on pleats.',
-    deliveryInfo: 'Standard shipping in 3-5 business days across India.',
-    features: [
-      'Premium Soft Rayon Fabric',
-      'Lightweight & Breathable',
-      'Stylish Coordinated Design',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/2099_2XL_FOUR_COLOUR_jr0xz0",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0688_dt32bj",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0692_awivmr",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0690_c3drti"
     ],
-    isBestSeller: true,
-    rating: 4.7,
-    reviewsCount: 42
+    "washCare": "Dry clean only. Iron on ultra-low heat setting with a protective cloth layer.",
+    "deliveryInfo": "Ships within 2 days. Express delivery option available for Kochi and Trivandrum.",
+    "features": [
+      "Delicate hand-done botanical beadwork",
+      "Exquisite scalloped edges on the dupatta",
+      "Perfect for campus festivals and formal gatherings"
+    ],
+    "isBestSeller": true,
+    "rating": 4.8,
+    "reviewsCount": 24
   },
   {
-    id: 'co-04',
-    name: 'Cotton Co-ord Set',
-    category: 'co-ord-sets',
-    price: 499,
-    originalPrice: 3699,
-    fabric: 'Mixed Cotton',
-    description: 'Crafted from premium mixed cotton fabric, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for casual outings, travel, office wear, and everyday fashion.',
-    sizes: [ 'M', 'L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_rrikfc',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_rrikfc'
+    "id": "ku-01",
+    "name": "Long Kurta",
+    "category": "kurtas",
+    "price": 299,
+    "originalPrice": 799,
+    "fabric": "Cotton",
+    "description": "Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Hand wash separately in cold water with mild detergent. Line dry in shade.',
-    deliveryInfo: 'Ships within 24 hours from Kochi. Free delivery across Kerala.',
-    features: [
-     'Premium Mixed Cotton Fabric',
-      'Soft & Breathable Material',
-      'Stylish 2-Piece Coordinated Set',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/300_mc7ipo",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/300_mc7ipo"
     ],
-    isFeatured: true,
-    rating: 4.9,
-    reviewsCount: 31
+    "washCare": "Dry clean recommended. Gentle hand wash in lukewarm water with wool/silk wash liquid if necessary.",
+    "deliveryInfo": "Ships within 24 hours. Delivery within Kerala in 1-2 days.",
+    "features": [
+      "Premium Cotton Fabric",
+      "Soft & Breathable Material",
+      "Comfortable Regular Fit",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "isNewArrival": true,
+    "isFeatured": true,
+    "isBestSeller": true,
+    "rating": 4.9,
+    "reviewsCount": 45
   },
   {
-    id: 'co-05',
-    name: 'Cotton Co-ord Set',
-    category: 'co-ord-sets',
-    price: 549,
-    originalPrice: 2899,
-    fabric: ' Cotton',
-    description: 'Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.',
-    sizes: ['M', 'L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M_-_XXL_pzfqvo',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M_-_XXL_pzfqvo'
+    "id": "ku-02",
+    "name": "Short Kurti",
+    "category": "kurtas",
+    "price": 499,
+    "originalPrice": 799,
+    "fabric": "100% Cotton",
+    "description": "Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Wash separately before first wear as natural indigo dyes may bleed slightly. Dry in shade.',
-    deliveryInfo: 'Standard free shipping across India in 3-5 business days.',
-    features: [
-      'Premium Cotton Fabric',
-      'Soft & Breathable Material',
-      'Stylish Coordinated Design',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/500_S_-_2XL_q4nkwa",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/500_S_-_2XL_q4nkwa"
     ],
-    rating: 4.6,
-    reviewsCount: 18
+    "washCare": "Machine wash on cold, gentle cycle. Hang dry in shade. Warm iron while slightly damp for that crisp linen luxury feel.",
+    "deliveryInfo": "Ships in 1-2 business days. Delivered in sustainable eco-packaging.",
+    "features": [
+      "Premium Cotton Fabric",
+      "Soft & Breathable Material",
+      "Comfortable Regular Fit",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "rating": 4.6,
+    "reviewsCount": 15
   },
   {
-    id: 'co-06',
-    name: ' Pure Cotton Co-ord Set',
-    category: 'co-ord-sets',
-    price: 549,
-    originalPrice: 4499,
-    fabric: '100% Cotton ',
-    description: 'Crafted from 100% pure cotton, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for daily wear, office, travel, and casual outings.',
-    sizes: ['M', 'L', 'XL','XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M-XXL_vqpv1m',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M-XXL_vqpv1m'
+    "id": "ku-03",
+    "name": "Short Kurta",
+    "category": "kurtas",
+    "price": 549,
+    "originalPrice": 749,
+    "fabric": "Imported Cotton",
+    "description": "Woven with dedication. This rich saffron-hued kurta features fine hand-spun cotton yarns blended with linen. The slightly irregular, organic texture represents the beauty of traditional slow fashion.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Dry clean recommended or gentle hand wash in cold water with silk shampoo.',
-    deliveryInfo: 'Express shipping available. Ships within 24 hours.',
-    features: [
-      'Premium 100% Pure Cotton Fabric',
-      'Soft & Breathable Material',
-      'Stylish Coordinated Design',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/550_S_-_2XL_evpifk",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/550_S_-_2XL_evpifk"
     ],
-    isNewArrival: true,
-    rating: 4.8,
-    reviewsCount: 29
+    "washCare": "Gentle hand wash. Do not bleach. Reverse iron.",
+    "deliveryInfo": "Standard Kerala delivery in 3 days. Standard rest of India in 5 days.",
+    "features": [
+      "Premium Imported Cotton Fabric",
+      "Soft & Breathable Material",
+      "Comfortable Regular Fit",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "rating": 4.8,
+    "reviewsCount": 28
   },
   {
-    id: 'co-07',
-    name: 'Rayon Co-ord Set',
-    category: 'co-ord-sets',
-    price: 649,
-    originalPrice: 3299,
-    fabric: 'Rayon',
-    description: 'Made from premium rayon fabric, it offers a soft touch, breathable comfort, and a flattering fit. Perfect for daily wear, office, travel, and casual outings',
-    sizes: [ 'M', 'L', 'XL', 'XXL','3XL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/649_M-XXXL_xsmkh2',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/649_M-XXXL_xsmkh2'
+    "id": "ku-04",
+    "name": "Short Kurta",
+    "category": "kurtas",
+    "price": 649,
+    "originalPrice": 749,
+    "fabric": "Imported Cotton",
+    "description": "Woven with dedication. This rich saffron-hued kurta features fine hand-spun cotton yarns blended with linen. The slightly irregular, organic texture represents the beauty of traditional slow fashion.",
+    "sizes": [
+      "XXL"
     ],
-    washCare: 'Machine wash gentle on cold. Hang dry in shade. Warm iron while slightly damp.',
-    deliveryInfo: 'Ships within 1-2 business days. Free delivery across Kerala.',
-    features: [
-      'Premium Rayon Fabric',
-      'Soft & Breathable Material',
-      'Stylish Coordinated Design',
-      'Comfortable All-Day Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/650_XXL_vleeo2",
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80"
     ],
-    rating: 4.7,
-    reviewsCount: 22
+    "washCare": "Gentle hand wash. Do not bleach. Reverse iron.",
+    "deliveryInfo": "Standard Kerala delivery in 3 days. Standard rest of India in 5 days.",
+    "features": [
+      "Premium Imported Cotton Fabric",
+      "Soft & Breathable Material",
+      "Comfortable Regular Fit",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "rating": 4.8,
+    "reviewsCount": 28
   },
   {
-    id: 'co-08',
-    name: 'Premium Cotton Co-ord Set',
-    category: 'co-ord-sets',
-    price: 899,
-    originalPrice: 4999,
-    fabric: '100% Premium Cotton',
-    description: 'Crafted from 100% premium cotton, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for daily wear, office, travel, and casual outings',
-    sizes: ['M', 'L', 'XL', 'XXL','3XL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/900_M_-_3XL_cdtelu',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/900_M_-_3XL_cdtelu'
+    "id": "co-01",
+    "name": "2PCS Co-ord-sets",
+    "category": "co-ord-sets",
+    "price": 399,
+    "originalPrice": 3499,
+    "fabric": "Mixed Cotton",
+    "description": "Crafted from premium mixed cotton fabric, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for casual outings, travel, office wear, and everyday fashion.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Dry clean strictly recommended to protect the metallic zari threadwork.',
-    deliveryInfo: 'Ships within 24 hours. Express courier delivery across India.',
-    features: [
-      'Premium 100% Pure Cotton Fabric',
-      'Soft & Breathable Material',
-      'Stylish Coordinated Design',
-      'Perfect for Daily & Casual Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/400_M-2XL_p7sbdv",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/400_M-2XL_p7sbdv"
     ],
-    isFeatured: true,
-    rating: 4.9,
-    reviewsCount: 35
+    "washCare": "Dry clean recommended, or machine wash on delicate cycle. Warm iron.",
+    "deliveryInfo": "Standard free shipping across India. Ships in 2 days.",
+    "features": [
+      "Premium Mixed Cotton Fabric",
+      "Soft & Breathable Material",
+      "Stylish 2-Piece Coordinated Set",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "isFeatured": true,
+    "rating": 4.8,
+    "reviewsCount": 37
   },
   {
-    id: 'mat-01',
-    name: ' Material Set',
-    category: 'materials',
-    price: 749,
-    originalPrice: 2299,
-    fabric: 'Jaam Cotton',
-    description: 'Made from soft, breathable cotton, it offers excellent comfort, durability, and a beautiful finish—ideal for stitching elegant churidhars, kurtas, and ethnic wear.',
-    sizes: ['Unstitched (2.5m Top / 2m Bottom)', 'Custom Tailoring Available'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/750_MT_vzkl0v',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/750_MT_vzkl0v'
+    "id": "co-02",
+    "name": "Cotton Co-ord Set",
+    "category": "co-ord-sets",
+    "price": 499,
+    "originalPrice": 3899,
+    "fabric": "Cotton ",
+    "description": "Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Hand wash in cold water with similar colors. Do not wring. Line dry.',
-    deliveryInfo: 'Ships within 48 hours. Express shipping available on checkout request via WhatsApp.',
-    features: [
-      'Premium Jaam Cotton Fabric',
-      'Soft & Breathable Material',
-      'Durable & Comfortable Quality',
-      'Ideal for Custom Stitching'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_yzmlqj",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_yzmlqj"
     ],
-    isFeatured: true,
-    rating: 4.8,
-    reviewsCount: 19
+    "washCare": "Dry clean strictly recommended to preserve the silk luster and weave.",
+    "deliveryInfo": "Ships within 24-48 hours. Express delivery available across Kerala.",
+    "features": [
+      "Premium Cotton Fabric",
+      "Soft & Breathable Material",
+      "Stylish Coordinated Design",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "isNewArrival": true,
+    "rating": 4.9,
+    "reviewsCount": 24
   },
   {
-    id: 'mat-02',
-    name: 'Malabar Kasavu Pure Handloom Material Set',
-    category: 'materials',
-    price: 799,
-    originalPrice: 2599,
-    fabric: 'Pure Kerala Handloom Cotton with Gold Zari',
-    description: 'Embody traditional grace with our authentic Malabar Kasavu unstitched dress material. Hand-woven by master artisans in Kerala, featuring rich antique gold zari borders across an off-white breathable cotton canvas.',
-    sizes: ['Unstitched (2.5m Top / 2m Bottom)', 'Custom Tailoring Available'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_MT_vuu2cz',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_MT_vuu2cz'
+    "id": "co-03",
+    "name": "Premium Rayon Co-ord Set",
+    "category": "co-ord-sets",
+    "price": 499,
+    "originalPrice": 3199,
+    "fabric": "Wrinkle-free Japanese Pleated Crepe",
+    "description": "Crafted from high-quality rayon fabric, it offers a soft feel, breathable comfort, and a flattering fit. Perfect for everyday wear, office, travel, and casual outings with effortless style.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Gentle hand wash in cold water with mild starch or dry clean recommended to preserve gold zari weave.',
-    deliveryInfo: 'Ships within 24-48 hours from Thalassery, Kannur, Kerala. Free express delivery across Kerala.',
-    features: [
-      'Authentic Kerala handloom weaves',
-      'Intricate antique gold zari border detailing',
-      'Includes matching Kasavu dupatta with tassels',
-      'Lightweight, breathable, and culturally rich'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_nibgjj",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_nibgjj"
     ],
-    isNewArrival: true,
-    isBestSeller: true,
-    rating: 4.9,
-    reviewsCount: 42
+    "washCare": "Gentle machine wash or hand wash in cold water. Do not iron directly on pleats.",
+    "deliveryInfo": "Standard shipping in 3-5 business days across India.",
+    "features": [
+      "Premium Soft Rayon Fabric",
+      "Lightweight & Breathable",
+      "Stylish Coordinated Design",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "isBestSeller": true,
+    "rating": 4.7,
+    "reviewsCount": 42
   },
   {
-    id: 'mat-03',
-    name: 'Royal Chanderi Silk Zari Embroidered Material',
-    category: 'materials',
-    price: 1499,
-    originalPrice: 3499,
-    fabric: 'Pure Chanderi Silk with Organza Dupatta',
-    description: 'An opulent statement unstitched material set for weddings and celebrations. Crafted from sheer Chanderi silk with delicate floral silver and gold zari motifs, paired with a matching bottom fabric and a scalloped organza dupatta.',
-    sizes: ['Unstitched (2.5m Top / 2.5m Bottom)', 'Custom Tailoring Available'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_o8ieim',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_o8ieim'
+    "id": "co-04",
+    "name": "Cotton Co-ord Set",
+    "category": "co-ord-sets",
+    "price": 499,
+    "originalPrice": 3699,
+    "fabric": "Mixed Cotton",
+    "description": "Crafted from premium mixed cotton fabric, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for casual outings, travel, office wear, and everyday fashion.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Dry clean strictly recommended to preserve the metallic embroidery and delicate Chanderi silk weave.',
-    deliveryInfo: 'Ships within 24 hours. Express delivery across Kerala and India.',
-    features: [
-      'Sheer Chanderi silk with rich zari embroidery',
-      'Scalloped embroidered organza dupatta',
-      'Soft cotton lining material included',
-      'Ideal for festive occasions and custom boutique tailoring'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_rrikfc",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_rrikfc"
     ],
-    isFeatured: true,
-    rating: 4.7,
-    reviewsCount: 24
+    "washCare": "Hand wash separately in cold water with mild detergent. Line dry in shade.",
+    "deliveryInfo": "Ships within 24 hours from Kochi. Free delivery across Kerala.",
+    "features": [
+      "Premium Mixed Cotton Fabric",
+      "Soft & Breathable Material",
+      "Stylish 2-Piece Coordinated Set",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 31
   },
   {
-    id: 'mat-04',
-    name: 'Material',
-    category: 'materials',
-    price: 1499,
-    originalPrice: 1999,
-    fabric: 'Banaras silk Soft Organza Shawl',
-    description: 'Featuring a luxurious texture, graceful finish, and lightweight comfort, its perfect for creating stunning outfits for festive occasions, weddings, and celebrations.',
-    sizes: ['Unstitched (2.5m Top / 2m Bottom)', 'Custom Tailoring Available'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_z63vn6',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_z63vn6'
+    "id": "co-05",
+    "name": "Cotton Co-ord Set",
+    "category": "co-ord-sets",
+    "price": 549,
+    "originalPrice": 2899,
+    "fabric": " Cotton",
+    "description": "Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.',
-    deliveryInfo: 'Standard free shipping across India in 3-5 business days.',
-    features: [
-      'Premium Banaras Silk Fabric',
-      'Soft & Lightweight Organza Shawl',
-      'Elegant Traditional Finish',
-      'Ideal for Festive & Wedding Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M_-_XXL_pzfqvo",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M_-_XXL_pzfqvo"
     ],
-    rating: 4.6,
-    reviewsCount: 15
+    "washCare": "Wash separately before first wear as natural indigo dyes may bleed slightly. Dry in shade.",
+    "deliveryInfo": "Standard free shipping across India in 3-5 business days.",
+    "features": [
+      "Premium Cotton Fabric",
+      "Soft & Breathable Material",
+      "Stylish Coordinated Design",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "rating": 4.6,
+    "reviewsCount": 18
   },
   {
-    id: 'mat-05',
-    name: 'Material',
-    category: 'materials',
-    price: 1799,
-    originalPrice: 1999,
-    fabric: 'Crepe Silk',
-    description: 'Featuring a smooth texture, graceful drape, and luxurious finish, its perfect for stitching stylish churidhars, kurtas, dresses, and festive outfits.',
-    sizes: ['Unstitched (2.5m Top / 2m Bottom)', 'Custom Tailoring Available'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1800_MT_qrfcw4',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1800_MT_qrfcw4'
+    "id": "co-06",
+    "name": " Pure Cotton Co-ord Set",
+    "category": "co-ord-sets",
+    "price": 549,
+    "originalPrice": 4499,
+    "fabric": "100% Cotton ",
+    "description": "Crafted from 100% pure cotton, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for daily wear, office, travel, and casual outings.",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
     ],
-    washCare: 'Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.',
-    deliveryInfo: 'Standard free shipping across India in 3-5 business days.',
-    features: [
-      'Premium Crepe Silk Fabric',
-      'Soft & Smooth Texture',
-      'Elegant & Lightweight Material',
-      'Ideal for Custom Stitching'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M-XXL_vqpv1m",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M-XXL_vqpv1m"
     ],
-    rating: 4.6,
-    reviewsCount: 15
+    "washCare": "Dry clean recommended or gentle hand wash in cold water with silk shampoo.",
+    "deliveryInfo": "Express shipping available. Ships within 24 hours.",
+    "features": [
+      "Premium 100% Pure Cotton Fabric",
+      "Soft & Breathable Material",
+      "Stylish Coordinated Design",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "isNewArrival": true,
+    "rating": 4.8,
+    "reviewsCount": 29
   },
   {
-    id: 'pa-01',
-    name: 'Baggy jeans',
-    category: 'pants',
-    price: 849,
-    originalPrice: 1899,
-    fabric: 'Jean',
-    description: 'Designed for a relaxed fit and all-day comfort, they offer a modern streetwear look thats perfect for casual outings, travel, college, and everyday wear.',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/850_28_30_32_x3eayr',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/850_28_30_32_x3eayr'
+    "id": "co-07",
+    "name": "Rayon Co-ord Set",
+    "category": "co-ord-sets",
+    "price": 649,
+    "originalPrice": 3299,
+    "fabric": "Rayon",
+    "description": "Made from premium rayon fabric, it offers a soft touch, breathable comfort, and a flattering fit. Perfect for daily wear, office, travel, and casual outings",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
     ],
-    washCare: 'Gentle machine wash on cold or hand wash. Hang dry in shade. Warm iron while slightly damp.',
-    deliveryInfo: 'Ships within 24-48 hours. Express delivery across Kerala in 1-2 business days.',
-    features: [
-      'Premium Denim Fabric',
-      'Relaxed Baggy Fit',
-      'Durable & Comfortable',
-      'Perfect for Casual & Everyday Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/649_M-XXXL_xsmkh2",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/649_M-XXXL_xsmkh2"
     ],
-    isNewArrival: true,
-    rating: 4.8,
-    reviewsCount: 19
+    "washCare": "Machine wash gentle on cold. Hang dry in shade. Warm iron while slightly damp.",
+    "deliveryInfo": "Ships within 1-2 business days. Free delivery across Kerala.",
+    "features": [
+      "Premium Rayon Fabric",
+      "Soft & Breathable Material",
+      "Stylish Coordinated Design",
+      "Comfortable All-Day Wear"
+    ],
+    "rating": 4.7,
+    "reviewsCount": 22
   },
   {
-    id: 'pa-02',
-    name: 'Boot cut',
-    category: 'pants',
-    price: 799,
-    originalPrice: 2199,
-    fabric: 'jean',
-    description: 'Designed for a flattering fit, they offer all-day comfort with a modern silhouette, making them perfect for office wear, casual outings, and everyday fashion.',
-    sizes: ['28','30','32','36'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_28_30_32_36_ekfsux',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_28_30_32_36_ekfsux'
+    "id": "co-08",
+    "name": "Premium Cotton Co-ord Set",
+    "category": "co-ord-sets",
+    "price": 899,
+    "originalPrice": 4999,
+    "fabric": "100% Premium Cotton",
+    "description": "Crafted from 100% premium cotton, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for daily wear, office, travel, and casual outings",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
     ],
-    washCare: 'Dry clean recommended or gentle hand wash in cold water.',
-    deliveryInfo: 'Ships within 24 hours. Free delivery across Kerala.',
-    features: [
-      'Flattering Boot Cut Design',
-      'Soft & Comfortable Fabric',
-      'Stretchable & Easy to Wear',
-      'Perfect for Daily & Office Wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/900_M_-_3XL_cdtelu",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/900_M_-_3XL_cdtelu"
     ],
-    isBestSeller: true,
-    rating: 4.9,
-    reviewsCount: 27
+    "washCare": "Dry clean strictly recommended to protect the metallic zari threadwork.",
+    "deliveryInfo": "Ships within 24 hours. Express courier delivery across India.",
+    "features": [
+      "Premium 100% Pure Cotton Fabric",
+      "Soft & Breathable Material",
+      "Stylish Coordinated Design",
+      "Perfect for Daily & Casual Wear"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 35
   },
   {
-    id: 'pa-03',
-    name: 'Vembanad Silk Blend Palazzo Pants',
-    category: 'pants',
-    price: 299,
-    originalPrice: 499,
-    fabric: 'Chanderi Silk & Cotton Blend',
-    description: 'Flowing wide-leg palazzo pants crafted from a luxurious Chanderi silk and cotton blend. Features subtle gold zari piping along the hem, offering an opulent drape that pairs perfectly with ethnic kurtas and modern tunics alike.',
-    sizes: ['28','30','32','36'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0686_o7dibg',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0686_o7dibg'
+    "id": "mat-01",
+    "name": " Material Set",
+    "category": "materials",
+    "price": 749,
+    "originalPrice": 2299,
+    "fabric": "Jaam Cotton",
+    "description": "Made from soft, breathable cotton, it offers excellent comfort, durability, and a beautiful finish—ideal for stitching elegant churidhars, kurtas, and ethnic wear.",
+    "sizes": [
+      "Unstitched (2.5m Top / 2m Bottom)",
+      "Custom Tailoring Available"
     ],
-    washCare: 'Dry clean recommended or gentle hand wash in cold water.',
-    deliveryInfo: 'Ships within 24 hours. Free delivery across Kerala.',
-    features: [
-      'Luxurious wide-leg palazzo silhouette',
-      'Delicate gold zari accent trim along the hem',
-      'Soft cotton lining for superior comfort',
-      'Versatile styling for festive and formal wear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/750_MT_vzkl0v",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/750_MT_vzkl0v"
     ],
-    isBestSeller: true,
-    rating: 4.9,
-    reviewsCount: 27
+    "washCare": "Hand wash in cold water with similar colors. Do not wring. Line dry.",
+    "deliveryInfo": "Ships within 48 hours. Express shipping available on checkout request via WhatsApp.",
+    "features": [
+      "Premium Jaam Cotton Fabric",
+      "Soft & Breathable Material",
+      "Durable & Comfortable Quality",
+      "Ideal for Custom Stitching"
+    ],
+    "isFeatured": true,
+    "rating": 4.8,
+    "reviewsCount": 19
   },
   {
-    id: 'nw-01',
-    name: 'Malabar Cotton Loungewear Set',
-    category: 'night-wear',
-    price: 449,
-    originalPrice: 1499,
-    fabric: '100% Pure Soft Cotton',
-    description: 'Ultra-soft, breathable cotton nightwear set designed for serene tropical comfort. Features a relaxed button-up top with delicate piping and comfortable drawstring pajama trousers.',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/450_emka8u',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/450_emka8u'
+    "id": "mat-02",
+    "name": "Malabar Kasavu Pure Handloom Material Set",
+    "category": "materials",
+    "price": 799,
+    "originalPrice": 2599,
+    "fabric": "Pure Kerala Handloom Cotton with Gold Zari",
+    "description": "Embody traditional grace with our authentic Malabar Kasavu unstitched dress material. Hand-woven by master artisans in Kerala, featuring rich antique gold zari borders across an off-white breathable cotton canvas.",
+    "sizes": [
+      "Unstitched (2.5m Top / 2m Bottom)",
+      "Custom Tailoring Available"
     ],
-    washCare: 'Machine wash gentle on cold with mild detergent. Hang dry in shade.',
-    deliveryInfo: 'Ships within 24 hours. Free delivery across Kerala.',
-    features: [
-      '100% pure breathable cotton weave',
-      'Relaxed fit with adjustable drawstring waist',
-      'Soft contrast piping along collar and cuffs',
-      'Ideal for restful sleep and cozy lounging'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_MT_vuu2cz",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_MT_vuu2cz"
     ],
-    isNewArrival: true,
-    rating: 4.8,
-    reviewsCount: 16
+    "washCare": "Gentle hand wash in cold water with mild starch or dry clean recommended to preserve gold zari weave.",
+    "deliveryInfo": "Ships within 24-48 hours from Thalassery, Kannur, Kerala. Free express delivery across Kerala.",
+    "features": [
+      "Authentic Kerala handloom weaves",
+      "Intricate antique gold zari border detailing",
+      "Includes matching Kasavu dupatta with tassels",
+      "Lightweight, breathable, and culturally rich"
+    ],
+    "isNewArrival": true,
+    "isBestSeller": true,
+    "rating": 4.9,
+    "reviewsCount": 42
   },
   {
-    id: 'nw-02',
-    name: 'Rayon Khaftan',
-    category: 'night-wear',
-    price: 449,
-    originalPrice: 1499,
-    fabric: 'Premium 100% Pure Rayon',
-    description: 'Made from premium soft rayon fabric, it offers a lightweight feel, breathable comfort, and a relaxed fit, making it perfect for a restful nights sleep and comfortable lounging at home.',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0687_dxrxvj',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0687_dxrxvj'
+    "id": "mat-03",
+    "name": "Royal Chanderi Silk Zari Embroidered Material",
+    "category": "materials",
+    "price": 1499,
+    "originalPrice": 3499,
+    "fabric": "Pure Chanderi Silk with Organza Dupatta",
+    "description": "An opulent statement unstitched material set for weddings and celebrations. Crafted from sheer Chanderi silk with delicate floral silver and gold zari motifs, paired with a matching bottom fabric and a scalloped organza dupatta.",
+    "sizes": [
+      "Unstitched (2.5m Top / 2.5m Bottom)",
+      "Custom Tailoring Available"
     ],
-    washCare: 'Machine wash gentle on cold with mild detergent. Hang dry in shade.',
-    deliveryInfo: 'Ships within 24 hours. Free delivery across Kerala.',
-    features: [
-      '100% Premium Soft Rayon Fabric',
-      'Lightweight & Breathable',
-      'Relaxed & Comfortable Fit',
-      'Perfect for Nightwear & Loungewear'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_o8ieim",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_o8ieim"
     ],
-    isNewArrival: true,
-    rating: 4.8,
-    reviewsCount: 16
+    "washCare": "Dry clean strictly recommended to preserve the metallic embroidery and delicate Chanderi silk weave.",
+    "deliveryInfo": "Ships within 24 hours. Express delivery across Kerala and India.",
+    "features": [
+      "Sheer Chanderi silk with rich zari embroidery",
+      "Scalloped embroidered organza dupatta",
+      "Soft cotton lining material included",
+      "Ideal for festive occasions and custom boutique tailoring"
+    ],
+    "isFeatured": true,
+    "rating": 4.7,
+    "reviewsCount": 24
   },
   {
-    id: 'pd-01',
-    name: ' Prayer Dress',
-    category: 'prayer-dresses',
-    price: 599,
-    originalPrice: 999,
-    fabric: '100% Pure Soft Cotton',
-    description: 'Crafted from ultra-soft, breathable 100% cotton, this elegant prayer dress offers complete modest coverage and maximum comfort during daily prayers and peaceful reflection.',
-    sizes: ['Free Size', 'XL', 'XXL'],
-    images: [
-      'https://res.cloudinary.com/tlzj92qq/image/upload/v1785482166/IMG_0441_y5ootj.jpg',
+    "id": "mat-04",
+    "name": "Material",
+    "category": "materials",
+    "price": 1499,
+    "originalPrice": 1999,
+    "fabric": "Banaras silk Soft Organza Shawl",
+    "description": "Featuring a luxurious texture, graceful finish, and lightweight comfort, its perfect for creating stunning outfits for festive occasions, weddings, and celebrations.",
+    "sizes": [
+      "Unstitched (2.5m Top / 2m Bottom)",
+      "Custom Tailoring Available"
     ],
-    washCare: 'Machine wash gentle or hand wash in cold water with mild detergent.',
-    deliveryInfo: 'Ships within 24 hours. Free shipping across Kerala.',
-    features: [
-      '100% Pure Breathable Cotton Fabric',
-      'Full Length & Modest Coverage',
-      'Soft Integrated Headscarf Design',
-      'Easy Slip-on Design for Daily Prayer'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_z63vn6",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_z63vn6"
     ],
-    isNewArrival: true,
-    rating: 4.9,
-    reviewsCount: 12
+    "washCare": "Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.",
+    "deliveryInfo": "Standard free shipping across India in 3-5 business days.",
+    "features": [
+      "Premium Banaras Silk Fabric",
+      "Soft & Lightweight Organza Shawl",
+      "Elegant Traditional Finish",
+      "Ideal for Festive & Wedding Wear"
+    ],
+    "rating": 4.6,
+    "reviewsCount": 15
   },
   {
-    id: 'pd-02',
-    name: ' Prayer Dress ',
-    category: 'prayer-dresses',
-    price: 699,
-    originalPrice: 1199,
-    fabric: 'Premium ',
-    description: 'Designed with lightweight and silky-soft viscose rayon for a graceful drape and cool feel. Features comfortable elasticated wrist cuffs and an easy-wear silhouette.',
-    sizes: ['Free Size', 'L', 'XL'],
-    images: [
-      'https://res.cloudinary.com/tlzj92qq/image/upload/v1785482167/IMG_0439_y1m1jn.jpg',
+    "id": "mat-05",
+    "name": "Material",
+    "category": "materials",
+    "price": 1799,
+    "originalPrice": 1999,
+    "fabric": "Crepe Silk",
+    "description": "Featuring a smooth texture, graceful drape, and luxurious finish, its perfect for stitching stylish churidhars, kurtas, dresses, and festive outfits.",
+    "sizes": [
+      "Unstitched (2.5m Top / 2m Bottom)",
+      "Custom Tailoring Available"
     ],
-    washCare: 'Gentle hand wash in cold water. Line dry in shade.',
-    deliveryInfo: 'Ships within 24 hours. Free delivery across Kerala.',
-    features: [
-      'Premium Soft Viscose Rayon',
-      'Comfortable Elasticated Cuffs',
-      'Lightweight & Cool Touch',
-      'Ideal for Daily Prayers & Travel'
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1800_MT_qrfcw4",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1800_MT_qrfcw4"
     ],
-    isNewArrival: true,
-    rating: 4.8,
-    reviewsCount: 9
+    "washCare": "Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.",
+    "deliveryInfo": "Standard free shipping across India in 3-5 business days.",
+    "features": [
+      "Premium Crepe Silk Fabric",
+      "Soft & Smooth Texture",
+      "Elegant & Lightweight Material",
+      "Ideal for Custom Stitching"
+    ],
+    "rating": 4.6,
+    "reviewsCount": 15
   },
+  {
+    "id": "pa-03",
+    "name": "Vembanad Silk Blend Palazzo Pants",
+    "category": "pants",
+    "price": 299,
+    "originalPrice": 499,
+    "fabric": "Chanderi Silk & Cotton Blend",
+    "description": "Flowing wide-leg palazzo pants crafted from a luxurious Chanderi silk and cotton blend. Features subtle gold zari piping along the hem, offering an opulent drape that pairs perfectly with ethnic kurtas and modern tunics alike.",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "36"
+    ],
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0686_o7dibg",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0686_o7dibg"
+    ],
+    "washCare": "Dry clean recommended or gentle hand wash in cold water.",
+    "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
+    "features": [
+      "Luxurious wide-leg palazzo silhouette",
+      "Delicate gold zari accent trim along the hem",
+      "Soft cotton lining for superior comfort",
+      "Versatile styling for festive and formal wear"
+    ],
+    "isBestSeller": true,
+    "rating": 4.9,
+    "reviewsCount": 27
+  },
+  {
+    "id": "pa-02",
+    "name": "Boot cut",
+    "category": "pants",
+    "price": 799,
+    "originalPrice": 2199,
+    "fabric": "jean",
+    "description": "Designed for a flattering fit, they offer all-day comfort with a modern silhouette, making them perfect for office wear, casual outings, and everyday fashion.",
+    "sizes": [
+      "28",
+      "30",
+      "32",
+      "36"
+    ],
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_28_30_32_36_ekfsux",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_28_30_32_36_ekfsux"
+    ],
+    "washCare": "Dry clean recommended or gentle hand wash in cold water.",
+    "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
+    "features": [
+      "Flattering Boot Cut Design",
+      "Soft & Comfortable Fabric",
+      "Stretchable & Easy to Wear",
+      "Perfect for Daily & Office Wear"
+    ],
+    "isBestSeller": true,
+    "rating": 4.9,
+    "reviewsCount": 27
+  },
+  {
+    "id": "pa-01",
+    "name": "Baggy jeans",
+    "category": "pants",
+    "price": 849,
+    "originalPrice": 1899,
+    "fabric": "Jean",
+    "description": "Designed for a relaxed fit and all-day comfort, they offer a modern streetwear look thats perfect for casual outings, travel, college, and everyday wear.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/850_28_30_32_x3eayr",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/850_28_30_32_x3eayr"
+    ],
+    "washCare": "Gentle machine wash on cold or hand wash. Hang dry in shade. Warm iron while slightly damp.",
+    "deliveryInfo": "Ships within 24-48 hours. Express delivery across Kerala in 1-2 business days.",
+    "features": [
+      "Premium Denim Fabric",
+      "Relaxed Baggy Fit",
+      "Durable & Comfortable",
+      "Perfect for Casual & Everyday Wear"
+    ],
+    "isNewArrival": true,
+    "rating": 4.8,
+    "reviewsCount": 19
+  },
+  {
+    "id": "nw-01",
+    "name": "Malabar Cotton Loungewear Set",
+    "category": "night-wear",
+    "price": 449,
+    "originalPrice": 1499,
+    "fabric": "100% Pure Soft Cotton",
+    "description": "Ultra-soft, breathable cotton nightwear set designed for serene tropical comfort. Features a relaxed button-up top with delicate piping and comfortable drawstring pajama trousers.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/450_emka8u",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/450_emka8u"
+    ],
+    "washCare": "Machine wash gentle on cold with mild detergent. Hang dry in shade.",
+    "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
+    "features": [
+      "100% pure breathable cotton weave",
+      "Relaxed fit with adjustable drawstring waist",
+      "Soft contrast piping along collar and cuffs",
+      "Ideal for restful sleep and cozy lounging"
+    ],
+    "isNewArrival": true,
+    "rating": 4.8,
+    "reviewsCount": 16
+  },
+  {
+    "id": "nw-02",
+    "name": "Rayon Khaftan",
+    "category": "night-wear",
+    "price": 449,
+    "originalPrice": 1499,
+    "fabric": "Premium 100% Pure Rayon",
+    "description": "Made from premium soft rayon fabric, it offers a lightweight feel, breathable comfort, and a relaxed fit, making it perfect for a restful nights sleep and comfortable lounging at home.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0687_dxrxvj",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0687_dxrxvj"
+    ],
+    "washCare": "Machine wash gentle on cold with mild detergent. Hang dry in shade.",
+    "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
+    "features": [
+      "100% Premium Soft Rayon Fabric",
+      "Lightweight & Breathable",
+      "Relaxed & Comfortable Fit",
+      "Perfect for Nightwear & Loungewear"
+    ],
+    "isNewArrival": true,
+    "rating": 4.8,
+    "reviewsCount": 16
+  },
+  {
+    "id": "pd-01",
+    "name": "Prayer Dress",
+    "category": "prayer-dresses",
+    "price": 599,
+    "originalPrice": 999,
+    "fabric": "100% Pure Soft Cotton",
+    "description": "Crafted from ultra-soft, breathable 100% cotton, this elegant prayer dress offers complete modest coverage and maximum comfort during daily prayers and peaceful reflection.",
+    "sizes": [
+      "Free Size",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "https://res.cloudinary.com/tlzj92qq/image/upload/v1785482166/IMG_0441_y5ootj.jpg"
+    ],
+    "washCare": "Machine wash gentle or hand wash in cold water with mild detergent.",
+    "deliveryInfo": "Ships within 24 hours. Free shipping across Kerala.",
+    "features": [
+      "100% Pure Breathable Cotton Fabric",
+      "Full Length & Modest Coverage",
+      "Soft Integrated Headscarf Design",
+      "Easy Slip-on Design for Daily Prayer"
+    ],
+    "isNewArrival": true,
+    "rating": 4.9,
+    "reviewsCount": 12
+  },
+  {
+    "id": "pd-02",
+    "name": "Prayer Dress",
+    "category": "prayer-dresses",
+    "price": 699,
+    "originalPrice": 1199,
+    "fabric": "Premium Viscose Rayon",
+    "description": "Designed with lightweight and silky-soft viscose rayon for a graceful drape and cool feel. Features comfortable elasticated wrist cuffs and an easy-wear silhouette.",
+    "sizes": [
+      "Free Size",
+      "L",
+      "XL"
+    ],
+    "images": [
+      "https://res.cloudinary.com/tlzj92qq/image/upload/v1785482167/IMG_0439_y1m1jn.jpg"
+    ],
+    "washCare": "Gentle hand wash in cold water. Line dry in shade.",
+    "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
+    "features": [
+      "Premium Soft Viscose Rayon",
+      "Comfortable Elasticated Cuffs",
+      "Lightweight & Cool Touch",
+      "Ideal for Daily Prayers & Travel"
+    ],
+    "isNewArrival": true,
+    "rating": 4.8,
+    "reviewsCount": 9
+  }
 ];
 
 export const REVIEWS: Review[] = [];
