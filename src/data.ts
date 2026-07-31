@@ -162,7 +162,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_L-XXXL_2_xqo76m",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_L-XXXL_2_xqo76m"
     ],
     "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
     "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
@@ -192,7 +191,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0572_gqxtjn",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0572_gqxtjn"
     ],
     "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
     "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
@@ -249,7 +247,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1399_M_-_XXL_yc8hql",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1399_M_-_XXL_yc8hql"
     ],
     "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
     "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
@@ -273,7 +270,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/sqo8qmuqhunohgbzgyey",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/sqo8qmuqhunohgbzgyey"
     ],
     "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
     "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
@@ -299,7 +295,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1499_3XL_-_5XL_h1jyo7",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1499_3XL_-_5XL_h1jyo7"
     ],
     "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
     "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
@@ -323,7 +318,9 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0447_uuyqg0",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0447_uuyqg0"
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0857_lalaal",
+     " https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0855_rp8skz",
+     "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0858_mcysrs"
     ],
     "washCare": "Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.",
     "deliveryInfo": "Standard delivery time 3-5 days. Free shipping across Kerala.",
@@ -376,7 +373,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/300_mc7ipo",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/300_mc7ipo"
     ],
     "washCare": "Dry clean recommended. Gentle hand wash in lukewarm water with wool/silk wash liquid if necessary.",
     "deliveryInfo": "Ships within 24 hours. Delivery within Kerala in 1-2 days.",
@@ -407,7 +403,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/500_S_-_2XL_q4nkwa",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/500_S_-_2XL_q4nkwa"
     ],
     "washCare": "Machine wash on cold, gentle cycle. Hang dry in shade. Warm iron while slightly damp for that crisp linen luxury feel.",
     "deliveryInfo": "Ships in 1-2 business days. Delivered in sustainable eco-packaging.",
@@ -435,7 +430,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/550_S_-_2XL_evpifk",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/550_S_-_2XL_evpifk"
     ],
     "washCare": "Gentle hand wash. Do not bleach. Reverse iron.",
     "deliveryInfo": "Standard Kerala delivery in 3 days. Standard rest of India in 5 days.",
@@ -459,7 +453,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/650_XXL_vleeo2",
-      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80"
     ],
     "washCare": "Gentle hand wash. Do not bleach. Reverse iron.",
     "deliveryInfo": "Standard Kerala delivery in 3 days. Standard rest of India in 5 days.",
@@ -486,7 +479,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/400_M-2XL_p7sbdv",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/400_M-2XL_p7sbdv"
     ],
     "washCare": "Dry clean recommended, or machine wash on delicate cycle. Warm iron.",
     "deliveryInfo": "Standard free shipping across India. Ships in 2 days.",
@@ -514,7 +506,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_yzmlqj",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_yzmlqj"
     ],
     "washCare": "Dry clean strictly recommended to preserve the silk luster and weave.",
     "deliveryInfo": "Ships within 24-48 hours. Express delivery available across Kerala.",
@@ -542,7 +533,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_nibgjj",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_nibgjj"
     ],
     "washCare": "Gentle machine wash or hand wash in cold water. Do not iron directly on pleats.",
     "deliveryInfo": "Standard shipping in 3-5 business days across India.",
@@ -570,7 +560,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_rrikfc",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_rrikfc"
     ],
     "washCare": "Hand wash separately in cold water with mild detergent. Line dry in shade.",
     "deliveryInfo": "Ships within 24 hours from Kochi. Free delivery across Kerala.",
@@ -598,7 +587,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M_-_XXL_pzfqvo",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M_-_XXL_pzfqvo"
     ],
     "washCare": "Wash separately before first wear as natural indigo dyes may bleed slightly. Dry in shade.",
     "deliveryInfo": "Standard free shipping across India in 3-5 business days.",
@@ -625,7 +613,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M-XXL_vqpv1m",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M-XXL_vqpv1m"
     ],
     "washCare": "Dry clean recommended or gentle hand wash in cold water with silk shampoo.",
     "deliveryInfo": "Express shipping available. Ships within 24 hours.",
@@ -641,7 +628,7 @@ export const PRODUCTS: Product[] = [
     "id": "co-07",
     "name": "Rayon Co-ord Set",
     "category": "co-ord-sets",
-    "price": 649,
+    "price": 549,
     "originalPrice": 3299,
     "fabric": "Rayon",
     "description": "Made from premium rayon fabric, it offers a soft touch, breathable comfort, and a flattering fit. Perfect for daily wear, office, travel, and casual outings",
@@ -654,7 +641,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/649_M-XXXL_xsmkh2",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/649_M-XXXL_xsmkh2"
     ],
     "washCare": "Machine wash gentle on cold. Hang dry in shade. Warm iron while slightly damp.",
     "deliveryInfo": "Ships within 1-2 business days. Free delivery across Kerala.",
@@ -682,7 +668,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/900_M_-_3XL_cdtelu",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/900_M_-_3XL_cdtelu"
     ],
     "washCare": "Dry clean strictly recommended to protect the metallic zari threadwork.",
     "deliveryInfo": "Ships within 24 hours. Express courier delivery across India.",
@@ -760,7 +745,8 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_o8ieim",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_o8ieim"
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/mt_e17ljf"
+
     ],
     "washCare": "Dry clean strictly recommended to preserve the metallic embroidery and delicate Chanderi silk weave.",
     "deliveryInfo": "Ships within 24 hours. Express delivery across Kerala and India.",
@@ -786,7 +772,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_z63vn6",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_z63vn6"
     ],
     "washCare": "Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.",
     "deliveryInfo": "Standard free shipping across India in 3-5 business days.",
@@ -809,7 +794,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1800_MT_qrfcw4",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1800_MT_qrfcw4"
     ],
     "washCare": "Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.",
     "deliveryInfo": "Standard free shipping across India in 3-5 business days.",
@@ -820,7 +804,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     "id": "pa-03",
-    "name": "Vembanad Silk Blend Palazzo Pants",
+    "name": "Palazzo Pants",
     "category": "pants",
     "price": 299,
     "originalPrice": 499,
@@ -834,6 +818,10 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0686_o7dibg",
+      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0851_asvgtj",
+       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0852_gqxrzg",
+          "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0853_x7gw8l",
+         " https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0854_ym5ezc"
     ],
     "washCare": "Dry clean recommended or gentle hand wash in cold water.",
     "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
@@ -917,7 +905,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/450_emka8u",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/450_emka8u"
     ],
     "washCare": "Machine wash gentle on cold with mild detergent. Hang dry in shade.",
     "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
@@ -946,7 +933,6 @@ export const PRODUCTS: Product[] = [
     ],
     "images": [
       "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0687_dxrxvj",
-      "https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0687_dxrxvj"
     ],
     "washCare": "Machine wash gentle on cold with mild detergent. Hang dry in shade.",
     "deliveryInfo": "Ships within 24 hours. Free delivery across Kerala.",
