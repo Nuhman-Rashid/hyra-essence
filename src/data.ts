@@ -285,7 +285,7 @@ export const PRODUCTS: Product[] = [
     "name": "Churidhar",
     "category": "churidars",
     "price": 1499,
-    "originalPrice": 2299,
+    "originalPrice": 2099,
     "fabric": "Roman silk",
     "description": "Designed with premium Roman silk, it offers a smooth texture, graceful drape, and lasting comfort. Perfect for festive occasions, family gatherings, office wear, and special events.",
     "sizes": [
@@ -310,7 +310,7 @@ export const PRODUCTS: Product[] = [
     "name": "Shifon Churidhar",
     "category": "churidars",
     "price": 1999,
-    "originalPrice": 3499,
+    "originalPrice": 2499,
     "fabric": "Shifon",
     "description": "Made from soft, lightweight fabric, it offers a graceful drape and all-day comfort, making it perfect for casual outings, festive occasions, and everyday wear.",
     "sizes": [
@@ -468,7 +468,7 @@ export const PRODUCTS: Product[] = [
     "name": "2PCS Co-ord-sets",
     "category": "co-ord-sets",
     "price": 399,
-    "originalPrice": 3499,
+    "originalPrice": 499,
     "fabric": "Mixed Cotton",
     "description": "Crafted from premium mixed cotton fabric, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for casual outings, travel, office wear, and everyday fashion.",
     "sizes": [
@@ -495,7 +495,7 @@ export const PRODUCTS: Product[] = [
     "name": "Cotton Co-ord Set",
     "category": "co-ord-sets",
     "price": 499,
-    "originalPrice": 3899,
+    "originalPrice": 699,
     "fabric": "Cotton ",
     "description": "Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.",
     "sizes": [
@@ -522,7 +522,7 @@ export const PRODUCTS: Product[] = [
     "name": "Premium Rayon Co-ord Set",
     "category": "co-ord-sets",
     "price": 499,
-    "originalPrice": 3199,
+    "originalPrice": 599,
     "fabric": "Wrinkle-free Japanese Pleated Crepe",
     "description": "Crafted from high-quality rayon fabric, it offers a soft feel, breathable comfort, and a flattering fit. Perfect for everyday wear, office, travel, and casual outings with effortless style.",
     "sizes": [
@@ -549,7 +549,7 @@ export const PRODUCTS: Product[] = [
     "name": "Cotton Co-ord Set",
     "category": "co-ord-sets",
     "price": 499,
-    "originalPrice": 3699,
+    "originalPrice": 699,
     "fabric": "Mixed Cotton",
     "description": "Crafted from premium mixed cotton fabric, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for casual outings, travel, office wear, and everyday fashion.",
     "sizes": [
@@ -576,7 +576,7 @@ export const PRODUCTS: Product[] = [
     "name": "Cotton Co-ord Set",
     "category": "co-ord-sets",
     "price": 549,
-    "originalPrice": 2899,
+    "originalPrice": 699,
     "fabric": " Cotton",
     "description": "Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.",
     "sizes": [
@@ -602,7 +602,7 @@ export const PRODUCTS: Product[] = [
     "name": " Pure Cotton Co-ord Set",
     "category": "co-ord-sets",
     "price": 549,
-    "originalPrice": 4499,
+    "originalPrice": 659,
     "fabric": "100% Cotton ",
     "description": "Crafted from 100% pure cotton, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for daily wear, office, travel, and casual outings.",
     "sizes": [
@@ -629,7 +629,7 @@ export const PRODUCTS: Product[] = [
     "name": "Rayon Co-ord Set",
     "category": "co-ord-sets",
     "price": 549,
-    "originalPrice": 3299,
+    "originalPrice": 699,
     "fabric": "Rayon",
     "description": "Made from premium rayon fabric, it offers a soft touch, breathable comfort, and a flattering fit. Perfect for daily wear, office, travel, and casual outings",
     "sizes": [
@@ -656,7 +656,7 @@ export const PRODUCTS: Product[] = [
     "name": "Premium Cotton Co-ord Set",
     "category": "co-ord-sets",
     "price": 899,
-    "originalPrice": 4999,
+    "originalPrice": 999,
     "fabric": "100% Premium Cotton",
     "description": "Crafted from 100% premium cotton, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for daily wear, office, travel, and casual outings",
     "sizes": [
@@ -684,7 +684,7 @@ export const PRODUCTS: Product[] = [
     "name": " Material Set",
     "category": "materials",
     "price": 749,
-    "originalPrice": 2299,
+    "originalPrice": 1299,
     "fabric": "Jaam Cotton",
     "description": "Made from soft, breathable cotton, it offers excellent comfort, durability, and a beautiful finish—ideal for stitching elegant churidhars, kurtas, and ethnic wear.",
     "sizes": [
@@ -838,7 +838,7 @@ export const PRODUCTS: Product[] = [
     "name": "Boot cut",
     "category": "pants",
     "price": 799,
-    "originalPrice": 2199,
+    "originalPrice": 999,
     "fabric": "jean",
     "description": "Designed for a flattering fit, they offer all-day comfort with a modern silhouette, making them perfect for office wear, casual outings, and everyday fashion.",
     "sizes": [
@@ -865,7 +865,7 @@ export const PRODUCTS: Product[] = [
     "name": "Baggy jeans",
     "category": "pants",
     "price": 849,
-    "originalPrice": 1899,
+    "originalPrice": 899,
     "fabric": "Jean",
     "description": "Designed for a relaxed fit and all-day comfort, they offer a modern streetwear look thats perfect for casual outings, travel, college, and everyday wear.",
     "sizes": [
@@ -893,7 +893,7 @@ export const PRODUCTS: Product[] = [
     "name": "Malabar Cotton Loungewear Set",
     "category": "night-wear",
     "price": 449,
-    "originalPrice": 1499,
+    "originalPrice": 599,
     "fabric": "100% Pure Soft Cotton",
     "description": "Ultra-soft, breathable cotton nightwear set designed for serene tropical comfort. Features a relaxed button-up top with delicate piping and comfortable drawstring pajama trousers.",
     "sizes": [
