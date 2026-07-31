@@ -51,6 +51,13 @@ export const CATEGORIES = [
     description: 'Comfortable loungewear & sleepwear. Soft cotton and silk kaftans designed for restful luxury.',
     image: 'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/450_emka8u',
     count: 2
+  },
+  {
+    id: 'prayer-dresses',
+    name: 'Prayer Dresses',
+    description: 'Serene & modest devotion attire. Lightweight, breathable cotton & rayon dresses designed for supreme comfort.',
+    image: 'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0687_dxrxvj',
+    count: 2
   }
 ];
 
@@ -119,12 +126,12 @@ export const PRODUCTS: Product[] = [
     category: 'churidars',
     price: 1099,
     originalPrice: 1500,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
+    fabric: 'Rayon top & Cotton Shall',
     description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
     sizes: ['L', 'XL', 'XXL' , '3XL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_L-XXXL_2_xqo76m',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1099_L-XXXL_2_xqo76m'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
@@ -146,12 +153,12 @@ export const PRODUCTS: Product[] = [
     category: 'churidars',
     price: 1099,
     originalPrice: 1500,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
+    fabric: 'Rayon top & Cotton Shall',
     description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
     sizes: ['L', 'XL', 'XXL' , '3XL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0572_gqxtjn',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0572_gqxtjn'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
@@ -169,7 +176,7 @@ export const PRODUCTS: Product[] = [
   },
    {
     id: 'ch-05',
-    name: 'Pakistani Churidhar',
+    name: ' Churidhar',
     category: 'churidars',
     price: 1399,
     originalPrice: 1600,
@@ -219,8 +226,8 @@ export const PRODUCTS: Product[] = [
     id: 'ch-07',
     name: 'Chanderi silk churidhar',
     category: 'churidars',
-    price: 0,
-    originalPrice: 3499,
+    price: 1499,
+    originalPrice: 1999,
     fabric: 'Pure Chanderi Silk-Cotton Blend',
     description: 'Crafted from premium Chanderi silk, it offers a luxurious feel, graceful shine, and exceptional comfort—perfect for festive celebrations, special occasions, and elegant everyday wear.',
     sizes: [ '3XL'],
@@ -265,24 +272,24 @@ export const PRODUCTS: Product[] = [
   },
    {
     id: 'ch-09',
-    name: 'Pakistani Churidhar',
+    name: ' Churidhar',
     category: 'churidars',
     price: 999,
     originalPrice: 1499,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
-    description: 'Imbued with the mysterious depths of the Nilgiri hills. Deep, authentic indigo dyes are hand-blocked across luxurious Chanderi silk. Rich, subtle sheen that elevates your casual or formal wardrobe instantly.',
+    fabric: 'Imported Cotton',
+    description: 'Stay stylish and comfortable with this Imported Cotton Churidhar. Crafted from premium-quality imported cotton, it offers exceptional softness, breathability, and a comfortable fit. Perfect for daily wear, office, college, and casual outings.',
     sizes: ['M','L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_M_-_2XL_uldods',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/999_M_-_2XL_uldods'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
     features: [
-      'Hand-block printed using authentic natural vegetable indigo dyes',
-      'High-grade Chanderi weave with lightweight feel',
-      'Contrast piping details',
-      'Breathable cotton lining'
+      'Premium Imported Cotton Fabric',
+      'Soft & Breathable Material',
+      'Comfortable All-Day Fit',
+      'Ideal for Daily & Casual Wear'
     ],
     rating: 4.7,
     reviewsCount: 19
@@ -298,7 +305,7 @@ export const PRODUCTS: Product[] = [
     sizes: ['M','L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1199_M_-_XXL_vfwww6',
-      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1199_M_-_XXL_vfwww6'
+      'https://res.cloudinary.com/tlzj92qq/image/upload/v1785482850/IMG_0831_uvugrl.png'
     ],
     washCare: 'Wash separately in cold water. Natural dyes may bleed slightly during the first wash. Dry in shade.',
     deliveryInfo: 'Standard delivery time 3-5 days. Free shipping across Kerala.',
@@ -341,20 +348,20 @@ export const PRODUCTS: Product[] = [
     category: 'kurtas',
     price: 299,
     originalPrice: 799,
-    fabric: 'Premium Tussar Silk Blend',
-    description: 'Bask in the serene quietude of Vembanad Lake. This straight-cut classic kurta features an elegant, subtle ivory shade that speaks of quiet luxury. Crafted with a premium silk blend, it offers a soft luster under natural lighting, perfect for campus lectures or weekend high-teas.',
+    fabric: 'Cotton',
+    description: 'Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.',
     sizes: [ 'M', 'L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/300_mc7ipo',
-      'https://images.unsplash.com/photo-1608748010899-18f300247112?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/300_mc7ipo'
     ],
     washCare: 'Dry clean recommended. Gentle hand wash in lukewarm water with wool/silk wash liquid if necessary.',
     deliveryInfo: 'Ships within 24 hours. Delivery within Kerala in 1-2 days.',
     features: [
-      'Exquisite Mandarin collar with delicate slit',
-      'Elegant three-quarter sleeves with folded cuff detailing',
-      'Deep side slits for effortless movement',
-      'Concealed practical side pocket for phone/essentials'
+      'Premium Cotton Fabric',
+      'Soft & Breathable Material',
+      'Comfortable Regular Fit',
+      'Perfect for Daily & Casual Wear'
     ],
     isNewArrival: true,
     isFeatured: true,
@@ -364,59 +371,59 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'ku-02',
-    name: 'Malabar Rose Linen Kurta',
+    name: 'Short Kurti',
     category: 'kurtas',
     price: 499,
     originalPrice: 799,
-    fabric: '100% Belgian Flax Linen',
-    description: 'A breath of fresh air. Made from highly breathable 100% Belgian flax linen, this earthy rose-hued kurta gets softer with every single wash. Designed for the ultimate comfort during peak Kerala humidity, with a relaxed, slightly structured silhouette.',
+    fabric: '100% Cotton',
+    description: 'Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.',
     sizes: ['S', 'M', 'L', 'XL','XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/500_S_-_2XL_q4nkwa',
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/500_S_-_2XL_q4nkwa'
     ],
     washCare: 'Machine wash on cold, gentle cycle. Hang dry in shade. Warm iron while slightly damp for that crisp linen luxury feel.',
     deliveryInfo: 'Ships in 1-2 business days. Delivered in sustainable eco-packaging.',
     features: [
-      'Crafted from certified organic flax linen',
-      'Highly moisture-wicking and hyper-allergenic',
-      'Subtle functional wooden buttons on the front placket',
-      'Breathable, relaxed-fit silhouette'
+       'Premium Cotton Fabric',
+      'Soft & Breathable Material',
+      'Comfortable Regular Fit',
+      'Perfect for Daily & Casual Wear'
     ],
     rating: 4.6,
     reviewsCount: 15
   },
   {
     id: 'ku-03',
-    name: 'Saffron Oasis Hand-woven Kurta',
+    name: 'Short Kurta',
     category: 'kurtas',
     price: 549,
     originalPrice: 749,
-    fabric: 'Fine Khadi Cotton & Linen',
+    fabric: 'Imported Cotton',
     description: 'Woven with dedication. This rich saffron-hued kurta features fine hand-spun cotton yarns blended with linen. The slightly irregular, organic texture represents the beauty of traditional slow fashion.',
     sizes: ['S','M', 'L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/550_S_-_2XL_evpifk',
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80'
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/550_S_-_2XL_evpifk'
     ],
     washCare: 'Gentle hand wash. Do not bleach. Reverse iron.',
     deliveryInfo: 'Standard Kerala delivery in 3 days. Standard rest of India in 5 days.',
     features: [
-      'Authentic handloom khadi weave',
-      'Stunning vibrant sunset-saffron hue',
-      'Breathable and comfortable all year round',
-      'Double stitched seams for long-term durability'
+       'Premium Imported Cotton Fabric',
+      'Soft & Breathable Material',
+      'Comfortable Regular Fit',
+      'Perfect for Daily & Casual Wear'
     ],
     rating: 4.8,
     reviewsCount: 28
   },
   {
     id: 'ku-04',
-    name: 'Saffron Oasis Hand-woven Kurta',
+    name: 'Short Kurta',
     category: 'kurtas',
     price: 649,
     originalPrice: 749,
-    fabric: 'Fine Khadi Cotton & Linen',
+    fabric: 'Imported Cotton',
     description: 'Woven with dedication. This rich saffron-hued kurta features fine hand-spun cotton yarns blended with linen. The slightly irregular, organic texture represents the beauty of traditional slow fashion.',
     sizes: [ 'XXL'],
     images: [
@@ -426,22 +433,22 @@ export const PRODUCTS: Product[] = [
     washCare: 'Gentle hand wash. Do not bleach. Reverse iron.',
     deliveryInfo: 'Standard Kerala delivery in 3 days. Standard rest of India in 5 days.',
     features: [
-      'Authentic handloom khadi weave',
-      'Stunning vibrant sunset-saffron hue',
-      'Breathable and comfortable all year round',
-      'Double stitched seams for long-term durability'
+        'Premium Imported Cotton Fabric',
+      'Soft & Breathable Material',
+      'Comfortable Regular Fit',
+      'Perfect for Daily & Casual Wear'
     ],
     rating: 4.8,
     reviewsCount: 28
   },
   {
     id: 'co-01',
-    name: 'Elysian Premium Linen Co-ord Set',
+    name: '2PCS Co-ord-sets',
     category: 'co-ord-sets',
     price: 399,
     originalPrice: 3499,
-    fabric: 'Premium French Linen',
-    description: 'The epitome of contemporary fashion. Featuring a perfectly matched linen shirt and trousers set. Colored in a rich, minimalist beige-sand tone, it offers effortless elegance and premium comfort for both casual outings and workspace chic.',
+    fabric: 'Mixed Cotton',
+    description: 'Crafted from premium mixed cotton fabric, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for casual outings, travel, office wear, and everyday fashion.',
     sizes: [ 'M', 'L', 'XL','XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/400_M-2XL_p7sbdv',
@@ -450,10 +457,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Dry clean recommended, or machine wash on delicate cycle. Warm iron.',
     deliveryInfo: 'Standard free shipping across India. Ships in 2 days.',
     features: [
-      'Sophisticated double-breasted matching silhouette',
-      'Premium breathable French linen fabric',
-      'Straight-fit trousers with comfy semi-elasticated waist',
-      'Highly versatile matching elements'
+      'Premium Mixed Cotton Fabric',
+      'Soft & Breathable Material',
+      'Stylish 2-Piece Coordinated Set',
+      'Perfect for Daily & Casual Wear'
     ],
     isFeatured: true,
     rating: 4.8,
@@ -461,12 +468,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'co-02',
-    name: 'Malabar Emerald Silk Co-ord Set',
+    name: 'Cotton Co-ord Set',
     category: 'co-ord-sets',
     price: 499,
     originalPrice: 3899,
-    fabric: 'Pure Chanderi Silk-Cotton Blend',
-    description: 'A luxurious emerald green matching ensemble crafted from pure Chanderi silk. Features a tailored mandarin-collar tunic paired with wide-leg silk palazzo trousers for an effortlessly regal silhouette.',
+    fabric: 'Cotton ',
+    description : 'Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.',
     sizes: [ 'M', 'L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_yzmlqj',
@@ -475,10 +482,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Dry clean strictly recommended to preserve the silk luster and weave.',
     deliveryInfo: 'Ships within 24-48 hours. Express delivery available across Kerala.',
     features: [
-      'Tailored mandarin collar with subtle piping',
-      'Fluid wide-leg palazzo trousers with pockets',
-      'Breathable Chanderi silk with soft cotton lining',
-      'Ideal for festive gatherings and luxury lounging'
+      'Premium Cotton Fabric',
+      'Soft & Breathable Material',
+      'Stylish Coordinated Design',
+      'Perfect for Daily & Casual Wear'
     ],
     isNewArrival: true,
     rating: 4.9,
@@ -486,12 +493,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'co-03',
-    name: 'Saffron Sunset Pleated Co-ord Set',
+    name: 'Premium Rayon Co-ord Set',
     category: 'co-ord-sets',
     price: 499,
     originalPrice: 3199,
     fabric: 'Wrinkle-free Japanese Pleated Crepe',
-    description: 'Vibrant yet refined, this saffron sunset ensemble offers fluid motion with fine micro-pleating. Includes a relaxed drop-shoulder button-down shirt and matching elasticated high-waist trousers.',
+    description: 'Crafted from high-quality rayon fabric, it offers a soft feel, breathable comfort, and a flattering fit. Perfect for everyday wear, office, travel, and casual outings with effortless style.',
     sizes: [ 'M', 'L', 'XL','XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_nibgjj',
@@ -500,10 +507,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Gentle machine wash or hand wash in cold water. Do not iron directly on pleats.',
     deliveryInfo: 'Standard shipping in 3-5 business days across India.',
     features: [
-      'Signature permanent micro-pleated texture',
-      'Wrinkle-resistant fabric ideal for travel',
-      'Comfortable high-rise elasticated waistband',
-      'Relaxed drop-shoulder contemporary cut'
+      'Premium Soft Rayon Fabric',
+      'Lightweight & Breathable',
+      'Stylish Coordinated Design',
+      'Perfect for Daily & Casual Wear'
     ],
     isBestSeller: true,
     rating: 4.7,
@@ -511,12 +518,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'co-04',
-    name: 'Vembanad Ivory Handloom Co-ord Set',
+    name: 'Cotton Co-ord Set',
     category: 'co-ord-sets',
     price: 499,
     originalPrice: 3699,
-    fabric: '100% Handloom Organic Cotton',
-    description: 'Inspired by the tranquil waters of Vembanad Lake, this pristine ivory co-ord set features subtle gold zari piping along the cuffs and collar, paired with tapered ankle-length trousers.',
+    fabric: 'Mixed Cotton',
+    description: 'Crafted from premium mixed cotton fabric, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for casual outings, travel, office wear, and everyday fashion.',
     sizes: [ 'M', 'L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/499_M-XXL_rrikfc',
@@ -525,10 +532,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Hand wash separately in cold water with mild detergent. Line dry in shade.',
     deliveryInfo: 'Ships within 24 hours from Kochi. Free delivery across Kerala.',
     features: [
-      'Authentic Kerala handloom organic cotton weave',
-      'Delicate metallic gold zari accent trim',
-      'Tapered ankle-length trousers with side slits',
-      'Ultra-soft breathable feel for tropical climates'
+     'Premium Mixed Cotton Fabric',
+      'Soft & Breathable Material',
+      'Stylish 2-Piece Coordinated Set',
+      'Perfect for Daily & Casual Wear'
     ],
     isFeatured: true,
     rating: 4.9,
@@ -536,12 +543,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'co-05',
-    name: 'Nilgiri Indigo Block-Print Co-ord Set',
+    name: 'Cotton Co-ord Set',
     category: 'co-ord-sets',
     price: 549,
     originalPrice: 2899,
-    fabric: 'Pure Jaipur Cotton Cambric',
-    description: 'Hand-block printed with natural vegetable indigo dyes. Features a contemporary asymmetrical high-low tunic paired with comfortable matching straight culottes.',
+    fabric: ' Cotton',
+    description: 'Made from premium-quality cotton, it offers a soft feel, breathable comfort, and a timeless design, making it perfect for daily wear, office, college, and casual outings.',
     sizes: ['M', 'L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M_-_XXL_pzfqvo',
@@ -550,22 +557,22 @@ export const PRODUCTS: Product[] = [
     washCare: 'Wash separately before first wear as natural indigo dyes may bleed slightly. Dry in shade.',
     deliveryInfo: 'Standard free shipping across India in 3-5 business days.',
     features: [
-      'Traditional hand-carved wooden block prints',
-      'Authentic natural vegetable indigo dyeing',
-      'Modern asymmetrical high-low hemline',
-      'Relaxed straight-leg culottes with elastic waist'
+      'Premium Cotton Fabric',
+      'Soft & Breathable Material',
+      'Stylish Coordinated Design',
+      'Perfect for Daily & Casual Wear'
     ],
     rating: 4.6,
     reviewsCount: 18
   },
   {
     id: 'co-06',
-    name: 'Royal Rosewood Satin-Silk Co-ord Set',
+    name: ' Pure Cotton Co-ord Set',
     category: 'co-ord-sets',
     price: 549,
     originalPrice: 4499,
-    fabric: 'Premium Modal Satin Silk',
-    description: 'Ultra-smooth and deeply luminous, this rosewood satin co-ord set is designed for evening elegance and festive celebrations. Comes with a chic tie-waist wrap top and flowing palazzo pants.',
+    fabric: '100% Cotton ',
+    description: 'Crafted from 100% pure cotton, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for daily wear, office, travel, and casual outings.',
     sizes: ['M', 'L', 'XL','XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/549_M-XXL_vqpv1m',
@@ -574,10 +581,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Dry clean recommended or gentle hand wash in cold water with silk shampoo.',
     deliveryInfo: 'Express shipping available. Ships within 24 hours.',
     features: [
-      'Lustrous modal satin silk with fluid drape',
-      'Adjustable wrap-around kimono style waist tie',
-      'Wide-leg flowing palazzo trousers',
-      'Rich jewel-toned rosewood colorway'
+      'Premium 100% Pure Cotton Fabric',
+      'Soft & Breathable Material',
+      'Stylish Coordinated Design',
+      'Perfect for Daily & Casual Wear'
     ],
     isNewArrival: true,
     rating: 4.8,
@@ -585,12 +592,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'co-07',
-    name: 'Kochi Pastel Mint Linen Co-ord Set',
+    name: 'Rayon Co-ord Set',
     category: 'co-ord-sets',
     price: 649,
     originalPrice: 3299,
-    fabric: 'Pure Belgian Flax Linen',
-    description: 'Refreshing pastel mint linen tailored into a modern resort-wear silhouette. Features a button-down short-sleeve collared shirt and relaxed drawstring wide-leg trousers.',
+    fabric: 'Rayon',
+    description: 'Made from premium rayon fabric, it offers a soft touch, breathable comfort, and a flattering fit. Perfect for daily wear, office, travel, and casual outings',
     sizes: [ 'M', 'L', 'XL', 'XXL','3XL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/649_M-XXXL_xsmkh2',
@@ -599,22 +606,22 @@ export const PRODUCTS: Product[] = [
     washCare: 'Machine wash gentle on cold. Hang dry in shade. Warm iron while slightly damp.',
     deliveryInfo: 'Ships within 1-2 business days. Free delivery across Kerala.',
     features: [
-      '100% natural Belgian flax linen construction',
-      'Resort-collar short sleeve button-up shirt',
-      'Drawstring waist with deep functional pockets',
-      'Soft pastel mint shade perfect for summer'
+      'Premium Rayon Fabric',
+      'Soft & Breathable Material',
+      'Stylish Coordinated Design',
+      'Comfortable All-Day Wear'
     ],
     rating: 4.7,
     reviewsCount: 22
   },
   {
     id: 'co-08',
-    name: 'Thalassery Antique Gold Brocade Co-ord Set',
+    name: 'Premium Cotton Co-ord Set',
     category: 'co-ord-sets',
     price: 899,
     originalPrice: 4999,
-    fabric: 'Chanderi Silk with Zari Brocade',
-    description: 'An opulent heritage-meets-modern co-ord set featuring delicate antique gold metallic threadwork across a rich taupe canvas. Paired with tailored cigarette trousers.',
+    fabric: '100% Premium Cotton',
+    description: 'Crafted from 100% premium cotton, it offers a soft feel, breathable comfort, and a modern coordinated look—perfect for daily wear, office, travel, and casual outings',
     sizes: ['M', 'L', 'XL', 'XXL','3XL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/900_M_-_3XL_cdtelu',
@@ -623,10 +630,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Dry clean strictly recommended to protect the metallic zari threadwork.',
     deliveryInfo: 'Ships within 24 hours. Express courier delivery across India.',
     features: [
-      'Intricate antique gold metallic zari weaving',
-      'Tailored structured kurta silhouette with slit cuffs',
-      'Matching cigarette pants with semi-elasticated waist',
-      'Luxurious statement attire for special occasions'
+      'Premium 100% Pure Cotton Fabric',
+      'Soft & Breathable Material',
+      'Stylish Coordinated Design',
+      'Perfect for Daily & Casual Wear'
     ],
     isFeatured: true,
     rating: 4.9,
@@ -634,12 +641,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'mat-01',
-    name: 'Elysian Meadow Unstitched Material Set',
+    name: ' Material Set',
     category: 'materials',
     price: 749,
     originalPrice: 2299,
-    fabric: 'Premium Soft Cotton Cambric',
-    description: 'Charming, custom-tailorable, and soft. A delightful, lightweight cotton cambric dress material set featuring pre-designed beautiful embroidery layouts. Colored in a subtle pastel mint, it allows you to custom stitch the perfect fit and custom silhouette.',
+    fabric: 'Jaam Cotton',
+    description: 'Made from soft, breathable cotton, it offers excellent comfort, durability, and a beautiful finish—ideal for stitching elegant churidhars, kurtas, and ethnic wear.',
     sizes: ['Unstitched (2.5m Top / 2m Bottom)', 'Custom Tailoring Available'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/750_MT_vzkl0v',
@@ -648,10 +655,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Hand wash in cold water with similar colors. Do not wring. Line dry.',
     deliveryInfo: 'Ships within 48 hours. Express shipping available on checkout request via WhatsApp.',
     features: [
-      'Delicately embroidered bodice layout',
-      'Includes matching pure cotton dupatta',
-      '100% fine breathable cotton cambric',
-      'Perfect for hot, humid weather'
+      'Premium Jaam Cotton Fabric',
+      'Soft & Breathable Material',
+      'Durable & Comfortable Quality',
+      'Ideal for Custom Stitching'
     ],
     isFeatured: true,
     rating: 4.8,
@@ -710,12 +717,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'mat-04',
-    name: 'Artisan Indigo Hand-Blocked Cambric Material',
+    name: 'Material',
     category: 'materials',
     price: 1499,
     originalPrice: 1999,
-    fabric: '100% Organic Cotton Cambric',
-    description: 'Infused with deep natural indigo dyes and traditional wooden block prints. This lightweight unstitched suit material set offers supreme summer comfort, featuring distinct floral block motifs and a matching printed chiffon dupatta.',
+    fabric: 'Banaras silk Soft Organza Shawl',
+    description: 'Featuring a luxurious texture, graceful finish, and lightweight comfort, its perfect for creating stunning outfits for festive occasions, weddings, and celebrations.',
     sizes: ['Unstitched (2.5m Top / 2m Bottom)', 'Custom Tailoring Available'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1500_MT_z63vn6',
@@ -724,22 +731,22 @@ export const PRODUCTS: Product[] = [
     washCare: 'Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.',
     deliveryInfo: 'Standard free shipping across India in 3-5 business days.',
     features: [
-      'Authentic hand-blocked floral motifs',
-      'Deep natural indigo vegetable dyes',
-      'Super-soft cotton cambric running fabric',
-      'Includes feather-light printed chiffon dupatta'
+      'Premium Banaras Silk Fabric',
+      'Soft & Lightweight Organza Shawl',
+      'Elegant Traditional Finish',
+      'Ideal for Festive & Wedding Wear'
     ],
     rating: 4.6,
     reviewsCount: 15
   },
   {
     id: 'mat-05',
-    name: 'Artisan Indigo Hand-Blocked Cambric Material',
+    name: 'Material',
     category: 'materials',
     price: 1799,
     originalPrice: 1999,
-    fabric: '100% Organic Cotton Cambric',
-    description: 'Infused with deep natural indigo dyes and traditional wooden block prints. This lightweight unstitched suit material set offers supreme summer comfort, featuring distinct floral block motifs and a matching printed chiffon dupatta.',
+    fabric: 'Crepe Silk',
+    description: 'Featuring a smooth texture, graceful drape, and luxurious finish, its perfect for stitching stylish churidhars, kurtas, dresses, and festive outfits.',
     sizes: ['Unstitched (2.5m Top / 2m Bottom)', 'Custom Tailoring Available'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/1800_MT_qrfcw4',
@@ -748,22 +755,22 @@ export const PRODUCTS: Product[] = [
     washCare: 'Wash separately in cold water before first wear as natural indigo dyes may bleed slightly. Dry in shade.',
     deliveryInfo: 'Standard free shipping across India in 3-5 business days.',
     features: [
-      'Authentic hand-blocked floral motifs',
-      'Deep natural indigo vegetable dyes',
-      'Super-soft cotton cambric running fabric',
-      'Includes feather-light printed chiffon dupatta'
+      'Premium Crepe Silk Fabric',
+      'Soft & Smooth Texture',
+      'Elegant & Lightweight Material',
+      'Ideal for Custom Stitching'
     ],
     rating: 4.6,
     reviewsCount: 15
   },
   {
     id: 'pa-01',
-    name: 'Malabar Linen Straight Pants',
+    name: 'Baggy jeans',
     category: 'pants',
     price: 849,
     originalPrice: 1899,
-    fabric: '100% Belgian Flax Linen',
-    description: 'Effortlessly tailored high-waist straight pants made from breathable 100% Belgian flax linen. Designed for everyday elegance, featuring functional side pockets, an elasticated back waist for all-day comfort, and a clean structured front.',
+    fabric: 'Jean',
+    description: 'Designed for a relaxed fit and all-day comfort, they offer a modern streetwear look thats perfect for casual outings, travel, college, and everyday wear.',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/850_28_30_32_x3eayr',
@@ -772,10 +779,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Gentle machine wash on cold or hand wash. Hang dry in shade. Warm iron while slightly damp.',
     deliveryInfo: 'Ships within 24-48 hours. Express delivery across Kerala in 1-2 business days.',
     features: [
-      '100% natural Belgian flax linen construction',
-      'Comfortable high-rise fit with elasticated back waist',
-      'Deep functional side pockets',
-      'Breathable lightweight feel for tropical climates'
+      'Premium Denim Fabric',
+      'Relaxed Baggy Fit',
+      'Durable & Comfortable',
+      'Perfect for Casual & Everyday Wear'
     ],
     isNewArrival: true,
     rating: 4.8,
@@ -783,12 +790,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'pa-02',
-    name: 'Vembanad Silk Blend Palazzo Pants',
+    name: 'Boot cut',
     category: 'pants',
     price: 799,
     originalPrice: 2199,
-    fabric: 'Chanderi Silk & Cotton Blend',
-    description: 'Flowing wide-leg palazzo pants crafted from a luxurious Chanderi silk and cotton blend. Features subtle gold zari piping along the hem, offering an opulent drape that pairs perfectly with ethnic kurtas and modern tunics alike.',
+    fabric: 'jean',
+    description: 'Designed for a flattering fit, they offer all-day comfort with a modern silhouette, making them perfect for office wear, casual outings, and everyday fashion.',
     sizes: ['28','30','32','36'],
     images: [
       'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/799_28_30_32_36_ekfsux',
@@ -797,10 +804,10 @@ export const PRODUCTS: Product[] = [
     washCare: 'Dry clean recommended or gentle hand wash in cold water.',
     deliveryInfo: 'Ships within 24 hours. Free delivery across Kerala.',
     features: [
-      'Luxurious wide-leg palazzo silhouette',
-      'Delicate gold zari accent trim along the hem',
-      'Soft cotton lining for superior comfort',
-      'Versatile styling for festive and formal wear'
+      'Flattering Boot Cut Design',
+      'Soft & Comfortable Fabric',
+      'Stretchable & Easy to Wear',
+      'Perfect for Daily & Office Wear'
     ],
     isBestSeller: true,
     rating: 4.9,
@@ -855,6 +862,79 @@ export const PRODUCTS: Product[] = [
     isNewArrival: true,
     rating: 4.8,
     reviewsCount: 16
+  },
+  {
+    id: 'nw-02',
+    name: 'Rayon Khaftan',
+    category: 'night-wear',
+    price: 449,
+    originalPrice: 1499,
+    fabric: 'Premium 100% Pure Rayon',
+    description: 'Made from premium soft rayon fabric, it offers a lightweight feel, breathable comfort, and a relaxed fit, making it perfect for a restful nights sleep and comfortable lounging at home.',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    images: [
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0687_dxrxvj',
+      'https://res.cloudinary.com/blujydjk/image/upload/f_auto,q_auto/IMG_0687_dxrxvj'
+    ],
+    washCare: 'Machine wash gentle on cold with mild detergent. Hang dry in shade.',
+    deliveryInfo: 'Ships within 24 hours. Free delivery across Kerala.',
+    features: [
+      '100% Premium Soft Rayon Fabric',
+      'Lightweight & Breathable',
+      'Relaxed & Comfortable Fit',
+      'Perfect for Nightwear & Loungewear'
+    ],
+    isNewArrival: true,
+    rating: 4.8,
+    reviewsCount: 16
+  },
+  {
+    id: 'pd-01',
+    name: ' Prayer Dress',
+    category: 'prayer-dresses',
+    price: 599,
+    originalPrice: 999,
+    fabric: '100% Pure Soft Cotton',
+    description: 'Crafted from ultra-soft, breathable 100% cotton, this elegant prayer dress offers complete modest coverage and maximum comfort during daily prayers and peaceful reflection.',
+    sizes: ['Free Size', 'XL', 'XXL'],
+    images: [
+      'https://res.cloudinary.com/tlzj92qq/image/upload/v1785482166/IMG_0441_y5ootj.jpg',
+    ],
+    washCare: 'Machine wash gentle or hand wash in cold water with mild detergent.',
+    deliveryInfo: 'Ships within 24 hours. Free shipping across Kerala.',
+    features: [
+      '100% Pure Breathable Cotton Fabric',
+      'Full Length & Modest Coverage',
+      'Soft Integrated Headscarf Design',
+      'Easy Slip-on Design for Daily Prayer'
+    ],
+    isNewArrival: true,
+    rating: 4.9,
+    reviewsCount: 12
+  },
+  {
+    id: 'pd-02',
+    name: ' Prayer Dress ',
+    category: 'prayer-dresses',
+    price: 699,
+    originalPrice: 1199,
+    fabric: 'Premium ',
+    description: 'Designed with lightweight and silky-soft viscose rayon for a graceful drape and cool feel. Features comfortable elasticated wrist cuffs and an easy-wear silhouette.',
+    sizes: ['Free Size', 'L', 'XL'],
+    images: [
+      'https://res.cloudinary.com/tlzj92qq/image/upload/v1785482167/IMG_0439_y1m1jn.jpg',
+    ],
+    washCare: 'Gentle hand wash in cold water. Line dry in shade.',
+    deliveryInfo: 'Ships within 24 hours. Free delivery across Kerala.',
+    features: [
+      'Premium Soft Viscose Rayon',
+      'Comfortable Elasticated Cuffs',
+      'Lightweight & Cool Touch',
+      'Ideal for Daily Prayers & Travel'
+    ],
+    isNewArrival: true,
+    rating: 4.8,
+    reviewsCount: 9
   },
 ];
 
